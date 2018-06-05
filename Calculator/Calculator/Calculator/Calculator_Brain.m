@@ -33,19 +33,19 @@
         return  [self popItem] + [self popItem ];
     }
     
-    else if([operation isEqualToString:@"-"])
+   if([operation isEqualToString:@"-"])
     {
         double num1 =[self popItem] ;
         double num2  = [self popItem] ;
         return  num2 - num1;
     }
     
-    else if([operation isEqualToString:@"*"])
+    if([operation isEqualToString:@"*"])
     {
         return  [self popItem] * [self popItem ];
     }
     
-    else if([operation isEqualToString:@"/"])
+    if([operation isEqualToString:@"/"])
     {
         return [self popItem] / [self popItem];
     }
