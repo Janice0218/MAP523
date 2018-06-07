@@ -10,8 +10,6 @@
 
 @implementation Calculator_Brain
 
-@synthesize numbers = _numbers;
-
 
 -(NSMutableArray *)numbers{
     if(_numbers == nil){
@@ -23,6 +21,7 @@
 
 
 -(void) pushItem: (double) number{
+    
     [_numbers addObject:[NSNumber numberWithDouble:number]];
 }
 
@@ -47,7 +46,9 @@
     
     if([operation isEqualToString:@"/"])
     {
-        return [self popItem] / [self popItem];
+        double num1 =[self popItem] ;
+        double num2  = [self popItem] ;
+        return num2 / num1;
     }
     
     else {

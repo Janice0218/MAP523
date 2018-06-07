@@ -35,31 +35,40 @@
 
 @implementation ViewController
 
+BOOL digitsentered = false;
+
 //events
 - (IBAction)digitPressed:(UIButton *)sender {
+    if(_cal == nil){
+        _cal = [[Calculator_Brain alloc]init];
+    }
     _numberOutput.text = [NSString stringWithFormat:@"%@%@",_numberOutput.text,sender.currentTitle];
 }
 
 - (IBAction)Operator_Click:(UIButton *)sender {
+    if(digitsentered == true){
+    
     if([sender.currentTitle isEqualToString:@"/"]){
         double output = [_cal calculate:@"/"];
       _numberOutput.text =
-        [[NSString alloc]initWithFormat:@"%.02f" ,output];
+        [[NSString alloc]initWithFormat:@"%.2f" ,output];
     }
-    if([sender.currentTitle isEqualToString:@"*"]){
+    else if([sender.currentTitle isEqualToString:@"*"]){
         double output = [_cal calculate:@"*"];
         _numberOutput.text =
-        [[NSString alloc]initWithFormat:@"%.02f" ,output];
+        [[NSString alloc]initWithFormat:@"%.2f" ,output];
     }
-    if([sender.currentTitle isEqualToString:@"-"]){
+    else if([sender.currentTitle isEqualToString:@"-"]){
         double output = [_cal calculate:@"-"];
         _numberOutput.text =
-        [[NSString alloc]initWithFormat:@"%.02f" ,output];
+        [[NSString alloc]initWithFormat:@"%.2f" ,output];
     }
-    if([sender.currentTitle isEqualToString:@"+"]){
+    else if([sender.currentTitle isEqualToString:@"+"]){
         double output = [_cal calculate:@"+"];
         _numberOutput.text =
-        [[NSString alloc]initWithFormat:@"%.02f" ,output];
+        [[NSString alloc]initWithFormat:@"%.2f" ,output];
+    }
+        digitsentered = false;
     }
     
 }
@@ -67,6 +76,7 @@
     double val = [_numberOutput.text doubleValue];
     [_cal pushItem: val];
        _numberOutput.text = @"";
+    digitsentered = true;
 
 }
 
@@ -75,8 +85,6 @@
    
     //All initialization for buttons and Calculator
     _cal = [[Calculator_Brain alloc]init];
-    
-    
     
     
     _button1.layer.borderWidth =1.0f;
