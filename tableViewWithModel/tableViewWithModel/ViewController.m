@@ -19,6 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *FNtext;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *addOrupdate;
+@property int Index;
 
 @end
 
@@ -38,12 +40,8 @@
     Person* selectedPerson = [self.myModel.personsList objectAtIndex:(int)indexPath.row];
     self.FNtext.text = selectedPerson.firstName;
     self.LNtext.text = selectedPerson.lastName;
+    _Index = (int)indexPath.row;
     
-//    if (selectedPerson.isMale == true){
-//    
-//       // self.gender.
-//    }
-//    
 
 }
 
@@ -73,25 +71,35 @@
 
 
 
-- (IBAction)addClicked:(id)sender {
-    BOOL isMale = false;
+- (IBAction)addClicked:(UIButton *)sender {
+    NSIndexPath * index = nil;
+     BOOL isMale = false;
     if (self.gender.selectedSegmentIndex == 0){
         isMale = true;
     }
-    
     Person* p = [[Person alloc]initWithfirstName:self.FNtext.text andLastName:self.LNtext.text andGender:isMale];
+    if([[[self.addOrupdate titleLabel] text] isEqual:@"Update"]){
+        
+        [self.myModel.personsList removeObjectAtIndex:_Index];
+        [self.myModel.personsList insertObject: p atIndex:_Index];
+    
+                index = [NSIndexPath indexPathForRow:_Index inSection:0];
+
+    }
+    else {
     
     [self.myModel.personsList addObject:p];
-    NSIndexPath* index = [NSIndexPath indexPathForRow:self.myModel.personsList.count - 1 inSection:0];
+    index = [NSIndexPath indexPathForRow:self.myModel.personsList.count - 1 inSection:0];
     
     //[NSIndexPath indexPathWithIndex:self.myModel.personsList.count - 1];
     
-    [self.tableView insertRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationFade];
     
-    
-   // [self.tableView reloadData];
+    }
+   [self.addOrupdate.titleLabel  setText:@"Add"];
+   [self.tableView reloadData];
     self.FNtext.text = @"";
     self.LNtext.text = @"";
+  
     
     
 }
