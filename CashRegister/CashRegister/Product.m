@@ -14,7 +14,6 @@
 
     self = [super self]; // Set this to super class;
     
-    
     //if this is not nil set the ff properties
     if(self == nil){
         self.productName  = prodName;

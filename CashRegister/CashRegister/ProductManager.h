@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface ProductManager : NSObject
-@property (strong,nonatomic) NSMutableArray * allProducts;
+@property (strong,nonatomic) NSMutableArray* allProducts;
 
 @end
