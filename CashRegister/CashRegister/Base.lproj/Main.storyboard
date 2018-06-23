@@ -144,6 +144,7 @@
                     <connections>
                         <outlet property="buyButton" destination="Gyo-5Y-0f4" id="gfp-Hu-6sl"/>
                         <outlet property="productName" destination="t5O-hM-RlS" id="S0n-zs-MOb"/>
+                        <outlet property="productPickerView" destination="jwx-Pq-vbS" id="c5D-SZ-DoI"/>
                         <outlet property="totalCost" destination="7fY-wr-SMq" id="zu5-9g-WjF"/>
                         <outlet property="totalQuantity" destination="v5z-vp-P6d" id="7d7-qe-C3P"/>
                     </connections>

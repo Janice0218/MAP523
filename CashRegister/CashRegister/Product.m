@@ -14,11 +14,13 @@
 
     self = [super self]; // Set this to super class;
     
+    
     //if this is not nil set the ff properties
     if(self == nil){
+        
         self.productName  = prodName;
-        self.productPrice = price;
-        self.productQuantity = numbers;
+        self.productPrice = (double)price;
+        self.productQuantity = (int)numbers;
     }
     
     return self;

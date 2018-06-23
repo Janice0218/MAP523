@@ -10,13 +10,13 @@
 
 @interface Product : NSObject
 
-
 //Product properties
 @property double productPrice;
 @property int productId;
 @property  int productQuantity;
 
-@property (strong,nonatomic) NSString * productName;
+@property (strong,nonatomic) NSString* productName;
+
 -(instancetype)initWithProductName: (NSString *) prodName andCost :(double)price withTotal:(int) numbers;
 
 @end
