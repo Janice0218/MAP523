@@ -15,6 +15,7 @@
 		4E0F997E20DC80D50007A9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0F997C20DC80D50007A9FC /* LaunchScreen.storyboard */; };
 		4E0F998720DC839A0007A9FC /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F998620DC839A0007A9FC /* Product.m */; };
 		4E0F998A20DC847B0007A9FC /* ProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F998920DC847B0007A9FC /* ProductManager.m */; };
+		4EC635FE20DDDA1800AC2404 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC635FD20DDDA1800AC2404 /* CustomButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		4E0F998620DC839A0007A9FC /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		4E0F998820DC847B0007A9FC /* ProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductManager.h; sourceTree = "<group>"; };
 		4E0F998920DC847B0007A9FC /* ProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductManager.m; sourceTree = "<group>"; };
+		4EC635FC20DDDA1800AC2404 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		4EC635FD20DDDA1800AC2404 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				4E0F998620DC839A0007A9FC /* Product.m */,
 				4E0F998820DC847B0007A9FC /* ProductManager.h */,
 				4E0F998920DC847B0007A9FC /* ProductManager.m */,
+				4EC635FC20DDDA1800AC2404 /* CustomButton.h */,
+				4EC635FD20DDDA1800AC2404 /* CustomButton.m */,
 			);
 			path = CashRegister;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EC635FE20DDDA1800AC2404 /* CustomButton.m in Sources */,
 				4E0F997620DC80D50007A9FC /* ViewController.m in Sources */,
 				4E0F998A20DC847B0007A9FC /* ProductManager.m in Sources */,
 				4E0F998720DC839A0007A9FC /* Product.m in Sources */,
@@ -323,6 +329,7 @@
 				4E0F998420DC80D50007A9FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

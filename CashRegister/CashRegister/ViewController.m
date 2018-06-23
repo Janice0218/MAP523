@@ -67,8 +67,6 @@ Product * p;
 
 
 
-
-
 //when user selects a row in picker view
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
 
@@ -82,7 +80,7 @@ Product * p;
 
 //calculate price
 -(void) calculate :(Product*) product{
-    self.totalCostLabel.text = [[NSString alloc]initWithFormat:@"%.2f",[self.totalQuantityLabel.text isEqualToString:@"0"]? product.productPrice:[self.totalQuantityLabel.text doubleValue] * product.productPrice];
+    self.totalCostLabel.text = [[NSString alloc]initWithFormat:@"%.2f",[self.totalQuantityLabel.text doubleValue] * product.productPrice];
 }
 
 
