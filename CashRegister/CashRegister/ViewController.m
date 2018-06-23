@@ -12,16 +12,22 @@
 
 @interface ViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UILabel* totalCost;
+@property (weak, nonatomic) IBOutlet UILabel* totalCostLabel;
 @property (strong, nonatomic) ProductManager* productManager;
-@property (weak, nonatomic) IBOutlet UILabel* totalQuantity;
+@property (weak, nonatomic) IBOutlet UILabel* totalQuantityLabel;
 @property (weak, nonatomic) IBOutlet UIButton* buyButton;
-@property (weak, nonatomic) IBOutlet UILabel* productName;
+@property (weak, nonatomic) IBOutlet UILabel* productNameLabel;
 @property (weak, nonatomic) IBOutlet UIPickerView *productPickerView;
 
 @end
 
 @implementation ViewController
+
+
+//local var
+Product * p;
+
+
 
 //Initialized Product Manager if Null;
 
@@ -51,7 +57,7 @@
 }
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent: (NSInteger)component{
     
-    Product* p =  [self.productManager.allProducts objectAtIndex:(int)row];
+    p =  [self.productManager.allProducts objectAtIndex:(int)row];
     NSString* productString = [[NSString alloc]initWithFormat:@"%@ - $%.2f",p.productName,p.productPrice ];
     return productString;
 
@@ -66,23 +72,30 @@
 //when user selects a row in picker view
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
 
-    if([_totalQuantity.text  isEqual: @"0"]){
-    
-    }
+     p =  [self.productManager.allProducts objectAtIndex:(int) row];
+    self.productNameLabel.text = p.productName;
+    [self calculate:p];
 }
 
 //end of Implementation for PickerView
 
 
+//calculate price
+-(void) calculate :(Product*) product{
+    self.totalCostLabel.text = [[NSString alloc]initWithFormat:@"%.2f",[self.totalQuantityLabel.text isEqualToString:@"0"]? product.productPrice:[self.totalQuantityLabel.text doubleValue] * product.productPrice];
+}
 
 
 //Buttons Action
 - (IBAction)buyProduct:(id)sender {
 
-
+    
 }
 - (IBAction)numberClicked:(UIButton*)sender {
-    _totalQuantity.text  = [[sender titleLabel] text];
+    _totalQuantityLabel.text  = [[sender titleLabel] text];
+    [self calculate:p];
+    
+    
 }
 
 

@@ -12,6 +12,4 @@
 
 @property (strong,nonatomic) NSMutableArray* allProducts;
 
-
-
 @end

@@ -49,14 +49,23 @@
         [p5 setProductName:@"Polo Shirt"];
         [p5 setProductPrice:78.9];
         [p5 setProductQuantity:15];
-        [p5 setProductId:1];
+        [p5 setProductId:6];
+        
+        Product* p6 = [[Product alloc]init];
+        [p6 setProductName:@"White Dress"];
+        [p6 setProductPrice:300];
+        [p6 setProductQuantity:2];
+        [p6 setProductId:6];
         
         
         //End Of Sample Products
                 //Allocating  the ProductManager
-        _allProducts = [[NSMutableArray alloc] initWithObjects:p1,p2,p3,p4,p5, nil];
+        _allProducts = [[NSMutableArray alloc] initWithObjects:p1,p2,p3,p4,p5,p6, nil];
         //End of Allocating the ProductManager
     }
+    
+    
+    
     return _allProducts;
 }
 

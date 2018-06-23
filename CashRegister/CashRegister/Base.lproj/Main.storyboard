@@ -143,10 +143,10 @@
                     </view>
                     <connections>
                         <outlet property="buyButton" destination="Gyo-5Y-0f4" id="gfp-Hu-6sl"/>
-                        <outlet property="productName" destination="t5O-hM-RlS" id="S0n-zs-MOb"/>
+                        <outlet property="productNameLabel" destination="t5O-hM-RlS" id="Dnw-WN-Y4g"/>
                         <outlet property="productPickerView" destination="jwx-Pq-vbS" id="c5D-SZ-DoI"/>
-                        <outlet property="totalCost" destination="7fY-wr-SMq" id="zu5-9g-WjF"/>
-                        <outlet property="totalQuantity" destination="v5z-vp-P6d" id="7d7-qe-C3P"/>
+                        <outlet property="totalCostLabel" destination="7fY-wr-SMq" id="eTu-oy-Rmg"/>
+                        <outlet property="totalQuantityLabel" destination="v5z-vp-P6d" id="Sxf-mS-fYb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
