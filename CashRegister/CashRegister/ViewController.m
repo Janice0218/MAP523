@@ -25,8 +25,7 @@
 
 
 //local var
-Product * p;
-
+Product * p = nil;
 
 
 //Initialized Product Manager if Null;
@@ -58,14 +57,10 @@ Product * p;
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent: (NSInteger)component{
     
     p =  [self.productManager.allProducts objectAtIndex:(int)row];
-    NSString* productString = [[NSString alloc]initWithFormat:@"%@ - $%.2f",p.productName,p.productPrice ];
+    NSString* productString = [[NSString alloc]initWithFormat:@"%d of %@ $%.2f",p.productQuantity,p.productName,p.productPrice ];
     return productString;
-
     
 }
-
-
-
 
 //when user selects a row in picker view
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
@@ -78,6 +73,7 @@ Product * p;
 //end of Implementation for PickerView
 
 
+
 //calculate price
 -(void) calculate :(Product*) product{
     self.totalCostLabel.text = [[NSString alloc]initWithFormat:@"%.2f",[self.totalQuantityLabel.text doubleValue] * product.productPrice];
@@ -86,23 +82,20 @@ Product * p;
 
 //Buttons Action
 - (IBAction)buyProduct:(id)sender {
-
+    [self.productPickerView reloadAllComponents];
     
 }
 - (IBAction)numberClicked:(UIButton*)sender {
     _totalQuantityLabel.text  = [[sender titleLabel] text];
     [self calculate:p];
     
-    
 }
-
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
