@@ -15,21 +15,49 @@
     if(_allProducts == nil){
         
         //Sample Products
-        Product* p1 = [[Product alloc]initWithProductName:@"Pants" andCost: 99.99 withTotal: 15] ;
-        Product* p2 = [[Product alloc]initWithProductName:@"Laptop Bag" andCost: (double)164 withTotal: (int)5] ;
-        Product* p3 = [[Product alloc]initWithProductName:@"Phone Case" andCost: 20.00 withTotal: 30] ;
-        Product* p4 = [[Product alloc]initWithProductName:@"Wallet" andCost: 200.00 withTotal: 2] ;
-        Product* p5 = [[Product alloc]initWithProductName:@"Baseball Hat" andCost: 50.99 withTotal: 10] ;
-        Product* p6 = [[Product alloc]initWithProductName:@"Leather Belt" andCost: 155.99 withTotal: 6] ;
-        Product* p7 = [[Product alloc]initWithProductName:@"Slippers" andCost: 20.99 withTotal: 5] ;
-        Product* p8 = [[Product alloc]initWithProductName:@"Bluejays Socks" andCost: 10.99 withTotal: 10] ;
-        //Allocating  the ProductManager
-        _allProducts = [[NSMutableArray alloc] initWithObjects:p1,p2,p3,p4,p5,p6,p7,p8, nil];
+        
+        
+        Product* p1 = [[Product alloc]init];
+        [p1 setProductName:@"Pants"];
+        [p1 setProductPrice:99];
+        [p1 setProductQuantity:20];
+        [p1 setProductId:1];
+        
+        
+        Product* p2 = [[Product alloc]init];
+        [p2 setProductName:@"Leather Jacket"];
+        [p2 setProductPrice:200.00];
+        [p2 setProductQuantity:10];
+        [p2 setProductId:2];
+        
+        
+        Product* p3 = [[Product alloc]init];
+        [p3 setProductName:@"Leather Belt"];
+        [p3 setProductPrice:50];
+        [p3 setProductQuantity:5];
+        [p3 setProductId:3];
+        
+        
+        Product* p4 = [[Product alloc]init];
+        [p4 setProductName:@"Sunglasses"];
+        [p4 setProductPrice:20];
+        [p4 setProductQuantity:10];
+        [p4 setProductId:4];
+        
+        
+        Product* p5 = [[Product alloc]init];
+        [p5 setProductName:@"Polo Shirt"];
+        [p5 setProductPrice:78.9];
+        [p5 setProductQuantity:15];
+        [p5 setProductId:1];
+        
+        
+        //End Of Sample Products
+                //Allocating  the ProductManager
+        _allProducts = [[NSMutableArray alloc] initWithObjects:p1,p2,p3,p4,p5, nil];
         //End of Allocating the ProductManager
     }
-
     return _allProducts;
-    
 }
 
 

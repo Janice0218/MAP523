@@ -10,22 +10,12 @@
 
 @implementation Product
 
--(instancetype)initWithProductName: (NSString *) prodName andCost :(double)price withTotal:(int) numbers{
 
-    self = [super self]; // Set this to super class;
-    
-    
-    //if this is not nil set the ff properties
-    if(self == nil){
-        
-        self.productName  = prodName;
-        self.productPrice = (double)price;
-        self.productQuantity = (int)numbers;
-    }
-    
+-(instancetype)init{
+    self.productQuantity =0;
+    self.productName = [[NSString alloc]init];
+    self.productPrice = 0.00;
     return self;
-    
 }
-
 
 @end
