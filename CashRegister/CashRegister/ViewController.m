@@ -24,9 +24,10 @@
 @implementation ViewController
 
 
-//local var
+//local variables
 Product * p = nil;
-
+int indexOfProduct;
+int quantityToBuy;
 
 //Initialized Product Manager if Null;
 
@@ -37,7 +38,6 @@ Product * p = nil;
     }
     return _productManager;
 }
-
 
 
 
@@ -55,7 +55,6 @@ Product * p = nil;
     //_productManager.allProducts.count;
 }
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent: (NSInteger)component{
-    
     p =  [self.productManager.allProducts objectAtIndex:(int)row];
     NSString* productString = [[NSString alloc]initWithFormat:@"%d of %@ $%.2f",p.productQuantity,p.productName,p.productPrice ];
     return productString;
@@ -66,6 +65,7 @@ Product * p = nil;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
 
      p =  [self.productManager.allProducts objectAtIndex:(int) row];
+    indexOfProduct =(int) row;
     self.productNameLabel.text = p.productName;
     [self calculate:p];
 }
@@ -82,8 +82,14 @@ Product * p = nil;
 
 //Buttons Action
 - (IBAction)buyProduct:(id)sender {
-    [self.productPickerView reloadAllComponents];
+    if(quantityToBuy > p.productQuantity || p.productQuantity == 0){
+        self.totalCostLabel.text = @"SOLD OUT!";
+    }
     
+    else{
+        [self.productManager updateProductQuantity:[self.totalQuantityLabel.text doubleValue] atIndex: indexOfProduct];
+        [self.productPickerView reloadAllComponents];
+}
 }
 - (IBAction)numberClicked:(UIButton*)sender {
     _totalQuantityLabel.text  = [[sender titleLabel] text];

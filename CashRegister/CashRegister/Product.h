@@ -15,4 +15,6 @@
 @property int productId;
 @property int productQuantity;
 @property (strong,nonatomic) NSString* productName;
+
+
 @end

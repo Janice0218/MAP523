@@ -12,4 +12,6 @@
 
 @property (strong,nonatomic) NSMutableArray* allProducts;
 
+
+-(void)updateProductQuantity : (int) quantity atIndex: (int) index;
 @end

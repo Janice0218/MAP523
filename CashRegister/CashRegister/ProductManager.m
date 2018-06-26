@@ -65,8 +65,17 @@
     }
     
     
-    
     return _allProducts;
+
+}
+-(void)updateProductQuantity : (int) quantity atIndex: (int) index{
+    
+    Product * p =  [self.allProducts objectAtIndex:index];
+    
+    int  quantityLeft = p.productQuantity - quantity;
+    [p setProductQuantity: quantityLeft];
+    [self.allProducts replaceObjectAtIndex:(NSUInteger)index withObject: p];
+    
 }
 
 
