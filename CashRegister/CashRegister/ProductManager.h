@@ -11,7 +11,8 @@
 @interface ProductManager : NSObject
 
 @property (strong,nonatomic) NSMutableArray* allProducts;
+@property (strong,nonatomic) NSMutableArray* allProductsBought;
 
+-(void)buyProductWithTotal : (int) quantity atIndex: (int) index;
 
--(void)updateProductQuantity : (int) quantity atIndex: (int) index;
 @end

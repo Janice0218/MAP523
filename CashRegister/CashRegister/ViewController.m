@@ -82,15 +82,19 @@ int quantityToBuy;
 
 //Buttons Action
 - (IBAction)buyProduct:(id)sender {
-    if(quantityToBuy > p.productQuantity || p.productQuantity == 0){
+    
+    if(quantityToBuy > p.productQuantity | p.productQuantity == 0){
         self.totalCostLabel.text = @"SOLD OUT!";
+    
     }
     
-    else{
-        [self.productManager updateProductQuantity:[self.totalQuantityLabel.text doubleValue] atIndex: indexOfProduct];
+    else
+    {
+        [self.productManager buyProductWithTotal:[self.totalQuantityLabel.text doubleValue] atIndex: indexOfProduct];
         [self.productPickerView reloadAllComponents];
+    }
 }
-}
+
 - (IBAction)numberClicked:(UIButton*)sender {
     _totalQuantityLabel.text  = [[sender titleLabel] text];
     [self calculate:p];

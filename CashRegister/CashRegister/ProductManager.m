@@ -11,6 +11,9 @@
 
 @implementation ProductManager
 
+
+
+//Getter With Init;
 -(NSMutableArray *) allProducts{
     if(_allProducts == nil){
         
@@ -68,14 +71,37 @@
     return _allProducts;
 
 }
--(void)updateProductQuantity : (int) quantity atIndex: (int) index{
+
+
+//Getter with Init
+-(NSMutableArray *) allProductsBought{
+
+    if(_allProducts == nil){
+        _allProducts = [[NSMutableArray alloc]init];
+    }
+    return _allProducts;
+}
+
+
+
+//Quantity Updater;
+-(void)buyProductWithTotal : (int) quantity atIndex: (int) index{
     
-    Product * p =  [self.allProducts objectAtIndex:index];
+    Product * productToBuy =  [self.allProducts objectAtIndex:index];
     
-    int  quantityLeft = p.productQuantity - quantity;
-    [p setProductQuantity: quantityLeft];
-    [self.allProducts replaceObjectAtIndex:(NSUInteger)index withObject: p];
+    int  quantityLeft = productToBuy.productQuantity - quantity;
     
+    if(quantityLeft > -1 ){
+        
+        [productToBuy setProductQuantity: quantityLeft];
+        [self.allProducts replaceObjectAtIndex:(NSUInteger)index withObject: productToBuy];
+        
+        Product * productBought = productToBuy;
+        [productBought setProductQuantity:quantity];
+        
+        [_allProductsBought addObject:productBought];
+    
+    }
 }
 
 
