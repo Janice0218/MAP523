@@ -14,5 +14,6 @@
 @property (strong,nonatomic) NSMutableArray* allProductsBought;
 
 -(void)buyProductWithTotal : (int) quantity atIndex: (int) index;
+-(void)restockProductWithTotal : (int) quantity atIndex : (int) index;
 
 @end

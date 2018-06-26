@@ -84,7 +84,7 @@
 
 
 
-//Quantity Updater;
+//Update All Products and Add product bought to list;
 -(void)buyProductWithTotal : (int) quantity atIndex: (int) index{
     
     Product * productToBuy =  [self.allProducts objectAtIndex:index];
@@ -101,6 +101,19 @@
         
         [_allProductsBought addObject:productBought];
     
+    }
+}
+
+-(void)restockProductWithTotal:(int)quantity atIndex:(int)index{
+    if(quantity > -1){
+        
+        Product * productToRestock = [_allProductsBought objectAtIndex:index];
+        
+        int totalQuantity  = productToRestock.productQuantity + quantity;
+        
+        [productToRestock setProductQuantity:totalQuantity];
+        
+        
     }
 }
 
