@@ -91,7 +91,7 @@
     
     int  quantityLeft = productToBuy.productQuantity - quantity;
     
-    if(quantityLeft > -1 ){
+    if(quantityLeft >= -1 ){
 
         [productToBuy setProductQuantity: quantityLeft];
         [self.allProducts replaceObjectAtIndex:(NSUInteger)index withObject: productToBuy];
