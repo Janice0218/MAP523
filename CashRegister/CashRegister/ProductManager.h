@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Product.h"
 @interface ProductManager : NSObject
 
 @property (strong,nonatomic) NSMutableArray* allProducts;
@@ -15,5 +15,5 @@
 
 -(void)buyProductWithTotal : (int) quantity atIndex: (int) index;
 -(void)restockProductWithTotal : (int) quantity atIndex : (int) index;
-
+-(void)addProductBoughtToList:(Product *) productBought WithQuantityOf: (int) quantity thatCost: (double)price;
 @end

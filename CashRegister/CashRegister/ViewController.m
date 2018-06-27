@@ -10,6 +10,8 @@
 #import "ProductManager.h"
 #import "Product.h"
 
+
+
 @interface ViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel* totalCostLabel;
@@ -55,6 +57,7 @@ int quantityToBuy;
     //_productManager.allProducts.count;
 }
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent: (NSInteger)component{
+    p = nil;
     p =  [self.productManager.allProducts objectAtIndex:(int)row];
     NSString* productString = [[NSString alloc]initWithFormat:@"%d of %@ $%.2f",p.productQuantity,p.productName,p.productPrice ];
     return productString;
@@ -63,7 +66,6 @@ int quantityToBuy;
 
 //when user selects a row in picker view
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-
      p =  [self.productManager.allProducts objectAtIndex:(int) row];
     indexOfProduct =(int) row;
     self.productNameLabel.text = p.productName;
@@ -83,33 +85,44 @@ int quantityToBuy;
 //Buttons Action
 - (IBAction)buyProduct:(id)sender {
     
-    if([self.totalQuantityLabel.text doubleValue] > p.productQuantity || p.productQuantity == 0){
+    if(p ==nil){
+        p = [self.productManager.allProducts objectAtIndex:0];
+    }
+    
+    
+    if(p.productQuantity == 0){
         self.totalCostLabel.text = @"SOLD OUT!";
     }
     else
     {
-        [self.productManager buyProductWithTotal:[self.totalQuantityLabel.text doubleValue] atIndex: indexOfProduct];
-        [self.productPickerView reloadAllComponents];
+        int quantityAfter  =  [p productQuantity] - (int)[self.totalQuantityLabel.text integerValue];
+        if(quantityAfter <= -1){
+            self.totalCostLabel.text = @"INVALID QUANTITY!";
+        }
+        else{
+            [self.productManager buyProductWithTotal:quantityAfter atIndex: indexOfProduct];
+            [self.productPickerView reloadAllComponents];
+            Product * prodToBoughtList = p;
+            
+            [self.productManager addProductBoughtToList:prodToBoughtList WithQuantityOf:(int)[self.totalQuantityLabel.text integerValue] thatCost: [self.totalCostLabel.text doubleValue]];
+        }
     }
 }
 
 - (IBAction)numberClicked:(UIButton*)sender {
-    if([_totalQuantityLabel.text isEqualToString:[[sender titleLabel] text]]){
-        [_totalCostLabel.text stringByAppendingString:[[sender titleLabel] text]];
-
+    if( ((int)[_totalQuantityLabel.text length]) < 2 ){
+        self.totalQuantityLabel.text = [[NSString alloc]initWithFormat:@"%@%@",self.totalQuantityLabel.text, [[sender titleLabel] text] ];
     }
     else{
-    
-    _totalQuantityLabel.text  = [[sender titleLabel] text];
-    [self calculate:p];
+        self.totalQuantityLabel.text  = [[sender titleLabel] text];
     }
+    [self calculate:p];
     
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {

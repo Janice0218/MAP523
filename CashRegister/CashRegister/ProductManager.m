@@ -76,10 +76,10 @@
 //Getter with Init
 -(NSMutableArray *) allProductsBought{
 
-    if(_allProducts == nil){
-        _allProducts = [[NSMutableArray alloc]init];
+    if(_allProductsBought == nil){
+        _allProductsBought = [[NSMutableArray alloc]init];
     }
-    return _allProducts;
+    return _allProductsBought;
 }
 
 
@@ -89,18 +89,17 @@
     
     Product * productToBuy =  [self.allProducts objectAtIndex:index];
     
-    int  quantityLeft = productToBuy.productQuantity - quantity;
-    
-    if(quantityLeft >= -1 ){
+    [productToBuy setProductQuantity:quantity];
+    [self.allProducts replaceObjectAtIndex:(NSUInteger)index withObject: productToBuy];
+}
 
-        [productToBuy setProductQuantity: quantityLeft];
-        [self.allProducts replaceObjectAtIndex:(NSUInteger)index withObject: productToBuy];
-        
-        Product * productBought = productToBuy;
-        productBought.dateChanged = [NSDate date];
-        [productBought setProductQuantity:quantity];
-        [_allProductsBought addObject:productBought];
-    }
+-(void) addProductBoughtToList:(Product *)productBought WithQuantityOf :(int) quantity thatCost : (double) price{
+    Product * prodAdd = [[Product alloc]init];
+    [prodAdd setProductQuantity:quantity];
+    [prodAdd setProductId:productBought.productId];
+    [prodAdd setProductName:productBought.productName];
+    [prodAdd setProductPrice:price];
+    
 }
 
 -(void)restockProductWithTotal:(int)quantity atIndex:(int)index{
