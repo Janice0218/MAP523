@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cash Registrar-->
+        <!--Cash Register-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Cash Registrar" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController title="Cash Register" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -179,27 +179,63 @@
                                 <rect key="frame" x="137" y="305" width="101" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Re-Stock"/>
+                                <connections>
+                                    <segue destination="C2k-Fl-Jps" kind="show" id="yXp-R4-GA9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqG-uP-zUK">
                                 <rect key="frame" x="131" y="220" width="113" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="History"/>
                                 <connections>
-                                    <segue destination="Pid-Vh-tAp" kind="show" id="Rtz-bT-32b"/>
+                                    <action selector="clickedHistory:" destination="IdQ-tG-5dg" eventType="touchUpInside" id="imK-pg-L2z"/>
+                                    <segue destination="Pid-Vh-tAp" kind="show" identifier="HistorySegue" id="Rtz-bT-32b"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="loadHistory" destination="hqG-uP-zUK" id="QJz-6d-VZe"/>
+                        <outlet property="loadRestock" destination="klT-Te-DOo" id="ZxB-31-gLM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4J-78-88E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-396" y="-294"/>
         </scene>
         <!--Table View Controller-->
+        <scene sceneID="Y4M-rS-UwB">
+            <objects>
+                <tableViewController id="C2k-Fl-Jps" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="205" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pdl-iI-GTk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="205" id="bGR-UL-KvE">
+                                <rect key="frame" x="0.0" y="28" width="375" height="205"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bGR-UL-KvE" id="g8J-a3-jn8">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="C2k-Fl-Jps" id="8VL-AU-oms"/>
+                            <outlet property="delegate" destination="C2k-Fl-Jps" id="36q-d5-shm"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DXu-fo-R87" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="493.60000000000002" y="-300"/>
+        </scene>
+        <!--History-->
         <scene sceneID="bTx-Gj-qEQ">
             <objects>
-                <tableViewController id="Pid-Vh-tAp" sceneMemberID="viewController">
+                <tableViewController title="History" id="Pid-Vh-tAp" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UDQ-tq-S2r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,24 +259,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oek-1d-CAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-397" y="610"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="RZS-b5-muQ">
-            <objects>
-                <viewController id="Kyq-Wu-77V" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="e2C-nI-zlP"/>
-                        <viewControllerLayoutGuide type="bottom" id="LeG-Qg-4kB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2yg-at-cfB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rfz-GR-qJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="324" y="-294"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rGx-G1-QgT">

@@ -83,7 +83,7 @@ int quantityToBuy;
 //Buttons Action
 - (IBAction)buyProduct:(id)sender {
     
-    if(quantityToBuy > p.productQuantity | p.productQuantity == 0){
+    if(quantityToBuy > p.productQuantity || p.productQuantity == 0){
         self.totalCostLabel.text = @"SOLD OUT!";
     
     }

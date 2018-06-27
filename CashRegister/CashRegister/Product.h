@@ -15,6 +15,6 @@
 @property int productId;
 @property int productQuantity;
 @property (strong,nonatomic) NSString* productName;
-
+@property (strong,nonatomic) NSDate * dateChanged;
 
 @end

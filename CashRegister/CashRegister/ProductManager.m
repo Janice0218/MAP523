@@ -92,15 +92,14 @@
     int  quantityLeft = productToBuy.productQuantity - quantity;
     
     if(quantityLeft > -1 ){
-        
+
         [productToBuy setProductQuantity: quantityLeft];
         [self.allProducts replaceObjectAtIndex:(NSUInteger)index withObject: productToBuy];
         
         Product * productBought = productToBuy;
+        productBought.dateChanged = [NSDate date];
         [productBought setProductQuantity:quantity];
-        
         [_allProductsBought addObject:productBought];
-    
     }
 }
 
