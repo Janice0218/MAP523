@@ -118,9 +118,9 @@ int quantityToBuy;
         else{
             [self.productManager buyProductWithTotal:quantityAfter atIndex: indexOfProduct];
             [self.productPickerView reloadAllComponents];
-            Product * prodToBoughtList = p;
+            Product * prodToBought = p;
             
-            [self.productManager addProductBoughtToList:prodToBoughtList WithQuantityOf:(int)[self.totalQuantityLabel.text integerValue] thatCost: [self.totalCostLabel.text doubleValue]];
+            [self.productManager addProductBoughtToList:prodToBought WithQuantityOf:(int)[self.totalQuantityLabel.text integerValue] thatCost: [self.totalCostLabel.text doubleValue]];
         }
     }
 }

@@ -21,7 +21,7 @@
 //////Implementations for Table View
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _historyProductManager.allProducts.count;
+    return _historyProductManager.allProductsBought.count;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -29,10 +29,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    Product * p = [self.historyProductManager.allProducts objectAtIndex:indexPath.row];
+    Product * p = [self.historyProductManager.allProductsBought objectAtIndex:indexPath.row];
     
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"productCell"];
-        NSString * prodstring = [[NSString alloc] initWithFormat:@"%@ - %.2f", p.productName,p.productPrice ];
+        NSString * prodstring = [[NSString alloc] initWithFormat:@"%@ - $%.2f", p.productName,p.productPrice ];
     NSLog(@"%@",prodstring);
     cell.textLabel.text =  prodstring;
     cell.detailTextLabel.text = [[NSString alloc] initWithFormat: @"Quantity: %d",p.productQuantity];

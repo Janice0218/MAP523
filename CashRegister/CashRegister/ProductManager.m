@@ -99,6 +99,8 @@
     [prodAdd setProductId:productBought.productId];
     [prodAdd setProductName:productBought.productName];
     [prodAdd setProductPrice:price];
+    [self.allProductsBought addObject:prodAdd];
+    
     
 }
 

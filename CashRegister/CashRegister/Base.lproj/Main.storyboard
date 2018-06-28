@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhh-mR-hsE">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhh-mR-hsE">
                                 <rect key="frame" x="172" y="123" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="9"/>
@@ -29,7 +29,7 @@
                                     <action selector="numberClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tsN-zc-ZdP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NR4-gU-dE0">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NR4-gU-dE0">
                                 <rect key="frame" x="118" y="123" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="8"/>
@@ -37,7 +37,7 @@
                                     <action selector="numberClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r2S-Qo-vuZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CP-Vx-Sts">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CP-Vx-Sts">
                                 <rect key="frame" x="172" y="155" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="6"/>
@@ -45,7 +45,7 @@
                                     <action selector="numberClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DzA-XJ-egz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdF-hP-Wg1">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdF-hP-Wg1">
                                 <rect key="frame" x="64" y="193" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="1"/>
@@ -53,7 +53,7 @@
                                     <action selector="numberClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DPz-7z-uXc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6c-Ho-RAC">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6c-Ho-RAC">
                                 <rect key="frame" x="64" y="155" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="4"/>
@@ -61,7 +61,7 @@
                                     <action selector="numberClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SiR-QW-dDZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbb-cf-ggh">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbb-cf-ggh">
                                 <rect key="frame" x="118" y="155" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="5"/>
@@ -69,7 +69,7 @@
                                     <action selector="numberClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gRp-KG-xOW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ3-V2-wP1">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ3-V2-wP1">
                                 <rect key="frame" x="64" y="123" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="7"/>
@@ -77,7 +77,7 @@
                                     <action selector="numberClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mNE-kb-uSH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXN-MK-oqP">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXN-MK-oqP">
                                 <rect key="frame" x="118" y="193" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="2"/>
@@ -85,7 +85,7 @@
                                     <action selector="numberClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qrU-vQ-NLI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLc-tu-fbp">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLc-tu-fbp">
                                 <rect key="frame" x="172" y="193" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="3"/>
@@ -93,7 +93,7 @@
                                     <action selector="numberClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0H7-f4-CT8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utt-7K-q4T">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utt-7K-q4T">
                                 <rect key="frame" x="64" y="231" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="0"/>
@@ -101,52 +101,57 @@
                                     <action selector="numberClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M6B-oe-V6h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gyo-5Y-0f4">
-                                <rect key="frame" x="225" y="171" width="70" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="BUY"/>
-                                <connections>
-                                    <action selector="buyProduct:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TrF-5k-nkt"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5z-vp-P6d">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5z-vp-P6d">
                                 <rect key="frame" x="235" y="132" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5O-hM-RlS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5O-hM-RlS">
                                 <rect key="frame" x="118" y="236" width="166" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-Pq-vbS">
-                                <rect key="frame" x="0.0" y="296" width="320" height="256"/>
+                            <pickerView contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-Pq-vbS">
+                                <rect key="frame" x="0.0" y="292" width="320" height="256"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="tKB-M1-bVC"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="OPn-Yn-lal"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MS2-hi-LZ4">
-                                <rect key="frame" x="215" y="72" width="90" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MS2-hi-LZ4">
+                                <rect key="frame" x="214" y="72" width="90" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                <state key="normal" title="Manager"/>
+                                <state key="normal" title="Manager">
+                                    <color key="titleColor" red="1" green="0.33066744477602428" blue="0.092323145784408145" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="IdQ-tG-5dg" kind="show" identifier="ManagerSegue" id="M2n-0p-fUB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fY-wr-SMq">
-                                <rect key="frame" x="16" y="72" width="192" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fY-wr-SMq">
+                                <rect key="frame" x="44" y="72" width="158" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gyo-5Y-0f4">
+                                <rect key="frame" x="214" y="171" width="70" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="BUY">
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="buyProduct:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TrF-5k-nkt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -163,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1182" y="345"/>
+            <point key="canvasLocation" x="-1183.125" y="344.36619718309862"/>
         </scene>
         <!--Manager-->
         <scene sceneID="GEd-IO-CsK">
@@ -205,17 +210,33 @@
         <scene sceneID="eFC-Y9-Ef6">
             <objects>
                 <tableViewController title="History" id="jd5-eQ-fof" customClass="HistoryViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" id="5PY-FA-wg2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="5PY-FA-wg2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" rowHeight="86" id="3V9-mc-rSe">
-                                <rect key="frame" x="0.0" y="28" width="320" height="86"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="productCell" textLabel="ovi-hF-yJq" detailTextLabel="oI5-71-h2s" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="3V9-mc-rSe">
+                                <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" tableViewCell="3V9-mc-rSe" id="SPt-Gq-HdG">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="85.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ovi-hF-yJq">
+                                            <rect key="frame" x="15" y="8" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oI5-71-h2s">
+                                            <rect key="frame" x="15" y="28.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
