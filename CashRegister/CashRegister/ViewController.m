@@ -9,13 +9,14 @@
 #import "ViewController.h"
 #import "ProductManager.h"
 #import "Product.h"
+#import "ManagerViewController.h"
 
 
 
 @interface ViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel* totalCostLabel;
-@property (strong, nonatomic) ProductManager* productManager;
+@property (strong, nonatomic) ProductManager * productManager;
 @property (weak, nonatomic) IBOutlet UILabel* totalQuantityLabel;
 @property (weak, nonatomic) IBOutlet UIButton* buyButton;
 @property (weak, nonatomic) IBOutlet UILabel* productNameLabel;
@@ -32,47 +33,46 @@ int indexOfProduct;
 int quantityToBuy;
 
 //Initialized Product Manager if Null;
-
 -(ProductManager *) productManager {
     
     if(_productManager == nil){
         _productManager = [[ProductManager alloc]init];
     }
+    
     return _productManager;
-}
+} //end of init;
 
 
 
-//Implementation for PickerView
-// returns the number of 'columns' to display.
+
+//Implementation of
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     
     return 1;
 }
 
-// returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
     return self.productManager.allProducts.count;
-    //_productManager.allProducts.count;
 }
+
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent: (NSInteger)component{
     p = nil;
     p =  [self.productManager.allProducts objectAtIndex:(int)row];
     NSString* productString = [[NSString alloc]initWithFormat:@"%d of %@ $%.2f",p.productQuantity,p.productName,p.productPrice ];
     return productString;
-    
 }
 
-//when user selects a row in picker view
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
      p =  [self.productManager.allProducts objectAtIndex:(int) row];
     indexOfProduct =(int) row;
     self.productNameLabel.text = p.productName;
     [self calculate:p];
 }
-
 //end of Implementation for PickerView
+
+
+
 
 
 
@@ -81,8 +81,24 @@ int quantityToBuy;
     self.totalCostLabel.text = [[NSString alloc]initWithFormat:@"%.2f",[self.totalQuantityLabel.text doubleValue] * product.productPrice];
 }
 
+//Segue
 
-//Buttons Action
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+  
+    if([[segue identifier] isEqualToString:@"ManagerSegue"]){
+        
+        ManagerViewController * managerView = [segue destinationViewController];
+        managerView.connectorProductManager = self.productManager;
+
+    }
+}
+
+- (IBAction)clickManager:(id)sender {
+            [self performSegueWithIdentifier:@"ManagerSegue" sender:self];
+}
+
+
+
 - (IBAction)buyProduct:(id)sender {
     
     if(p ==nil){
@@ -123,6 +139,7 @@ int quantityToBuy;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 }
 
 - (void)didReceiveMemoryWarning {

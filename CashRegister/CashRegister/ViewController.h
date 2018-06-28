@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol ProductListDelegate <NSObject>
-
-@end
-
 @interface ViewController : UIViewController
 
 

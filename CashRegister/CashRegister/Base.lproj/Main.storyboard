@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LM1-nE-A5Q">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhh-mR-hsE">
@@ -132,16 +132,16 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MS2-hi-LZ4">
-                                <rect key="frame" x="215" y="67" width="90" height="39"/>
+                                <rect key="frame" x="215" y="72" width="90" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <state key="normal" title="Manager"/>
                                 <connections>
-                                    <segue destination="IdQ-tG-5dg" kind="show" identifier="showManagerOptions" id="jpQ-vQ-y8G"/>
+                                    <segue destination="IdQ-tG-5dg" kind="show" identifier="ManagerSegue" id="M2n-0p-fUB"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fY-wr-SMq">
-                                <rect key="frame" x="16" y="67" width="192" height="39"/>
+                                <rect key="frame" x="16" y="72" width="192" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -150,7 +150,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cash Register" id="7x1-bc-dvd"/>
+                    <navigationItem key="navigationItem" title="Cash Register" id="7x1-bc-dvd">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="hqv-NO-e65"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="buyButton" destination="Gyo-5Y-0f4" id="gfp-Hu-6sl"/>
                         <outlet property="productNameLabel" destination="t5O-hM-RlS" id="Dnw-WN-Y4g"/>
@@ -161,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1183" y="499"/>
+            <point key="canvasLocation" x="-1182" y="345"/>
         </scene>
         <!--Manager-->
         <scene sceneID="GEd-IO-CsK">
@@ -172,93 +174,63 @@
                         <viewControllerLayoutGuide type="bottom" id="cNl-hv-4cA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MrV-Vx-Urk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqG-uP-zUK">
-                                <rect key="frame" x="104" y="165" width="113" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="History"/>
-                                <connections>
-                                    <action selector="clickedHistory:" destination="IdQ-tG-5dg" eventType="touchUpInside" id="imK-pg-L2z"/>
-                                    <segue destination="Pid-Vh-tAp" kind="show" identifier="HistorySegue" id="Rtz-bT-32b"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klT-Te-DOo">
                                 <rect key="frame" x="110" y="239" width="101" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Re-Stock"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqG-uP-zUK">
+                                <rect key="frame" x="110" y="154" width="113" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="History"/>
                                 <connections>
-                                    <segue destination="C2k-Fl-Jps" kind="show" id="yXp-R4-GA9"/>
+                                    <segue destination="jd5-eQ-fof" kind="show" identifier="HistorySegue" id="0eD-c9-kDN"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="loadHistory" destination="hqG-uP-zUK" id="QJz-6d-VZe"/>
-                        <outlet property="loadRestock" destination="klT-Te-DOo" id="ZxB-31-gLM"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Manager" id="JtB-6v-8SO">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="RVX-sK-91w"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4J-78-88E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-396" y="-294"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Y4M-rS-UwB">
-            <objects>
-                <tableViewController id="C2k-Fl-Jps" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="205" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pdl-iI-GTk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="205" id="bGR-UL-KvE">
-                                <rect key="frame" x="0.0" y="28" width="320" height="205"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bGR-UL-KvE" id="g8J-a3-jn8">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="205"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="C2k-Fl-Jps" id="8VL-AU-oms"/>
-                            <outlet property="delegate" destination="C2k-Fl-Jps" id="36q-d5-shm"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DXu-fo-R87" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="493.60000000000002" y="-300"/>
-        </scene>
         <!--History-->
-        <scene sceneID="bTx-Gj-qEQ">
+        <scene sceneID="eFC-Y9-Ef6">
             <objects>
-                <tableViewController title="History" id="Pid-Vh-tAp" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UDQ-tq-S2r">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                <tableViewController title="History" id="jd5-eQ-fof" customClass="HistoryViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" id="5PY-FA-wg2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aGI-Re-8e2">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" rowHeight="86" id="3V9-mc-rSe">
+                                <rect key="frame" x="0.0" y="28" width="320" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aGI-Re-8e2" id="gIh-d7-pBA">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" tableViewCell="3V9-mc-rSe" id="SPt-Gq-HdG">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="85.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Pid-Vh-tAp" id="Fna-eQ-Zbp"/>
-                            <outlet property="delegate" destination="Pid-Vh-tAp" id="T8e-he-Yg1"/>
+                            <outlet property="dataSource" destination="jd5-eQ-fof" id="6lI-1B-6Jc"/>
+                            <outlet property="delegate" destination="jd5-eQ-fof" id="Evh-Tc-vN5"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="History" id="xco-nR-Jof">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="8hF-Yu-hvy"/>
+                    </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oek-1d-CAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQ8-iB-PIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-397" y="610"/>
+            <point key="canvasLocation" x="496.875" y="-295.77464788732397"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rGx-G1-QgT">
