@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LM1-nE-A5Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LM1-nE-A5Q">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -115,14 +115,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-Pq-vbS">
-                                <rect key="frame" x="0.0" y="292" width="320" height="256"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="tKB-M1-bVC"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OPn-Yn-lal"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MS2-hi-LZ4">
                                 <rect key="frame" x="214" y="72" width="90" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -152,6 +144,14 @@
                                     <action selector="buyProduct:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TrF-5k-nkt"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-Pq-vbS">
+                                <rect key="frame" x="0.0" y="321" width="320" height="141"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="tKB-M1-bVC"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OPn-Yn-lal"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -168,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1183.125" y="344.36619718309862"/>
+            <point key="canvasLocation" x="-1059.375" y="-226.05633802816902"/>
         </scene>
         <!--Manager-->
         <scene sceneID="GEd-IO-CsK">
@@ -204,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4J-78-88E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-396" y="-294"/>
+            <point key="canvasLocation" x="-249" y="-226"/>
         </scene>
         <!--History-->
         <scene sceneID="eFC-Y9-Ef6">
@@ -215,11 +215,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="productCell" textLabel="ovi-hF-yJq" detailTextLabel="oI5-71-h2s" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="3V9-mc-rSe">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" editingAccessoryType="detailButton" textLabel="ovi-hF-yJq" detailTextLabel="oI5-71-h2s" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="3V9-mc-rSe">
                                 <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" tableViewCell="3V9-mc-rSe" id="SPt-Gq-HdG">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="49.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" tableViewCell="3V9-mc-rSe" id="SPt-Gq-HdG">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ovi-hF-yJq">
@@ -251,11 +251,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQ8-iB-PIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="496.875" y="-295.77464788732397"/>
+            <point key="canvasLocation" x="555" y="-226"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rGx-G1-QgT">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AX5-NL-LSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LM1-nE-A5Q" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="E6V-fs-rip">
@@ -267,9 +268,8 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6Fa-Rx-ihd"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AX5-NL-LSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1182" y="-293"/>
+            <point key="canvasLocation" x="-1849" y="-226"/>
         </scene>
     </scenes>
 </document>

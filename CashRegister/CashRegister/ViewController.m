@@ -93,12 +93,6 @@ int quantityToBuy;
     }
 }
 
-- (IBAction)clickManager:(id)sender {
-            [self performSegueWithIdentifier:@"ManagerSegue" sender:self];
-}
-
-
-
 - (IBAction)buyProduct:(id)sender {
     
     if(p ==nil){

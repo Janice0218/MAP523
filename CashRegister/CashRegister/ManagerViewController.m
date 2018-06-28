@@ -25,13 +25,6 @@
     }
 }
 
-- (IBAction)clickHistory:(id)sender {
-    [self performSegueWithIdentifier:@"HistorySegue" sender:self];
-}
-
-
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
