@@ -15,9 +15,13 @@
 @end
 
 @implementation RestockViewController
+
+//local var
 Product * updatedProduct = nil;
 int quantity;
 int productIndex;
+
+
 //////Implementations for Table View
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -45,6 +49,9 @@ int productIndex;
 
 
 /////End of table view implementations
+
+
+//ok buy clicked
 - (IBAction)clickedOK:(id)sender {
         updatedProduct.productQuantity += (int)[self.quantityTextbox.text integerValue];
     [self.delegate managerRestockProduct:updatedProduct atIndex: productIndex];
@@ -53,6 +60,9 @@ int productIndex;
 
     }
 
+- (IBAction)canceled:(id)sender {
+    self.quantityTextbox.text = @"";
+}
 
 
 

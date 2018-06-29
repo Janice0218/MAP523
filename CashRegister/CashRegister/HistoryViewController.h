@@ -13,6 +13,6 @@
 
 @interface HistoryViewController : UITableViewController
 
-@property NSMutableArray * productHistory;
+@property NSMutableArray * productHistory; //all products bought;
 
 @end

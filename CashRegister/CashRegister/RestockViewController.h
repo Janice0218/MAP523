@@ -16,6 +16,6 @@
 @interface RestockViewController : UIViewController
 
 @property NSMutableArray* allProducts;
-@property (nonatomic,strong)id<UpdatingProductDelegate> delegate;
+@property (nonatomic,strong)id<UpdatingProductDelegate> delegate; //delegate
 
 @end

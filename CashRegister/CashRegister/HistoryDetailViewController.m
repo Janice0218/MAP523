@@ -19,12 +19,11 @@
 
 @implementation HistoryDetailViewController
 
-
-
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    //setting properties on load
     self.productIDLabel.text = self.ProductId;
     self.productNameLabel.text = self.ProductName;
     self.quantityLabel.text = self.ProductQuantity;

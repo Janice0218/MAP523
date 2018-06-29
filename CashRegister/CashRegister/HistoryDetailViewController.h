@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface HistoryDetailViewController : UIViewController
+
+
+//all public properties
 @property (strong,nonatomic)NSString* ProductId;
 @property (strong, nonatomic) NSString* ProductName;
 @property (strong, nonatomic) NSString* ProductPrice;

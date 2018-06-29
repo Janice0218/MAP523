@@ -13,5 +13,5 @@
 @interface ManagerViewController : UIViewController
 
 @property (strong, nonatomic)ProductModelManager * gatewaProductManager;
-@property (nonatomic,strong) id<UpdatingProductDelegate> delegate;
+@property (nonatomic,strong) id<UpdatingProductDelegate> delegate;// delegate id
 @end

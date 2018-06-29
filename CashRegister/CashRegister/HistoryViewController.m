@@ -16,7 +16,8 @@
 @end
 
 @implementation HistoryViewController
-Product * productSelected;
+
+Product * productSelected; //local var
 
 
 //////Implementations for Table View
@@ -28,20 +29,20 @@ Product * productSelected;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     Product * p = [self.productHistory objectAtIndex:indexPath.row];
-    
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"productCell"];
-        NSString * prodstring = [[NSString alloc] initWithFormat:@"%@ - $%.2f", p.productName,p.productPrice ];
-    NSLog(@"%@",prodstring);
+    NSString * prodstring = [[NSString alloc] initWithFormat:@"%@ - $%.2f", p.productName,p.productPrice ];
     cell.textLabel.text =  prodstring;
     cell.detailTextLabel.text = [[NSString alloc] initWithFormat: @"Quantity: %d",p.productQuantity];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView  didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    productSelected = nil;
     productSelected =  [self.productHistory objectAtIndex:(int) indexPath.row];
 }
 /////End of tbel view implementations
 
+//segue
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"DetailSegue"])
     {
@@ -50,12 +51,11 @@ Product * productSelected;
         detailView.ProductName= productSelected.productName;
         detailView.ProductPrice= [[NSString alloc]initWithFormat:@"$%.2f", productSelected.productPrice];
         detailView.ProductQuantity = [[NSString alloc] initWithFormat:@"%d", productSelected.productQuantity];
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-        [formatter setDateStyle:NSDateFormatterShortStyle];
-        [formatter setTimeStyle:NSDateFormatterNoStyle];
-        NSString *date = [formatter stringFromDate: productSelected.dateChanged];
-        detailView.ProductDate =  date;
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"dd-MM-YYYY HH:mm:ss"];
+        NSString *dateString = [dateFormatter stringFromDate: productSelected.dateChanged];
+        detailView.ProductDate = dateString;
     
     }
 }

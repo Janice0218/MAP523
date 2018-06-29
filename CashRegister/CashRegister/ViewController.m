@@ -44,7 +44,7 @@ int quantityToBuy;
 
 
 
-//Implementation of
+//Implementation of picker view
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     
     return 1;
@@ -71,6 +71,8 @@ int quantityToBuy;
 //end of Implementation for PickerView
 
 
+
+//implementation of restock delegate
 -(void) managerRestockProduct:(Product *)product atIndex:(int)index{
     
     [self.productManager.allProducts replaceObjectAtIndex:index withObject:product];
@@ -83,8 +85,8 @@ int quantityToBuy;
     self.totalCostLabel.text = [[NSString alloc]initWithFormat:@"%.2f",[self.totalQuantityLabel.text doubleValue] * product.productPrice];
 }
 
-//Segue
 
+//Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
   
     if([[segue identifier] isEqualToString:@"ManagerSegue"]){
@@ -97,6 +99,7 @@ int quantityToBuy;
     }
 }
 
+//buy buttons
 - (IBAction)buyProduct:(id)sender {
     
     if(p ==nil ){
@@ -123,6 +126,8 @@ int quantityToBuy;
     }
 }
 
+
+//number buttons
 - (IBAction)numberClicked:(UIButton*)sender {
     if( ((int)[_totalQuantityLabel.text length]) < 2 ){
         self.totalQuantityLabel.text = [[NSString alloc]initWithFormat:@"%@%@",self.totalQuantityLabel.text, [[sender titleLabel] text] ];
