@@ -17,6 +17,7 @@
 		4E0F998A20DC847B0007A9FC /* ProductModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F998920DC847B0007A9FC /* ProductModelManager.m */; };
 		4E60C71320E1C4C800CB8CC3 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E60C71220E1C4C800CB8CC3 /* HistoryViewController.m */; };
 		4E69C8B620E5683400A824BB /* ManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E69C8B520E5683400A824BB /* ManagerViewController.m */; };
+		4E6A428D20E5BE9B00591802 /* RestockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A428C20E5BE9B00591802 /* RestockViewController.m */; };
 		4EC635FE20DDDA1800AC2404 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC635FD20DDDA1800AC2404 /* CustomButton.m */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,8 @@
 		4E60C71220E1C4C800CB8CC3 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		4E69C8B420E5683400A824BB /* ManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerViewController.h; sourceTree = "<group>"; };
 		4E69C8B520E5683400A824BB /* ManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerViewController.m; sourceTree = "<group>"; };
+		4E6A428B20E5BE9B00591802 /* RestockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestockViewController.h; sourceTree = "<group>"; };
+		4E6A428C20E5BE9B00591802 /* RestockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestockViewController.m; sourceTree = "<group>"; };
 		4EC635FC20DDDA1800AC2404 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		4EC635FD20DDDA1800AC2404 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +108,8 @@
 				4E60C71220E1C4C800CB8CC3 /* HistoryViewController.m */,
 				4E69C8B420E5683400A824BB /* ManagerViewController.h */,
 				4E69C8B520E5683400A824BB /* ManagerViewController.m */,
+				4E6A428B20E5BE9B00591802 /* RestockViewController.h */,
+				4E6A428C20E5BE9B00591802 /* RestockViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				4E69C8B620E5683400A824BB /* ManagerViewController.m in Sources */,
 				4E0F998720DC839A0007A9FC /* Product.m in Sources */,
 				4E0F997320DC80D50007A9FC /* AppDelegate.m in Sources */,
+				4E6A428D20E5BE9B00591802 /* RestockViewController.m in Sources */,
 				4E0F997020DC80D50007A9FC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

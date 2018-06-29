@@ -107,13 +107,13 @@
 -(void)restockProductWithTotal:(int)quantity atIndex:(int)index{
     if(quantity > -1){
         
-        Product * productToRestock = [_allProductsBought objectAtIndex:index];
+        Product * productToRestock = [_allProducts objectAtIndex:index];
         
         int totalQuantity  = productToRestock.productQuantity + quantity;
         
         [productToRestock setProductQuantity:totalQuantity];
         
-        
+        [self.allProducts replaceObjectAtIndex:index withObject:productToRestock];
     }
 }
 

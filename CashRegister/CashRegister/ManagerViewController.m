@@ -8,11 +8,12 @@
 #import "Product.h"
 #import "ManagerViewController.h"
 #import "HistoryViewController.h"
+#import "RestockViewController.h"
+#import "ViewController.h"
 
 @interface ManagerViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *history;
-
 @end
 
 @implementation ManagerViewController
@@ -21,7 +22,13 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"HistorySegue"]){
         HistoryViewController * historyView = [segue destinationViewController];
-        historyView.historyProductManager = self.connectorProductManager;
+        historyView.productHistory = self.gatewaProductManager.allProductsBought;
+    }
+    else if([[segue identifier] isEqualToString:@"RestockSegue"]){
+        RestockViewController * restockView = [segue destinationViewController];
+
+        restockView.allProducts = self.gatewaProductManager.allProducts;
+        restockView.delegate = self.delegate;
     }
 }
 
@@ -30,7 +37,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@"1st product: %@",[[self.connectorProductManager.allProducts objectAtIndex:0] productName]);
 
 }
 

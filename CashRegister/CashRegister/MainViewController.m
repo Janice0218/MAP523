@@ -6,13 +6,14 @@
 //  Copyright © 2018 com.map523.seneca. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "ProductModelManager.h"
 #import "Product.h"
 #import "ManagerViewController.h"
-#import "RestockViewController.h"
 
-@interface ViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UpdatingProductDelegate>
+
+
+@interface MainViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel* totalCostLabel;
 @property (strong, nonatomic) ProductModelManager * productManager;
@@ -23,7 +24,7 @@
 
 @end
 
-@implementation ViewController
+@implementation UIViewController
 
 
 //local variables
@@ -71,18 +72,9 @@ int quantityToBuy;
 //end of Implementation for PickerView
 
 
--(void) managerRestockProduct:(Product *)product WithTotalOf:(int)quantity{
-    int index = 0;
-    for (int i= 0; i < self.productManager.allProducts.count; i++) {
-        Product *temp =  [self.productManager.allProducts objectAtIndex:i];
-        if(temp.productId == product.productId){
-            index = i;
-            break;
-        }
-    }
-    [self.productManager restockProductWithTotal:quantity atIndex:index];
 
-}
+
+
 
 //calculate price
 -(void) calculate :(Product*) product{
@@ -96,16 +88,14 @@ int quantityToBuy;
     if([[segue identifier] isEqualToString:@"ManagerSegue"]){
         
         ManagerViewController * managerView = [segue destinationViewController];
-        managerView.gatewaProductManager = self.productManager;
-        managerView.delegate = self;
-        
+        managerView.connectorProductManager = self.productManager;
 
     }
 }
 
 - (IBAction)buyProduct:(id)sender {
     
-    if(p ==nil ){
+    if(p ==nil){
         p = [self.productManager.allProducts objectAtIndex:0];
     }
     
@@ -115,8 +105,8 @@ int quantityToBuy;
     }
     else
     {
-        int quantityAfter  =  p.productQuantity - (int)[self.totalQuantityLabel.text integerValue];
-        if(quantityAfter <= -1 || [self.totalCostLabel.text doubleValue] == 0){
+        int quantityAfter  =  [p productQuantity] - (int)[self.totalQuantityLabel.text integerValue];
+        if(quantityAfter <= -1){
             self.totalCostLabel.text = @"INVALID QUANTITY!";
         }
         else{

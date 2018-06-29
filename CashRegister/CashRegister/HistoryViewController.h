@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "ProductModelManager.h"
 
+
+
 @interface HistoryViewController : UITableViewController
 
-@property ProductModelManager * historyProductManager;
+@property NSMutableArray * productHistory;
 
 @end

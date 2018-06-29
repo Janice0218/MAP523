@@ -21,12 +21,12 @@
 //////Implementations for Table View
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _historyProductManager.allProductsBought.count;
+    return self.productHistory.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    Product * p = [self.historyProductManager.allProductsBought objectAtIndex:indexPath.row];
+    Product * p = [self.productHistory objectAtIndex:indexPath.row];
     
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"productCell"];
         NSString * prodstring = [[NSString alloc] initWithFormat:@"%@ - $%.2f", p.productName,p.productPrice ];
@@ -38,8 +38,6 @@
 }
 
 /////End of tbel view implementations
-
-
 
 
 
