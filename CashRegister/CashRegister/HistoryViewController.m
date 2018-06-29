@@ -51,9 +51,8 @@ Product * productSelected; //local var
         detailView.ProductName= productSelected.productName;
         detailView.ProductPrice= [[NSString alloc]initWithFormat:@"$%.2f", productSelected.productPrice];
         detailView.ProductQuantity = [[NSString alloc] initWithFormat:@"%d", productSelected.productQuantity];
-        
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"dd-MM-YYYY HH:mm:ss"];
+        [dateFormatter setDateFormat:@"E, d MMM yyyy HH:mm:ss"];
         NSString *dateString = [dateFormatter stringFromDate: productSelected.dateChanged];
         detailView.ProductDate = dateString;
     

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -242,7 +243,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="dGU-54-7yB" kind="show" identifier="DetailSegue" id="DFj-Wn-mB5"/>
+                                    <segue destination="dGU-54-7yB" kind="show" identifier="DetailSegue" id="edW-rE-OMe">
+                                        <segue key="commit" inheritsFrom="parent" id="j1D-7u-dKF"/>
+                                        <segue key="preview" inheritsFrom="commit" id="2kF-AK-nGf"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -457,4 +461,7 @@
             <point key="canvasLocation" x="-1849" y="-226"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="edW-rE-OMe"/>
+    </inferredMetricsTieBreakers>
 </document>
