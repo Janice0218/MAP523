@@ -10,13 +10,4 @@
 
 @implementation Product
 
-
--(instancetype)init{
-    self.productQuantity =0;
-    self.productName = [[NSString alloc]init];
-    self.productPrice = 0.00;
-    return self;
-}
-
-
 @end

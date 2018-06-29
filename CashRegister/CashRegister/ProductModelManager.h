@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Product.h"
-@interface ProductManager : NSObject
+@interface ProductModelManager : NSObject
 
 @property (strong,nonatomic) NSMutableArray* allProducts;
 @property (strong,nonatomic) NSMutableArray* allProductsBought;

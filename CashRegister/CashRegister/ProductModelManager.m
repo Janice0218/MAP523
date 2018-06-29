@@ -6,10 +6,10 @@
 //  Copyright © 2018 com.map523.seneca. All rights reserved.
 //
 
-#import "ProductManager.h"
+#import "ProductModelManager.h"
 #import "Product.h"
 
-@implementation ProductManager
+@implementation ProductModelManager
 
 
 

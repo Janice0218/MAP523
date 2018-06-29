@@ -8,7 +8,7 @@
 
 #import "HistoryViewController.h"
 #import "Product.h"
-#import "ProductManager.h"
+#import "ProductModelManager.h"
 
 @interface HistoryViewController ()<UITableViewDelegate,UITableViewDataSource>
 

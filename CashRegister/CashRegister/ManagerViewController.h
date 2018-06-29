@@ -6,10 +6,10 @@
 //  Copyright © 2018 com.map523.seneca. All rights reserved.
 //
 
-#import "ProductManager.h"
+#import "ProductModelManager.h"
 #import <UIKit/UIKit.h>
 
 @interface ManagerViewController : UIViewController
 
-@property (strong, nonatomic)ProductManager* connectorProductManager;
+@property (strong, nonatomic)ProductModelManager* connectorProductManager;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ProductManager.h"
+#import "ProductModelManager.h"
 #import "Product.h"
 #import "ManagerViewController.h"
 
@@ -16,7 +16,7 @@
 @interface ViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel* totalCostLabel;
-@property (strong, nonatomic) ProductManager * productManager;
+@property (strong, nonatomic) ProductModelManager * productManager;
 @property (weak, nonatomic) IBOutlet UILabel* totalQuantityLabel;
 @property (weak, nonatomic) IBOutlet UIButton* buyButton;
 @property (weak, nonatomic) IBOutlet UILabel* productNameLabel;
@@ -33,10 +33,10 @@ int indexOfProduct;
 int quantityToBuy;
 
 //Initialized Product Manager if Null;
--(ProductManager *) productManager {
+-(ProductModelManager *) productManager {
     
     if(_productManager == nil){
-        _productManager = [[ProductManager alloc]init];
+        _productManager = [[ProductModelManager alloc]init];
     }
     
     return _productManager;

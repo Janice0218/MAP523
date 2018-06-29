@@ -14,7 +14,7 @@
 		4E0F997B20DC80D50007A9FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E0F997A20DC80D50007A9FC /* Assets.xcassets */; };
 		4E0F997E20DC80D50007A9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0F997C20DC80D50007A9FC /* LaunchScreen.storyboard */; };
 		4E0F998720DC839A0007A9FC /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F998620DC839A0007A9FC /* Product.m */; };
-		4E0F998A20DC847B0007A9FC /* ProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F998920DC847B0007A9FC /* ProductManager.m */; };
+		4E0F998A20DC847B0007A9FC /* ProductModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F998920DC847B0007A9FC /* ProductModelManager.m */; };
 		4E60C71320E1C4C800CB8CC3 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E60C71220E1C4C800CB8CC3 /* HistoryViewController.m */; };
 		4E69C8B620E5683400A824BB /* ManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E69C8B520E5683400A824BB /* ManagerViewController.m */; };
 		4EC635FE20DDDA1800AC2404 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC635FD20DDDA1800AC2404 /* CustomButton.m */; };
@@ -33,8 +33,8 @@
 		4E0F997F20DC80D50007A9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E0F998520DC839A0007A9FC /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		4E0F998620DC839A0007A9FC /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
-		4E0F998820DC847B0007A9FC /* ProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductManager.h; sourceTree = "<group>"; };
-		4E0F998920DC847B0007A9FC /* ProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductManager.m; sourceTree = "<group>"; };
+		4E0F998820DC847B0007A9FC /* ProductModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductModelManager.h; sourceTree = "<group>"; usesTabs = 1; };
+		4E0F998920DC847B0007A9FC /* ProductModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductModelManager.m; sourceTree = "<group>"; };
 		4E60C71120E1C4C800CB8CC3 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		4E60C71220E1C4C800CB8CC3 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		4E69C8B420E5683400A824BB /* ManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerViewController.h; sourceTree = "<group>"; };
@@ -73,25 +73,17 @@
 		4E0F996D20DC80D50007A9FC /* CashRegister */ = {
 			isa = PBXGroup;
 			children = (
+				4E6A428620E5AEA600591802 /* Model */,
+				4E6A428520E5AE4600591802 /* ViewController */,
 				4E0F997120DC80D50007A9FC /* AppDelegate.h */,
 				4E0F997220DC80D50007A9FC /* AppDelegate.m */,
-				4E0F997420DC80D50007A9FC /* ViewController.h */,
-				4E0F997520DC80D50007A9FC /* ViewController.m */,
 				4E0F997720DC80D50007A9FC /* Main.storyboard */,
 				4E0F997A20DC80D50007A9FC /* Assets.xcassets */,
 				4E0F997C20DC80D50007A9FC /* LaunchScreen.storyboard */,
 				4E0F997F20DC80D50007A9FC /* Info.plist */,
 				4E0F996E20DC80D50007A9FC /* Supporting Files */,
-				4E0F998520DC839A0007A9FC /* Product.h */,
-				4E0F998620DC839A0007A9FC /* Product.m */,
-				4E0F998820DC847B0007A9FC /* ProductManager.h */,
-				4E0F998920DC847B0007A9FC /* ProductManager.m */,
 				4EC635FC20DDDA1800AC2404 /* CustomButton.h */,
 				4EC635FD20DDDA1800AC2404 /* CustomButton.m */,
-				4E60C71120E1C4C800CB8CC3 /* HistoryViewController.h */,
-				4E60C71220E1C4C800CB8CC3 /* HistoryViewController.m */,
-				4E69C8B420E5683400A824BB /* ManagerViewController.h */,
-				4E69C8B520E5683400A824BB /* ManagerViewController.m */,
 			);
 			path = CashRegister;
 			sourceTree = "<group>";
@@ -102,6 +94,30 @@
 				4E0F996F20DC80D50007A9FC /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E6A428520E5AE4600591802 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F997420DC80D50007A9FC /* ViewController.h */,
+				4E0F997520DC80D50007A9FC /* ViewController.m */,
+				4E60C71120E1C4C800CB8CC3 /* HistoryViewController.h */,
+				4E60C71220E1C4C800CB8CC3 /* HistoryViewController.m */,
+				4E69C8B420E5683400A824BB /* ManagerViewController.h */,
+				4E69C8B520E5683400A824BB /* ManagerViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		4E6A428620E5AEA600591802 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F998820DC847B0007A9FC /* ProductModelManager.h */,
+				4E0F998920DC847B0007A9FC /* ProductModelManager.m */,
+				4E0F998520DC839A0007A9FC /* Product.h */,
+				4E0F998620DC839A0007A9FC /* Product.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +193,7 @@
 			files = (
 				4EC635FE20DDDA1800AC2404 /* CustomButton.m in Sources */,
 				4E0F997620DC80D50007A9FC /* ViewController.m in Sources */,
-				4E0F998A20DC847B0007A9FC /* ProductManager.m in Sources */,
+				4E0F998A20DC847B0007A9FC /* ProductModelManager.m in Sources */,
 				4E60C71320E1C4C800CB8CC3 /* HistoryViewController.m in Sources */,
 				4E69C8B620E5683400A824BB /* ManagerViewController.m in Sources */,
 				4E0F998720DC839A0007A9FC /* Product.m in Sources */,

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ProductManager.h"
+#import "ProductModelManager.h"
 
 @interface HistoryViewController : UITableViewController
 
-@property ProductManager * historyProductManager;
+@property ProductModelManager * historyProductManager;
 
 @end
