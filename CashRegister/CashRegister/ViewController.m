@@ -80,7 +80,8 @@ int quantityToBuy;
             break;
         }
     }
-    [self.productManager restockProductWithTotal:quantity atIndex:index];
+    [self.productManager restockProduct: product WithTotal:quantity];
+    [self.navigationController popViewControllerAnimated:YES];
 
 }
 

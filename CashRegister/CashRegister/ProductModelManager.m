@@ -94,6 +94,7 @@
 }
 
 -(void) addProductBoughtToList:(Product *)productBought WithQuantityOf :(int) quantity thatCost : (double) price{
+    
     Product * prodAdd = [[Product alloc]init];
     [prodAdd setProductQuantity:quantity];
     [prodAdd setProductId:productBought.productId];
@@ -104,17 +105,10 @@
     
 }
 
--(void)restockProductWithTotal:(int)quantity atIndex:(int)index{
-    if(quantity > -1){
-        
-        Product * productToRestock = [_allProducts objectAtIndex:index];
-        
-        int totalQuantity  = productToRestock.productQuantity + quantity;
-        
-        [productToRestock setProductQuantity:totalQuantity];
-        
-        [self.allProducts replaceObjectAtIndex:index withObject:productToRestock];
-    }
+-(void)restockProduct: (Product*) product WithTotal:(int)quantity {
+    
+        product.productQuantity += quantity;
+    [self.allProducts replaceObjectAtIndex:0 withObject: product];
 }
 
 

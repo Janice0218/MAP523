@@ -50,9 +50,10 @@ int quantity;
     if(quantity !=0){
         [self.delegate managerRestockProduct: updatedProduct WithTotalOf: quantity];
         quantity = 0;
-        updatedProduct = nil;
         [self.tableView reloadData];
+        
     }
+    
 }
 
 
