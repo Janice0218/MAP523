@@ -71,17 +71,10 @@ int quantityToBuy;
 //end of Implementation for PickerView
 
 
--(void) managerRestockProduct:(Product *)product WithTotalOf:(int)quantity{
-    int index = 0;
-    for (int i= 0; i < self.productManager.allProducts.count; i++) {
-        Product *temp =  [self.productManager.allProducts objectAtIndex:i];
-        if(temp.productId == product.productId){
-            index = i;
-            break;
-        }
-    }
-    [self.productManager restockProduct: product WithTotal:quantity];
-    [self.navigationController popViewControllerAnimated:YES];
+-(void) managerRestockProduct:(Product *)product atIndex:(int)index{
+    
+    [self.productManager.allProducts replaceObjectAtIndex:index withObject:product];
+    [self.productPickerView reloadAllComponents];
 
 }
 

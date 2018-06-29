@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 @protocol UpdatingProductDelegate
+
 @required
--(void) managerRestockProduct : (Product * ) product WithTotalOf : (int) quantity;
+-(void) managerRestockProduct : (Product * ) product atIndex: (int) index;
 @end
 
 @interface RestockViewController : UIViewController

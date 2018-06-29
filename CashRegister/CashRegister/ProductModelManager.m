@@ -100,15 +100,10 @@
     [prodAdd setProductId:productBought.productId];
     [prodAdd setProductName:productBought.productName];
     [prodAdd setProductPrice:price];
+    [prodAdd setDateChanged:[NSDate date]];
     [self.allProductsBought addObject:prodAdd];
     
     
-}
-
--(void)restockProduct: (Product*) product WithTotal:(int)quantity {
-    
-        product.productQuantity += quantity;
-    [self.allProducts replaceObjectAtIndex:0 withObject: product];
 }
 
 

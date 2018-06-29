@@ -18,6 +18,7 @@
 		4E60C71320E1C4C800CB8CC3 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E60C71220E1C4C800CB8CC3 /* HistoryViewController.m */; };
 		4E69C8B620E5683400A824BB /* ManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E69C8B520E5683400A824BB /* ManagerViewController.m */; };
 		4E6A428D20E5BE9B00591802 /* RestockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A428C20E5BE9B00591802 /* RestockViewController.m */; };
+		4E8C0D3F20E6E4A5008979A8 /* HistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8C0D3E20E6E4A5008979A8 /* HistoryDetailViewController.m */; };
 		4EC635FE20DDDA1800AC2404 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC635FD20DDDA1800AC2404 /* CustomButton.m */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,8 @@
 		4E69C8B520E5683400A824BB /* ManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerViewController.m; sourceTree = "<group>"; };
 		4E6A428B20E5BE9B00591802 /* RestockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestockViewController.h; sourceTree = "<group>"; };
 		4E6A428C20E5BE9B00591802 /* RestockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestockViewController.m; sourceTree = "<group>"; };
+		4E8C0D3D20E6E4A5008979A8 /* HistoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDetailViewController.h; sourceTree = "<group>"; };
+		4E8C0D3E20E6E4A5008979A8 /* HistoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailViewController.m; sourceTree = "<group>"; };
 		4EC635FC20DDDA1800AC2404 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		4EC635FD20DDDA1800AC2404 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +113,8 @@
 				4E69C8B520E5683400A824BB /* ManagerViewController.m */,
 				4E6A428B20E5BE9B00591802 /* RestockViewController.h */,
 				4E6A428C20E5BE9B00591802 /* RestockViewController.m */,
+				4E8C0D3D20E6E4A5008979A8 /* HistoryDetailViewController.h */,
+				4E8C0D3E20E6E4A5008979A8 /* HistoryDetailViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				4E0F997620DC80D50007A9FC /* ViewController.m in Sources */,
 				4E0F998A20DC847B0007A9FC /* ProductModelManager.m in Sources */,
 				4E60C71320E1C4C800CB8CC3 /* HistoryViewController.m in Sources */,
+				4E8C0D3F20E6E4A5008979A8 /* HistoryDetailViewController.m in Sources */,
 				4E69C8B620E5683400A824BB /* ManagerViewController.m in Sources */,
 				4E0F998720DC839A0007A9FC /* Product.m in Sources */,
 				4E0F997320DC80D50007A9FC /* AppDelegate.m in Sources */,

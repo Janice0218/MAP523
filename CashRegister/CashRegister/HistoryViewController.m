@@ -7,6 +7,7 @@
 //
 
 #import "HistoryViewController.h"
+#import "HistoryDetailViewController.h"
 #import "Product.h"
 #import "ProductModelManager.h"
 
@@ -15,7 +16,7 @@
 @end
 
 @implementation HistoryViewController
-
+Product * productSelected;
 
 
 //////Implementations for Table View
@@ -33,12 +34,31 @@
     NSLog(@"%@",prodstring);
     cell.textLabel.text =  prodstring;
     cell.detailTextLabel.text = [[NSString alloc] initWithFormat: @"Quantity: %d",p.productQuantity];
-    
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    productSelected =  [self.productHistory objectAtIndex:(int) indexPath.row];
+}
 /////End of tbel view implementations
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"DetailSegue"])
+    {
+        HistoryDetailViewController * detailView = [segue destinationViewController];
+        detailView.ProductId = [[NSString alloc]initWithFormat:@"%d", productSelected.productId];
+        detailView.ProductName= productSelected.productName;
+        detailView.ProductPrice= [[NSString alloc]initWithFormat:@"$%.2f", productSelected.productPrice];
+        detailView.ProductQuantity = [[NSString alloc] initWithFormat:@"%d", productSelected.productQuantity];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+        [formatter setDateStyle:NSDateFormatterShortStyle];
+        [formatter setTimeStyle:NSDateFormatterNoStyle];
+        NSString *date = [formatter stringFromDate: productSelected.dateChanged];
+        detailView.ProductDate =  date;
+    
+    }
+}
 
 
 - (void)viewDidLoad {

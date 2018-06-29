@@ -12,12 +12,12 @@
 @interface RestockViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *quantityTextbox;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation RestockViewController
 Product * updatedProduct = nil;
 int quantity;
+int productIndex;
 //////Implementations for Table View
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -39,22 +39,19 @@ int quantity;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     updatedProduct = nil;
     updatedProduct = [self.allProducts objectAtIndex:(int)indexPath.row];
-    
+    productIndex =(int) indexPath.row;
     self.quantityTextbox.text = [[NSString alloc] initWithFormat:@"%d",updatedProduct.productQuantity ];
 }
 
 
 /////End of table view implementations
 - (IBAction)clickedOK:(id)sender {
-    
-    if(quantity !=0){
-        [self.delegate managerRestockProduct: updatedProduct WithTotalOf: quantity];
-        quantity = 0;
-        [self.tableView reloadData];
-        
+        updatedProduct.productQuantity += (int)[self.quantityTextbox.text integerValue];
+    [self.delegate managerRestockProduct:updatedProduct atIndex: productIndex];
+        [self.allProducts replaceObjectAtIndex: productIndex withObject: updatedProduct];
+    [self.tableView reloadData];
+
     }
-    
-}
 
 
 
