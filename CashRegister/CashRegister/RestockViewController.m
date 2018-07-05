@@ -19,7 +19,7 @@
 //local var
 Product * updatedProduct = nil;
 int quantity;
-int productIndex;
+int productIndex = -1;
 
 
 //////Implementations for Table View
@@ -50,9 +50,11 @@ int productIndex;
 
 /////End of table view implementations
 
-
 //ok buy clicked
 - (IBAction)clickedOK:(id)sender {
+    
+    if(productIndex != -1){
+    }
         updatedProduct.productQuantity += (int)[self.quantityTextbox.text integerValue];
     [self.delegate managerRestockProduct:updatedProduct atIndex: productIndex];
         [self.allProducts replaceObjectAtIndex: productIndex withObject: updatedProduct];
