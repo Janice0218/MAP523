@@ -17,4 +17,5 @@
 @property (strong, nonatomic) NSString* ProductPrice;
 @property (strong, nonatomic) NSString* ProductQuantity;
 @property (strong, nonatomic) NSString* ProductDate;
+
 @end
