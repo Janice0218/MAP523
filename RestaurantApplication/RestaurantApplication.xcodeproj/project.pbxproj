@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4EA80EDF20EEDFBA008C9AAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA80EDE20EEDFBA008C9AAA /* main.m */; };
+		4EA80EE220EEDFBA008C9AAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA80EE120EEDFBA008C9AAA /* AppDelegate.m */; };
+		4EA80EE520EEDFBA008C9AAA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA80EE420EEDFBA008C9AAA /* ViewController.m */; };
+		4EA80EE820EEDFBA008C9AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EA80EE620EEDFBA008C9AAA /* Main.storyboard */; };
+		4EA80EEA20EEDFBA008C9AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EA80EE920EEDFBA008C9AAA /* Assets.xcassets */; };
+		4EA80EED20EEDFBA008C9AAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EA80EEB20EEDFBA008C9AAA /* LaunchScreen.storyboard */; };
+		4EA80EF620EEDFCA008C9AAA /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA80EF520EEDFCA008C9AAA /* Food.m */; };
+		4EA80EF920EEE057008C9AAA /* RestaurantMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA80EF820EEE057008C9AAA /* RestaurantMenu.m */; };
+		4EA80EFC20EEE705008C9AAA /* CheckOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA80EFB20EEE705008C9AAA /* CheckOutViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4EA80EDA20EEDFBA008C9AAA /* RestaurantApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EA80EDE20EEDFBA008C9AAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4EA80EE020EEDFBA008C9AAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4EA80EE120EEDFBA008C9AAA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4EA80EE320EEDFBA008C9AAA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4EA80EE420EEDFBA008C9AAA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4EA80EE720EEDFBA008C9AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4EA80EE920EEDFBA008C9AAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4EA80EEC20EEDFBA008C9AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4EA80EEE20EEDFBA008C9AAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EA80EF420EEDFCA008C9AAA /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
+		4EA80EF520EEDFCA008C9AAA /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
+		4EA80EF720EEE057008C9AAA /* RestaurantMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantMenu.h; sourceTree = "<group>"; };
+		4EA80EF820EEE057008C9AAA /* RestaurantMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantMenu.m; sourceTree = "<group>"; };
+		4EA80EFA20EEE705008C9AAA /* CheckOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckOutViewController.h; sourceTree = "<group>"; };
+		4EA80EFB20EEE705008C9AAA /* CheckOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckOutViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4EA80ED720EEDFBA008C9AAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4EA80ED120EEDFBA008C9AAA = {
+			isa = PBXGroup;
+			children = (
+				4EA80EDC20EEDFBA008C9AAA /* RestaurantApplication */,
+				4EA80EDB20EEDFBA008C9AAA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4EA80EDB20EEDFBA008C9AAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4EA80EDA20EEDFBA008C9AAA /* RestaurantApplication.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4EA80EDC20EEDFBA008C9AAA /* RestaurantApplication */ = {
+			isa = PBXGroup;
+			children = (
+				4EA80EE020EEDFBA008C9AAA /* AppDelegate.h */,
+				4EA80EE120EEDFBA008C9AAA /* AppDelegate.m */,
+				4EA80EE320EEDFBA008C9AAA /* ViewController.h */,
+				4EA80EE420EEDFBA008C9AAA /* ViewController.m */,
+				4EA80EE620EEDFBA008C9AAA /* Main.storyboard */,
+				4EA80EE920EEDFBA008C9AAA /* Assets.xcassets */,
+				4EA80EEB20EEDFBA008C9AAA /* LaunchScreen.storyboard */,
+				4EA80EEE20EEDFBA008C9AAA /* Info.plist */,
+				4EA80EDD20EEDFBA008C9AAA /* Supporting Files */,
+				4EA80EF420EEDFCA008C9AAA /* Food.h */,
+				4EA80EF520EEDFCA008C9AAA /* Food.m */,
+				4EA80EF720EEE057008C9AAA /* RestaurantMenu.h */,
+				4EA80EF820EEE057008C9AAA /* RestaurantMenu.m */,
+				4EA80EFA20EEE705008C9AAA /* CheckOutViewController.h */,
+				4EA80EFB20EEE705008C9AAA /* CheckOutViewController.m */,
+			);
+			path = RestaurantApplication;
+			sourceTree = "<group>";
+		};
+		4EA80EDD20EEDFBA008C9AAA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4EA80EDE20EEDFBA008C9AAA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4EA80ED920EEDFBA008C9AAA /* RestaurantApplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EA80EF120EEDFBA008C9AAA /* Build configuration list for PBXNativeTarget "RestaurantApplication" */;
+			buildPhases = (
+				4EA80ED620EEDFBA008C9AAA /* Sources */,
+				4EA80ED720EEDFBA008C9AAA /* Frameworks */,
+				4EA80ED820EEDFBA008C9AAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RestaurantApplication;
+			productName = RestaurantApplication;
+			productReference = 4EA80EDA20EEDFBA008C9AAA /* RestaurantApplication.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4EA80ED220EEDFBA008C9AAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = com.seneca.map523;
+				TargetAttributes = {
+					4EA80ED920EEDFBA008C9AAA = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4EA80ED520EEDFBA008C9AAA /* Build configuration list for PBXProject "RestaurantApplication" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4EA80ED120EEDFBA008C9AAA;
+			productRefGroup = 4EA80EDB20EEDFBA008C9AAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4EA80ED920EEDFBA008C9AAA /* RestaurantApplication */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4EA80ED820EEDFBA008C9AAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EA80EED20EEDFBA008C9AAA /* LaunchScreen.storyboard in Resources */,
+				4EA80EEA20EEDFBA008C9AAA /* Assets.xcassets in Resources */,
+				4EA80EE820EEDFBA008C9AAA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4EA80ED620EEDFBA008C9AAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EA80EFC20EEE705008C9AAA /* CheckOutViewController.m in Sources */,
+				4EA80EE520EEDFBA008C9AAA /* ViewController.m in Sources */,
+				4EA80EF620EEDFCA008C9AAA /* Food.m in Sources */,
+				4EA80EE220EEDFBA008C9AAA /* AppDelegate.m in Sources */,
+				4EA80EDF20EEDFBA008C9AAA /* main.m in Sources */,
+				4EA80EF920EEE057008C9AAA /* RestaurantMenu.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4EA80EE620EEDFBA008C9AAA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EA80EE720EEDFBA008C9AAA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4EA80EEB20EEDFBA008C9AAA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EA80EEC20EEDFBA008C9AAA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4EA80EEF20EEDFBA008C9AAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4EA80EF020EEDFBA008C9AAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4EA80EF220EEDFBA008C9AAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RestaurantApplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-23.RestaurantApplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4EA80EF320EEDFBA008C9AAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RestaurantApplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-23.RestaurantApplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4EA80ED520EEDFBA008C9AAA /* Build configuration list for PBXProject "RestaurantApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EA80EEF20EEDFBA008C9AAA /* Debug */,
+				4EA80EF020EEDFBA008C9AAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4EA80EF120EEDFBA008C9AAA /* Build configuration list for PBXNativeTarget "RestaurantApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EA80EF220EEDFBA008C9AAA /* Debug */,
+				4EA80EF320EEDFBA008C9AAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4EA80ED220EEDFBA008C9AAA /* Project object */;
+}
