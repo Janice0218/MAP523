@@ -29,6 +29,9 @@ int counter = 0;
 
 
 - (IBAction)navButtonClicked:(UIButton *)sender {
+    
+    
+    //COUNTER can be refactored
     if([sender.titleLabel.text isEqualToString:@"Next"]){
         if(counter < 3){
             ++counter;
@@ -47,6 +50,8 @@ int counter = 0;
         }
     }
     
+    
+    //QUEUE Threading
     self.imageQueue = dispatch_queue_create("Image", NULL);
     dispatch_async(self.imageQueue, ^{
         NSString* url1 = [NSString stringWithFormat:@"https://raniaarbash.000webhostapp.com/%@",[self.URLs objectAtIndex:counter]];
@@ -58,8 +63,12 @@ int counter = 0;
     });
 }
 
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    //LOAD FIRST TIME
     self.imageQueue = dispatch_queue_create("Image", NULL);
     dispatch_async(self.imageQueue, ^{
         NSString* url1 = [NSString stringWithFormat:@"https://raniaarbash.000webhostapp.com/%@",[self.URLs objectAtIndex:counter]];
