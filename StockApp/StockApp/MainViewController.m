@@ -7,42 +7,44 @@
 //
 
 #import "MainViewController.h"
-#import "StockManagerModel.h"
 
 
-
-@interface MainViewController ()<UITableViewDataSource,UITableViewDataSource>
-
-
-@property (nonatomic,strong) StockManagerModel * stocksManager;
-
+@interface MainViewController ()<UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate>
 
 @end
 
 @implementation MainViewController
 
 
-
--(StockManagerModel *) stocksManager {
-    if(self.stocksManager == nil) {
-        self.stocksManager = [[StockManagerModel alloc]init];
+-(StockManagerModel *) stockManager {
+    if(_stockManager == nil) {
+    
+        _stockManager = [[StockManagerModel alloc]init];
     }
-    return self.stocksManager;
+    return _stockManager;
 }
+
+
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return  1;
+    return self.stockManager.stockList.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell  * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    UITableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell"];
-    cell.textLabel.text  = @"Sample Text!";
+    cell.textLabel.text = @"Cell";
+    
     return cell;
+    
 }
+
+
+
+
+
+
 
 
 - (void)viewDidLoad {
@@ -54,8 +56,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 /*
 #pragma mark - Navigation

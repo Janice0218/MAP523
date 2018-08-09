@@ -10,14 +10,12 @@
 
 @implementation StockManagerModel
 
-
 -(NSMutableArray * ) stockList {
 
     if (_stockList == nil) {
         _stockList = [[NSMutableArray alloc] init];
     }
     return _stockList;
-    
 }
 
 @end

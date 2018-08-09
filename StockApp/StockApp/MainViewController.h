@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "StockManagerModel.h"
 @interface MainViewController : UIViewController
-
+@property (nonatomic,strong) StockManagerModel * stockManager;
 @end
