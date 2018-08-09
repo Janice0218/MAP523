@@ -7,20 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E65FEA1211D002C006A3722 /* AddSymbolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E65FEA0211D002C006A3722 /* AddSymbolTableViewController.m */; };
 		4ED21EFE211CAF5200E453AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED21EFD211CAF5200E453AF /* main.m */; };
 		4ED21F01211CAF5200E453AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED21F00211CAF5200E453AF /* AppDelegate.m */; };
 		4ED21F07211CAF5200E453AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED21F05211CAF5200E453AF /* Main.storyboard */; };
 		4ED21F0A211CAF5200E453AF /* StockApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4ED21F08211CAF5200E453AF /* StockApp.xcdatamodeld */; };
 		4ED21F0C211CAF5200E453AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED21F0B211CAF5200E453AF /* Assets.xcassets */; };
 		4ED21F0F211CAF5200E453AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED21F0D211CAF5200E453AF /* LaunchScreen.storyboard */; };
-		4ED21F1C211CAFED00E453AF /* SymbolAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED21F1B211CAFED00E453AF /* SymbolAddViewController.m */; };
 		4ED21F1F211CAFFE00E453AF /* SymbolDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED21F1E211CAFFE00E453AF /* SymbolDetailViewController.m */; };
 		4ED21F24211CB2F000E453AF /* StockManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED21F23211CB2F000E453AF /* StockManagerModel.m */; };
 		4EE3557A211CF21E00DDB8D3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE35579211CF21E00DDB8D3 /* MainViewController.m */; };
-		4EE3557D211CF50A00DDB8D3 /* JsonParserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE3557C211CF50A00DDB8D3 /* JsonParserModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E65FE9F211D002C006A3722 /* AddSymbolTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSymbolTableViewController.h; sourceTree = "<group>"; };
+		4E65FEA0211D002C006A3722 /* AddSymbolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSymbolTableViewController.m; sourceTree = "<group>"; };
 		4ED21EF9211CAF5200E453AF /* StockApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED21EFD211CAF5200E453AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4ED21EFF211CAF5200E453AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,16 +31,12 @@
 		4ED21F0B211CAF5200E453AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ED21F0E211CAF5200E453AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ED21F10211CAF5200E453AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4ED21F1A211CAFED00E453AF /* SymbolAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolAddViewController.h; sourceTree = "<group>"; };
-		4ED21F1B211CAFED00E453AF /* SymbolAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolAddViewController.m; sourceTree = "<group>"; };
 		4ED21F1D211CAFFE00E453AF /* SymbolDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolDetailViewController.h; sourceTree = "<group>"; };
 		4ED21F1E211CAFFE00E453AF /* SymbolDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolDetailViewController.m; sourceTree = "<group>"; };
 		4ED21F22211CB2F000E453AF /* StockManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockManagerModel.h; sourceTree = "<group>"; };
 		4ED21F23211CB2F000E453AF /* StockManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockManagerModel.m; sourceTree = "<group>"; };
 		4EE35578211CF21E00DDB8D3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		4EE35579211CF21E00DDB8D3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		4EE3557B211CF50A00DDB8D3 /* JsonParserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonParserModel.h; sourceTree = "<group>"; };
-		4EE3557C211CF50A00DDB8D3 /* JsonParserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonParserModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +94,12 @@
 		4ED21F16211CAF5700E453AF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4ED21F1A211CAFED00E453AF /* SymbolAddViewController.h */,
-				4ED21F1B211CAFED00E453AF /* SymbolAddViewController.m */,
 				4ED21F1D211CAFFE00E453AF /* SymbolDetailViewController.h */,
 				4ED21F1E211CAFFE00E453AF /* SymbolDetailViewController.m */,
 				4EE35578211CF21E00DDB8D3 /* MainViewController.h */,
 				4EE35579211CF21E00DDB8D3 /* MainViewController.m */,
+				4E65FE9F211D002C006A3722 /* AddSymbolTableViewController.h */,
+				4E65FEA0211D002C006A3722 /* AddSymbolTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -112,8 +109,6 @@
 			children = (
 				4ED21F22211CB2F000E453AF /* StockManagerModel.h */,
 				4ED21F23211CB2F000E453AF /* StockManagerModel.m */,
-				4EE3557B211CF50A00DDB8D3 /* JsonParserModel.h */,
-				4EE3557C211CF50A00DDB8D3 /* JsonParserModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -192,10 +187,9 @@
 				4ED21F01211CAF5200E453AF /* AppDelegate.m in Sources */,
 				4ED21F0A211CAF5200E453AF /* StockApp.xcdatamodeld in Sources */,
 				4ED21EFE211CAF5200E453AF /* main.m in Sources */,
-				4ED21F1C211CAFED00E453AF /* SymbolAddViewController.m in Sources */,
-				4EE3557D211CF50A00DDB8D3 /* JsonParserModel.m in Sources */,
 				4EE3557A211CF21E00DDB8D3 /* MainViewController.m in Sources */,
 				4ED21F1F211CAFFE00E453AF /* SymbolDetailViewController.m in Sources */,
+				4E65FEA1211D002C006A3722 /* AddSymbolTableViewController.m in Sources */,
 				4ED21F24211CB2F000E453AF /* StockManagerModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

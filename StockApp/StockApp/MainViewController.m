@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-
+#import "SymbolAddViewController.h"
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate>
 
@@ -39,13 +39,6 @@
     return cell;
     
 }
-
-
-
-
-
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
