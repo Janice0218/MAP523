@@ -26,56 +26,50 @@ class ViewController: UIViewController {
     
     //action for segments
     @IBAction func convertSegmentClick(_ sender: UISegmentedControl) {
-        
     
-        if numTextField1.isEditing && numTextField1.text != nil{
-            let val = Double(numTextField1.text!)
-            let res = convert(num: val!, operation: { (num) -> Double in
-                return num * converterConstants[sender.selectedSegmentIndex]
-           })
-        numTextField2.text = "\(res)"
+        if numTextField1.isEditing || numTextField2.isEditing {
+            let field = numTextField1.isEditing ? numTextField1 : numTextField2
+            numTextDidProcess(textField:field!)
         }
-            
-        if numTextField2.isEditing && numTextField1.text != nil {
-            let val = Double(numTextField2.text!)
-            let res = convert(num: val!, operation: { (num) -> Double in
-                return num * converterConstants[sender.selectedSegmentIndex]
-            })
-        numTextField1.text = "\(res)"
-        }
-        
     }
 
     @IBAction func textChanged(_ sender: UITextField) {
-        if sender == numTextField1 && numTextField1.text != nil{
-            let val = Double(numTextField1.text!)
-            let res = convert(num: val!, operation: { (num) -> Double in
-                return num * converterConstants[segmentConverter.selectedSegmentIndex]
-            })
-            numTextField2.text = "\(res)"
-        }
-        if sender == numTextField2 && numTextField2.text != nil{
-            let val = Double(numTextField2.text!)
-            let res = convert(num: val!, operation: { (num) -> Double in
-                return num * converterConstants[segmentConverter.selectedSegmentIndex]
-            })
-            numTextField1.text = "\(res)"
-        }
-
+        
+        numTextDidProcess(textField : sender)
+        
     }
+    
+    func numTextDidProcess(textField : UITextField)-> Void {
+        
+        if(textField == numTextField1) {
+            if let number = textField.text {
+                let val = Double(number)
+                let res = convert(num: val!, operation: { (num) -> Double in
+                    return num * converterConstants[segmentConverter.selectedSegmentIndex]})
+                numTextField2.text = "\(res)"
+            }
+        }
+            
+        if(textField == numTextField2) {
+            if let number = textField.text {
+                let val = Double(number)
+                let res = convert(num: val!, operation: { (num) -> Double in
+                    return num * converterConstants[segmentConverter.selectedSegmentIndex]})
+                numTextField1.text = "\(res)"
+                }
+        }
+    }
+    
     
     func convert(num: Double , operation : (_ val : Double)-> Double)-> Double {
         return operation (num)
     }
     
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+    
         // Do any additional setup after loading the view, typically from a nib.
    
     
