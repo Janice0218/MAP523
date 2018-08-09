@@ -7,12 +7,43 @@
 //
 
 #import "MainViewController.h"
+#import "StockManagerModel.h"
 
-@interface MainViewController ()
+
+
+@interface MainViewController ()<UITableViewDataSource,UITableViewDataSource>
+
+
+@property (nonatomic,strong) StockManagerModel * stocksManager;
+
 
 @end
 
 @implementation MainViewController
+
+
+
+-(StockManagerModel *) stocksManager {
+    if(self.stocksManager == nil) {
+        self.stocksManager = [[StockManagerModel alloc]init];
+    }
+    return self.stocksManager;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return  1;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell"];
+    cell.textLabel.text  = @"Sample Text!";
+    return cell;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +54,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

@@ -16,6 +16,7 @@
 		4ED21F19211CAF7700E453AF /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED21F18211CAF7700E453AF /* MainViewController.m */; };
 		4ED21F1C211CAFED00E453AF /* SymbolAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED21F1B211CAFED00E453AF /* SymbolAddViewController.m */; };
 		4ED21F1F211CAFFE00E453AF /* SymbolDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED21F1E211CAFFE00E453AF /* SymbolDetailViewController.m */; };
+		4ED21F24211CB2F000E453AF /* StockManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED21F23211CB2F000E453AF /* StockManagerModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		4ED21F1B211CAFED00E453AF /* SymbolAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolAddViewController.m; sourceTree = "<group>"; };
 		4ED21F1D211CAFFE00E453AF /* SymbolDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolDetailViewController.h; sourceTree = "<group>"; };
 		4ED21F1E211CAFFE00E453AF /* SymbolDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolDetailViewController.m; sourceTree = "<group>"; };
+		4ED21F22211CB2F000E453AF /* StockManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockManagerModel.h; sourceTree = "<group>"; };
+		4ED21F23211CB2F000E453AF /* StockManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockManagerModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 		4ED21F21211CB01300E453AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4ED21F22211CB2F000E453AF /* StockManagerModel.h */,
+				4ED21F23211CB2F000E453AF /* StockManagerModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				4ED21F1C211CAFED00E453AF /* SymbolAddViewController.m in Sources */,
 				4ED21F19211CAF7700E453AF /* MainViewController.m in Sources */,
 				4ED21F1F211CAFFE00E453AF /* SymbolDetailViewController.m in Sources */,
+				4ED21F24211CB2F000E453AF /* StockManagerModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
