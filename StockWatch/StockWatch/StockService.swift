@@ -8,18 +8,39 @@
 
 import UIKit
 
-class StockService  {
+class StockService : RequestDataDelegate {
 
-    var dbManager = DataManager()
+    
+    
+    
+    private var dbManager = DataManager()
+    private var requestData = RequestData()
+    
+    private var AllStocks = [JsonStock]()
     
     func listStocksfromDb() -> Array<Stock> {
         return dbManager.fetchAll() as! Array<Stock>
     }
     
-    func listStocksfromJson() -> Array<JsonStock> {
+    func listStocksfromJson(query : String) -> [JsonStock] {
+        
+        
+        let stringUrl  = "\(host)\(query)&\(region)&\(language)&\(callback)"
+        
+        let url = URL(string : stringUrl)
+        
+        requestData.delegate = self
+        
+        requestData.getStock( url: url!)
         
     
+        return AllStocks
+        
+        
     }
     
+    func requestDataDidDownload(stocks: [JsonStock]) {
+        AllStocks = stocks
+    }
     
 }

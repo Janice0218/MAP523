@@ -9,8 +9,8 @@
 import Foundation
 
 let host = "http://d.yimg.com/autoc.finance.yahoo.com/autoc?query="
-let reqion =  "region=1"
+let region =  "region=1"
 let language = "lang=en"
 let callback  = "callback=YAHOO.Finance.SymbolSuggest.ssCallback"
 
-let stringToTrim = "callback=YAHOO.Finance.SymbolSuggest.ssCallback("
+let stringToTrim = "YAHOO.Finance.SymbolSuggest.ssCallback("

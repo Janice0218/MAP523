@@ -7,24 +7,27 @@
 //
 
 import UIKit
+import Foundation
 
 class JsonStock {
     
-    var Symbol : String?
+    var Symbol      : String?
+    var Name        : String?
+    var JsonType    : String?
+    var Exch        : String?
+    var TypeDisp    : String?
+    var ExchDisp    : String?
     
-    var Name : String?
     
-    var JsonType : String?
-    
-    var Exch : String?
-    
-    var TypeDisp : String?
-    
-    var ExchDisp : String?
-    
-    init(symbol: String? , name: String?, type : String?, exch: String?, typeDisp : String?, exchDisp : String?) {
-        Symbol  = symbol
+    init?(json : NSDictionary) {
+        
+        Symbol      = json.value(forKey: "symbol") as? String
+        Name        = json.value(forKey: "name") as? String
+        Exch        = json.value(forKey: "exch") as? String
+        TypeDisp    = json.value(forKey: "typeDisp") as? String
+        ExchDisp    = json.value(forKey: "exchDisp") as? String
+        JsonType    = json.value(forKey: "type") as? String
         
     }
-    
+
 }

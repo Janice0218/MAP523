@@ -9,6 +9,6 @@
 import UIKit
 
 class StockList  {
-    
-    var userStocks = Dictionary<String,Stock>()
+    var userStocks = NSMutableArray()
 }
+

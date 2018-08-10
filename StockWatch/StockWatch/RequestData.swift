@@ -8,9 +8,7 @@
 
 import Foundation
 
-
 class RequestData {
-
     var delegate : RequestDataDelegate?
     
     func getData(url: URL, requestHandler: @escaping (Data)->()) {
@@ -38,24 +36,26 @@ class RequestData {
         task.resume()
     }
     
-    func getStock(query :String, url : URL) {
+    func getStock(url : URL) {
         getData(url: url) { (jsonData) in
             var dataString  = String(data: jsonData , encoding : .utf8)
-            
-            
             dataString = self.trim(jsonString: dataString!)
-            
             let json  = dataString?.data(using: .utf8)
             
-            let jsonData = JSON(string : json!)
-            
-            
-            
             do {
-                if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String : Any]{
-                    if let content = String(data : jsonObject, encoding : NS)
-                }
+                let jsonObject = try JSONSerialization.jsonObject(with: json!, options: []) as! NSDictionary
                 
+                let res =  jsonObject.value(forKeyPath: "ResultSet.Result")
+                
+            
+                
+                
+    
+                    
+      
+                    
+                    
+
                 
             }
             catch {
@@ -65,16 +65,11 @@ class RequestData {
     }
     
     
-    
     func trim(jsonString : String) -> String {
         return jsonString.replacingOccurrences(of: stringToTrim, with: "").replacingOccurrences(of: ");", with:"")
+    }
 }
 
-
-
-
-
-
 protocol RequestDataDelegate {
-    func requestDataDidDownload(stocks : Array<JsonStock>)
+    func requestDataDidDownload(stocks : [JsonStock])
 }

@@ -8,41 +8,48 @@
 
 import UIKit
 
-class AddSymbolScreen: UITableViewController {
+class AddSymbolScreen: UIViewController{
 
+    var stockService  = StockService()
+    var queriedData : Array<JsonStock> = []
+    var stringText : String?
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 0
+        
     }
 
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "queryCell", for: indexPath)
+}
 
-        // Configure the cell...
+extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate {
 
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "queryCell", for: indexPath)
+        
+        
+        let stock = queriedData[indexPath.row]
+        
+        cell.textLabel?.text = stock.Symbol
+        
         return cell
+    
+    
     }
     
-
-}
-
-
-extension AddSymbolScreen : UISearchBarDelegate {
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //TODO : add json parsed obj
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return   queriedData.count
     }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        queriedData =  stockService.listStocksfromJson(query: searchText)
+        tableView.reloadData()
 
-}
+    }
+    
+  }
