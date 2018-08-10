@@ -12,6 +12,14 @@
 		4E02F087211DEAD900B2AA52 /* StockWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F085211DEAD900B2AA52 /* StockWatch.xcdatamodeld */; };
 		4E02F089211DEAD900B2AA52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E02F088211DEAD900B2AA52 /* Assets.xcassets */; };
 		4E02F08C211DEAD900B2AA52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E02F08A211DEAD900B2AA52 /* LaunchScreen.storyboard */; };
+		4E02F099211DF0A400B2AA52 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F098211DF0A400B2AA52 /* MainScreen.swift */; };
+		4E02F09B211DF92600B2AA52 /* AddSymbolScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F09A211DF92600B2AA52 /* AddSymbolScreen.swift */; };
+		4E02F09D211E020800B2AA52 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F09C211E020800B2AA52 /* StockService.swift */; };
+		4E02F09F211E023A00B2AA52 /* StockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F09E211E023A00B2AA52 /* StockList.swift */; };
+		4E02F0A4211E06E400B2AA52 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A3211E06E400B2AA52 /* DataManager.swift */; };
+		4E02F0A6211E09A300B2AA52 /* JsonStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A5211E09A300B2AA52 /* JsonStock.swift */; };
+		4E02F0A8211E0B6C00B2AA52 /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A7211E0B6C00B2AA52 /* RequestData.swift */; };
+		4E02F0AB211E0EBF00B2AA52 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0AA211E0EBF00B2AA52 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,14 @@
 		4E02F088211DEAD900B2AA52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E02F08B211DEAD900B2AA52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E02F08D211DEAD900B2AA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E02F098211DF0A400B2AA52 /* MainScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		4E02F09A211DF92600B2AA52 /* AddSymbolScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSymbolScreen.swift; sourceTree = "<group>"; };
+		4E02F09C211E020800B2AA52 /* StockService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
+		4E02F09E211E023A00B2AA52 /* StockList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockList.swift; sourceTree = "<group>"; };
+		4E02F0A3211E06E400B2AA52 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		4E02F0A5211E09A300B2AA52 /* JsonStock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonStock.swift; sourceTree = "<group>"; };
+		4E02F0A7211E0B6C00B2AA52 /* RequestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
+		4E02F0AA211E0EBF00B2AA52 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,11 @@
 		4E02F07D211DEAD900B2AA52 /* StockWatch */ = {
 			isa = PBXGroup;
 			children = (
+				4E02F0A9211E0EB600B2AA52 /* Constants */,
+				4E02F0A2211E032500B2AA52 /* Helpers */,
+				4E02F0A1211E02BA00B2AA52 /* Stores */,
+				4E02F096211DEE6400B2AA52 /* Models */,
+				4E02F095211DEE5900B2AA52 /* Controllers */,
 				4E02F07E211DEAD900B2AA52 /* AppDelegate.swift */,
 				4E02F082211DEAD900B2AA52 /* Main.storyboard */,
 				4E02F088211DEAD900B2AA52 /* Assets.xcassets */,
@@ -62,6 +83,49 @@
 				4E02F085211DEAD900B2AA52 /* StockWatch.xcdatamodeld */,
 			);
 			path = StockWatch;
+			sourceTree = "<group>";
+		};
+		4E02F095211DEE5900B2AA52 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4E02F098211DF0A400B2AA52 /* MainScreen.swift */,
+				4E02F09A211DF92600B2AA52 /* AddSymbolScreen.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4E02F096211DEE6400B2AA52 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4E02F09E211E023A00B2AA52 /* StockList.swift */,
+				4E02F0A5211E09A300B2AA52 /* JsonStock.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		4E02F0A1211E02BA00B2AA52 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				4E02F0A3211E06E400B2AA52 /* DataManager.swift */,
+			);
+			name = Stores;
+			sourceTree = "<group>";
+		};
+		4E02F0A2211E032500B2AA52 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4E02F09C211E020800B2AA52 /* StockService.swift */,
+				4E02F0A7211E0B6C00B2AA52 /* RequestData.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		4E02F0A9211E0EB600B2AA52 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				4E02F0AA211E0EBF00B2AA52 /* Constants.swift */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +200,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E02F0A6211E09A300B2AA52 /* JsonStock.swift in Sources */,
+				4E02F09F211E023A00B2AA52 /* StockList.swift in Sources */,
+				4E02F099211DF0A400B2AA52 /* MainScreen.swift in Sources */,
 				4E02F087211DEAD900B2AA52 /* StockWatch.xcdatamodeld in Sources */,
+				4E02F0A4211E06E400B2AA52 /* DataManager.swift in Sources */,
+				4E02F0AB211E0EBF00B2AA52 /* Constants.swift in Sources */,
 				4E02F07F211DEAD900B2AA52 /* AppDelegate.swift in Sources */,
+				4E02F0A8211E0B6C00B2AA52 /* RequestData.swift in Sources */,
+				4E02F09B211DF92600B2AA52 /* AddSymbolScreen.swift in Sources */,
+				4E02F09D211E020800B2AA52 /* StockService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
