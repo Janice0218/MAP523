@@ -37,21 +37,20 @@ class StockService : RequestDataDelegate {
         
         return AllStocks
         
-        
     }
     
     
     
-    
-    func AddStockToDb(stock : JsonStock) {
+    func AddStockToDb(stock : JsonStock)->Void {
 
-        dbManager.AddEntity(name: stock.Name!, symbol: stock.Symbol!, exch: stock.Exch!, exchDisp: stock.ExchDisp!, type: stock.JsonType!, typeDisp: stock.TypeDisp!)
+         dbManager.AddEntity(name: stock.Name!, symbol: stock.Symbol!, exch: stock.Exch!, exchDisp: stock.ExchDisp!, type: stock.JsonType!, typeDisp: stock.TypeDisp!)
 
-        
     }
+    
     
     func requestDataDidDownload(stocks: [JsonStock]) {
         AllStocks = stocks
     }
+    
     
 }
