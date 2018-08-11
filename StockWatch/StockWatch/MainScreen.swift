@@ -62,12 +62,4 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
         return cell
     }
 
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        if let searchText = searchBar.text {
-            self.allDataFromDB  = self.stockService.listStocksfromDb()
-        }
-        tableView.reloadData()
-
-    }
 }

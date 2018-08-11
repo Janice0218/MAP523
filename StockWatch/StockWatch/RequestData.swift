@@ -66,7 +66,7 @@ class RequestData {
     
     
     func trim(jsonString : String) -> String {
-        return jsonString.replacingOccurrences(of: stringToTrim, with: "").replacingOccurrences(of: ");", with:"")
+        return jsonString.replacingOccurrences(of:  yahoostringToTrim, with: "").replacingOccurrences(of: ");", with:"")
     }
 }
 

@@ -6,6 +6,9 @@
 //  Copyright © 2018 com.senecac.map. All rights reserved.
 //
 
+
+
+
 import Foundation
 import CoreData
 import UIKit
@@ -14,18 +17,11 @@ import UIKit
 class StockService : RequestDataDelegate {
 
     
-    
-    
     private var dbManager = DataManager()
     private var requestData = RequestData()
-    
     private var AllStocks = [JsonStock]()
+
     
-    
-    
-    
-    
-    //
     func listStocksfromDb() -> Array<Stock> {
         return dbManager.fetchAll() as! Array<Stock>
     }
@@ -33,8 +29,7 @@ class StockService : RequestDataDelegate {
     func listStocksfromJson(query : String) -> [JsonStock] {
         
 
-        
-        let stringUrl  = "\(host)\(query)&\(region)&\(language)&\(callback)"
+        let stringUrl  = "\(yahoohost)\(query)&\(yahooregion)&\(yahoolanguage)&\(yahoocallback)"
         let url = URL(string : stringUrl)
         
         requestData.delegate = self
@@ -44,6 +39,12 @@ class StockService : RequestDataDelegate {
         
         
     }
+    
+    
+    func getSymbolDetails(symbol : String) -> <#return type#> {
+        <#function body#>
+    }
+    
     
     
     func AddStockToDb(stock : JsonStock) {

@@ -15,7 +15,6 @@
 		4E02F099211DF0A400B2AA52 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F098211DF0A400B2AA52 /* MainScreen.swift */; };
 		4E02F09B211DF92600B2AA52 /* AddSymbolScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F09A211DF92600B2AA52 /* AddSymbolScreen.swift */; };
 		4E02F09D211E020800B2AA52 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F09C211E020800B2AA52 /* StockService.swift */; };
-		4E02F09F211E023A00B2AA52 /* StockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F09E211E023A00B2AA52 /* StockList.swift */; };
 		4E02F0A4211E06E400B2AA52 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A3211E06E400B2AA52 /* DataManager.swift */; };
 		4E02F0A6211E09A300B2AA52 /* JsonStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A5211E09A300B2AA52 /* JsonStock.swift */; };
 		4E02F0A8211E0B6C00B2AA52 /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A7211E0B6C00B2AA52 /* RequestData.swift */; };
@@ -33,7 +32,6 @@
 		4E02F098211DF0A400B2AA52 /* MainScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		4E02F09A211DF92600B2AA52 /* AddSymbolScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSymbolScreen.swift; sourceTree = "<group>"; };
 		4E02F09C211E020800B2AA52 /* StockService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
-		4E02F09E211E023A00B2AA52 /* StockList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockList.swift; sourceTree = "<group>"; };
 		4E02F0A3211E06E400B2AA52 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4E02F0A5211E09A300B2AA52 /* JsonStock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonStock.swift; sourceTree = "<group>"; };
 		4E02F0A7211E0B6C00B2AA52 /* RequestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 		4E02F096211DEE6400B2AA52 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4E02F09E211E023A00B2AA52 /* StockList.swift */,
 				4E02F0A5211E09A300B2AA52 /* JsonStock.swift */,
 			);
 			name = Models;
@@ -201,7 +198,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E02F0A6211E09A300B2AA52 /* JsonStock.swift in Sources */,
-				4E02F09F211E023A00B2AA52 /* StockList.swift in Sources */,
 				4E02F099211DF0A400B2AA52 /* MainScreen.swift in Sources */,
 				4E02F087211DEAD900B2AA52 /* StockWatch.xcdatamodeld in Sources */,
 				4E02F0A4211E06E400B2AA52 /* DataManager.swift in Sources */,
@@ -373,6 +369,7 @@
 				4E02F092211DEAD900B2AA52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

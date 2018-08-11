@@ -26,11 +26,6 @@ class AddSymbolScreen: UIViewController {
         super.viewDidLoad()
         tableView.reloadData()
     }
-
-
-    
-    
-
 }
 
 extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate {
@@ -38,7 +33,7 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             stockService.AddStockToDb(stock: queriedData[(tableView.indexPathForSelectedRow?.row)!] as! JsonStock)
             delegate?.dataAddedByTapped(isDone: true)
-            self.navigationController?.dismiss(animated: true, completion: nil)
+            navigationController?.popToRootViewController(animated: false)
     }
     
     
