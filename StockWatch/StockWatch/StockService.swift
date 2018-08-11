@@ -41,10 +41,6 @@ class StockService : RequestDataDelegate {
     }
     
     
-    func getSymbolDetails(symbol : String) -> <#return type#> {
-        <#function body#>
-    }
-    
     
     
     func AddStockToDb(stock : JsonStock) {

@@ -19,6 +19,7 @@
 		4E02F0A6211E09A300B2AA52 /* JsonStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A5211E09A300B2AA52 /* JsonStock.swift */; };
 		4E02F0A8211E0B6C00B2AA52 /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A7211E0B6C00B2AA52 /* RequestData.swift */; };
 		4E02F0AB211E0EBF00B2AA52 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0AA211E0EBF00B2AA52 /* Constants.swift */; };
+		4EDB79F5211E904B00994370 /* StockDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB79F4211E904B00994370 /* StockDetailScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4E02F0A5211E09A300B2AA52 /* JsonStock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonStock.swift; sourceTree = "<group>"; };
 		4E02F0A7211E0B6C00B2AA52 /* RequestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
 		4E02F0AA211E0EBF00B2AA52 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4EDB79F4211E904B00994370 /* StockDetailScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		4E02F07D211DEAD900B2AA52 /* StockWatch */ = {
 			isa = PBXGroup;
 			children = (
+				4EDB79F3211E8AA200994370 /* CustomUI */,
 				4E02F0A9211E0EB600B2AA52 /* Constants */,
 				4E02F0A2211E032500B2AA52 /* Helpers */,
 				4E02F0A1211E02BA00B2AA52 /* Stores */,
@@ -88,6 +91,7 @@
 			children = (
 				4E02F098211DF0A400B2AA52 /* MainScreen.swift */,
 				4E02F09A211DF92600B2AA52 /* AddSymbolScreen.swift */,
+				4EDB79F4211E904B00994370 /* StockDetailScreen.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -123,6 +127,13 @@
 				4E02F0AA211E0EBF00B2AA52 /* Constants.swift */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		4EDB79F3211E8AA200994370 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CustomUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 				4E02F0A8211E0B6C00B2AA52 /* RequestData.swift in Sources */,
 				4E02F09B211DF92600B2AA52 /* AddSymbolScreen.swift in Sources */,
 				4E02F09D211E020800B2AA52 /* StockService.swift in Sources */,
+				4EDB79F5211E904B00994370 /* StockDetailScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
