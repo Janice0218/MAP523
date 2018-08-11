@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainScreen: UIViewController   {
+class MainScreen: UIViewController  {
 
     
     var stockService = StockService()
@@ -24,18 +24,27 @@ class MainScreen: UIViewController   {
     }
     
     
-
-
 }
 
 extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddDataToDbDelegate
 {
     
-    func dataAddedByTapped(isDone: Bool) {
-        if isDone {
-            allDataFromDB  = stockService.listStocksfromDb()
-            tableView.reloadData()
+    
+    func dataAddedByTapped(stock: JsonStock){
+        
+        
+        let exist = allDataFromDB.first { (old) -> Bool in
+            old.symbol == stock.Symbol
         }
+        
+        if exist ==  nil {
+            stockService.AddStockToDb(stock: stock)
+            allDataFromDB  = stockService.listStocksfromDb()
+        }
+    
+
+        tableView.reloadData()
+
     }
     
     
@@ -68,5 +77,7 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
         cell.detailTextLabel?.text = stock.name
         return cell
     }
+    
+    
 
 }
