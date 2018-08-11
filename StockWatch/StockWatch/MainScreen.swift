@@ -12,7 +12,7 @@ class MainScreen: UIViewController   {
 
     
     var stockService = StockService()
-    
+
     var allDataFromDB = Array<Stock>()
     
     @IBOutlet weak var tableView: UITableView!
@@ -28,9 +28,24 @@ class MainScreen: UIViewController   {
 
 }
 
-extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate
+extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddDataToDbDelegate
 {
-
+    
+    func dataAddedByTapped(isDone: Bool) {
+        if isDone {
+            allDataFromDB  = stockService.listStocksfromDb()
+            tableView.reloadData()
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier?.contains("addSegue"))! {
+            let view = segue.destination as! AddSymbolScreen
+            view.delegate = self
+        }
+    }
+    
     // TableView Rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allDataFromDB.count
@@ -46,8 +61,13 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
         cell.detailTextLabel?.text = stock.name
         return cell
     }
+
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text {
+            self.allDataFromDB  = self.stockService.listStocksfromDb()
+        }
         tableView.reloadData()
+
     }
 }

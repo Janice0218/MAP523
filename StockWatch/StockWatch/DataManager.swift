@@ -21,13 +21,11 @@ class DataManager {
     
     func fetchAll() -> NSMutableArray {
         
-        
         //reset data
         allData.removeAllObjects()
-        
+
         //determine data to fetch
         let fetchrequest : NSFetchRequest<Stock> = Stock.fetchRequest()
-        
         
         do {
             
@@ -47,6 +45,25 @@ class DataManager {
         return allData
         
     }
+    
+    func AddEntity(name: String , symbol :String , exch : String , exchDisp : String, type : String, typeDisp :String)  {
+        
+        
+        let newEntity = NSEntityDescription.insertNewObject(forEntityName: "Stock", into: appDelegatePointer.persistentContainer.viewContext) as! Stock
+        
+        
+        newEntity.name = name
+        newEntity.exchange = exch
+        newEntity.exchangeDisplay = exchDisp
+        newEntity.symbol = symbol
+        newEntity.type = type
+        newEntity.typeDisplay = typeDisp
+        
+        appDelegatePointer.saveContext()
+        
+        
+    }
+    
     
     
 }

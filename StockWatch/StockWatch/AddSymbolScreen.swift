@@ -8,35 +8,47 @@
 
 import UIKit
 
-class AddSymbolScreen: UIViewController{
+class AddSymbolScreen: UIViewController {
+    
 
+    var delegate : AddDataToDbDelegate?
     var stockService  = StockService()
-    var queriedData : Array<JsonStock> = []
+    var queriedData = NSMutableArray()
     var stringText : String?
+    
     
     @IBOutlet weak var tableView: UITableView!
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.reloadData()
     }
 
+
+    
+    
 
 }
 
 extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate {
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            stockService.AddStockToDb(stock: queriedData[(tableView.indexPathForSelectedRow?.row)!] as! JsonStock)
+            delegate?.dataAddedByTapped(isDone: true)
+            self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "queryCell", for: indexPath)
-        
-        
-        let stock = queriedData[indexPath.row]
-        
+        let stock = queriedData[indexPath.row] as! JsonStock
         cell.textLabel?.text = stock.Symbol
-        
+        cell.detailTextLabel?.text = stock.Name
         return cell
-    
     
     }
     
@@ -47,9 +59,13 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        queriedData =  stockService.listStocksfromJson(query: searchText)
+        tableView.reloadData()
+        queriedData =  stockService.listStocksfromJson(query: searchText) as! NSMutableArray
         tableView.reloadData()
 
     }
     
-  }
+}
+protocol AddDataToDbDelegate {
+    func dataAddedByTapped(isDone : Bool)
+}

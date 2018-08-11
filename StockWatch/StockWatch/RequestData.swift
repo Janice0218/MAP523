@@ -45,17 +45,17 @@ class RequestData {
             do {
                 let jsonObject = try JSONSerialization.jsonObject(with: json!, options: []) as! NSDictionary
                 
-                let res =  jsonObject.value(forKeyPath: "ResultSet.Result")
-                
-            
-                
+                let res =  jsonObject.value(forKeyPath: "ResultSet.Result") as! Array<NSDictionary>
                 
     
-                    
-      
-                    
-                    
-
+                let ret  =  res.map({ (data) -> JsonStock in
+                    return JsonStock(json: data)!
+                })
+                
+                DispatchQueue.main.async {
+                     self.delegate?.requestDataDidDownload(stocks: ret)
+                }
+            
                 
             }
             catch {
