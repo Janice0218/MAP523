@@ -44,6 +44,13 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
             let view = segue.destination as! AddSymbolScreen
             view.delegate = self
         }
+        else if (segue.identifier?.contains("detailSegue"))! {
+            let view = segue.destination as! StockDetailScreen
+            let symbol = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel?.text
+            view.symbol = symbol
+        }
+        
+        
     }
     
     // TableView Rows
