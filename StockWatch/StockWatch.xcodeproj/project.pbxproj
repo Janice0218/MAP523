@@ -72,7 +72,7 @@
 		4E02F07D211DEAD900B2AA52 /* StockWatch */ = {
 			isa = PBXGroup;
 			children = (
-				4EDB79F3211E8AA200994370 /* CustomUI */,
+				4EDB79F3211E8AA200994370 /* CustomUIElements */,
 				4E02F0A9211E0EB600B2AA52 /* Constants */,
 				4E02F0A2211E032500B2AA52 /* Helpers */,
 				4E02F0A1211E02BA00B2AA52 /* Stores */,
@@ -131,12 +131,12 @@
 			name = Constants;
 			sourceTree = "<group>";
 		};
-		4EDB79F3211E8AA200994370 /* CustomUI */ = {
+		4EDB79F3211E8AA200994370 /* CustomUIElements */ = {
 			isa = PBXGroup;
 			children = (
 				4EDB79F6211E98AE00994370 /* DetailCell.swift */,
 			);
-			name = CustomUI;
+			name = CustomUIElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
