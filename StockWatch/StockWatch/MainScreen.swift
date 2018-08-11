@@ -22,8 +22,6 @@ class MainScreen: UIViewController  {
         super.viewDidLoad()
         allDataFromDB = stockService.listStocksfromDb()
     }
-    
-    
 }
 
 extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddDataToDbDelegate

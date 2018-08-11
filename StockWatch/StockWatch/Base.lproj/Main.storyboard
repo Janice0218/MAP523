@@ -88,6 +88,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="IyA-Hq-WWD"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rnr-2g-u5J">
                             <connections>
+                                <action selector="addTapped:" destination="IeM-NB-UB5" id="ved-Kp-3Q6"/>
                                 <segue destination="n3b-Kv-74T" kind="show" identifier="addSegue" id="gok-zu-ug4"/>
                             </connections>
                         </barButtonItem>

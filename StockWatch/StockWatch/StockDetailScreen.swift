@@ -26,6 +26,7 @@ class StockDetailScreen: UIViewController {
     @IBAction func reloadTapped(_ sender: UIBarButtonItem) {
     }
 
+
 }
 
 
