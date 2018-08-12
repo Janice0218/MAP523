@@ -11,33 +11,31 @@ import UIKit
 class MainScreen: UIViewController  {
 
     
-    var stockService = StockService()
+    
+    var stockManager =  StockManager(db: DataManager())
 
-    var allDataFromDB = Array<Stock>()
+    var allDataFromDB = NSMutableArray()
     
     @IBOutlet weak var tableView: UITableView!
     var text  : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        allDataFromDB = stockService.listStocksfromDb()
+        allDataFromDB = stockManager.listStocksfromDb()
     }
 }
 
 extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddDataToDbDelegate
 {
-    
-    
-    func dataAddedByTapped(stock: JsonStock){
-        
+    func dataAddedByTapped(stock: StockModel){
         
         let exist = allDataFromDB.first { (old) -> Bool in
-            old.symbol == stock.Symbol
+            (old as! Stock).symbol == stock.Symbol
         }
         
         if exist ==  nil {
-            stockService.AddStockToDb(stock: stock)
-            allDataFromDB  = stockService.listStocksfromDb()
+            stockManager.AddStockToDb(stock: stock)
+            allDataFromDB  = stockManager.listStocksfromDb()
         }
     
 
@@ -49,7 +47,9 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier?.contains("addSegue"))! {
             let view = segue.destination as! AddSymbolScreen
+            view.stockManager = self.stockManager
             view.delegate = self
+            
         }
         else if (segue.identifier?.contains("detailSegue"))! {
             let view = segue.destination as! StockDetailScreen
@@ -70,12 +70,10 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "symbolCell", for: indexPath)
-        let stock  = allDataFromDB[indexPath.row]
+        let stock  = allDataFromDB[indexPath.row] as! Stock
         cell.textLabel?.text = stock.symbol
         cell.detailTextLabel?.text = stock.name
         return cell
     }
-    
-    
 
 }
