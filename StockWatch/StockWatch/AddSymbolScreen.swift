@@ -10,9 +10,8 @@ import UIKit
 
 class AddSymbolScreen: UIViewController {
     
-
     var delegate : AddDataToDbDelegate?
-    var stockService = StockService()
+    var stockManager : StockManager?
     var queriedData = NSMutableArray()
     var stringText : String?
     
@@ -24,7 +23,7 @@ class AddSymbolScreen: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
+        
     }
 }
 
@@ -32,7 +31,7 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let addStock  = queriedData[(tableView.indexPathForSelectedRow?.row)!] as! JsonStock
+        let addStock  = queriedData[(tableView.indexPathForSelectedRow?.row)!] as! StockModel
         
         delegate?.dataAddedByTapped(stock : addStock)
 
@@ -44,7 +43,7 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "queryCell", for: indexPath)
-        let stock = queriedData[indexPath.row] as! JsonStock
+        let stock = queriedData[indexPath.row] as! StockModel
         cell.textLabel?.text = stock.Symbol
         cell.detailTextLabel?.text = stock.Name
         return cell
@@ -57,12 +56,17 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        queriedData =  stockService.listStocksfromJson(query:searchText) as! NSMutableArray
-        tableView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.queriedData =  (self.stockManager?.listStocksfromJson(query:searchText))!
+            self.tableView.reloadData()
+        }
     }
+    
 }
 
 
+
 protocol AddDataToDbDelegate {
-    func dataAddedByTapped(stock : JsonStock)
+    func dataAddedByTapped(stock : StockModel)
 }
