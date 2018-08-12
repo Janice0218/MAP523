@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RequestData {
+class RequestDataFetcher {
     var delegate : RequestDataDelegate?
     
     func getData(url: URL, requestHandler: @escaping (Data)->()) {
@@ -32,7 +32,6 @@ class RequestData {
                 print("Error while performing task in Request Data.")
             }
         }
-        
         task.resume()
     }
     
@@ -47,16 +46,12 @@ class RequestData {
                 
                 let res =  jsonObject.value(forKeyPath: "ResultSet.Result") as! Array<NSDictionary>
                 
-    
-                let ret  =  res.map({ (data) -> JsonStock in
-                    return JsonStock(json: data)!
-                })
+                let ret  =  res.map({ (data) -> StockModel in
+                    return StockModel(json: data)!
+                }) as! NSMutableArray
                 
-                DispatchQueue.main.async {
-                     self.delegate?.requestDataDidDownload(stocks: ret)
-                }
-            
-                
+                self.delegate?.requestDataDidDownload(result: ret)
+
             }
             catch {
                 print("Unable to serialize data.")
@@ -65,11 +60,12 @@ class RequestData {
     }
     
     
+    
     func trim(jsonString : String) -> String {
         return jsonString.replacingOccurrences(of:  yahoostringToTrim, with: "").replacingOccurrences(of: ");", with:"")
     }
 }
 
 protocol RequestDataDelegate {
-    func requestDataDidDownload(stocks : [JsonStock])
+    func requestDataDidDownload(result : NSMutableArray)
 }
