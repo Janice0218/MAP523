@@ -42,10 +42,17 @@ class DataManager {
         
     }
     
-    func AddEntity(name: String , symbol :String , exch : String , exchDisp : String, type : String, typeDisp :String)  {
+    func AddEntity(name: String ,
+                   symbol :String ,
+                   exch : String ,
+                   exchDisp : String,
+                   type : String,
+                   typeDisp :String)  {
         
         
-        let newEntity = NSEntityDescription.insertNewObject(forEntityName: "Stock", into: appDelegatePointer.persistentContainer.viewContext) as! Stock
+        let newEntity = NSEntityDescription
+            .insertNewObject(forEntityName: "Stock", into: appDelegatePointer.persistentContainer.viewContext)
+            as! Stock
 
         newEntity.name = name
         newEntity.exchange = exch
