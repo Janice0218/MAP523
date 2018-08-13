@@ -19,10 +19,16 @@ class StockDetailScreen: UIViewController {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.title = symbol
         
-        self.stockManager?.listStockDetailsBy(symbol: symbol, handler: { (all) in
+        super.viewDidLoad()
+        
+        self.navigationItem.title = symbol
+    
+        var search : String
+        
+        search = symbol.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        
+        self.stockManager?.listStockDetailsBy(symbol: search, handler: { (all) in
             self.details.removeAll()
             self.details = all
             DispatchQueue.main.async {
@@ -31,6 +37,7 @@ class StockDetailScreen: UIViewController {
                 self.loadingItem.isHidden = true
             }
         })
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         
@@ -39,7 +46,17 @@ class StockDetailScreen: UIViewController {
         
     }
     @IBAction func reloadTapped(_ sender: UIBarButtonItem) {
-        self.stockManager?.listStockDetailsBy(symbol: symbol, handler: { (all) in
+        var search : String
+        
+        if symbol.contains(".") {
+            search = symbol.replacingOccurrences(of: ".", with: PERIOD)
+        }
+        else {
+        
+            search = symbol
+        }
+        
+        self.stockManager?.listStockDetailsBy(symbol: search, handler: { (all) in
             self.details.removeAll()
             self.details = all
             self.loadingItem.isHidden = false
