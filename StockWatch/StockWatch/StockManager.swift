@@ -19,8 +19,9 @@ class StockManager {
     private var dbManager = DataManager()
     private var requestData = RequestDataFetcher()
     private var AllStocks = [StockModel]()
-    private var detailsForSymbol = NSDictionary()
+
     
+    //injectin DB into the stockManager
     init(db : DataManager) {
         self.dbManager = db
     }
@@ -30,49 +31,46 @@ class StockManager {
         return dbManager.fetchAll()
     }
     
-    
-    func listStocksfromJson(query : String) -> [StockModel] {
+    /*
+     This function list stock OHLC from symbol passed
+     that must exist in the data store.
+     */
+    func listStocksBy(query : String, handler : @escaping (_ all : [StockModel])-> Void) {
         
         let stringUrl  = "\(yahoohost)\(query)&\(yahooregion)&\(yahoolanguage)&\(yahoocallback)"
         if let url = URL(string : stringUrl) {
-        
-            DispatchQueue.main.async {
-       
-                self.requestData.getDataForSymbol(url: url, forKey: "ResultSet.Result") { (result) in
+                self.requestData.getData(url: url, forKey: "ResultSet.Result") { (result) in
                     switch result {
                     case .success(let stocks):
-                        self.AllStocks = stocks as! [StockModel]
+                        DispatchQueue.main.async {
+                            handler(stocks as! [StockModel])
+                        }
                     case .failure(let error):
                         print("ERROR: \(error.localizedDescription)")
                     }
-        
-                }
             }
         }
-        return AllStocks
-        
     }
     
-    
-    func listStockDetailfromJson(symbol : String)-> NSDictionary {
+    /*
+        This function list stock OHLC from symbol passed
+        that must exist in the data store.
+     */
+    func listStockDetailsBy(symbol : String, handler : @escaping (_ all : [StockOHLCModel])-> Void) {
+
         let detail =  SymbolDetailURL.init(host: stockhost, function: stockfunc, symbol: symbol, interval: stockInterval, apiKey: stockApiKey)
         
          let stringUrl = detail.url
         if let url = URL(string : stringUrl) {
-            DispatchQueue.main.async {
-                
-                self.requestData.getDataForSymbol(url: url, forKey: "Time%Series%(1min)") { (result) in
-                    switch result {
-                    case .success(let details):
-                        self.detailsForSymbol = ["symbol" : symbol, "details " : details]
-                    case .failure(let error):
-                        print("ERROR: \(error.localizedDescription)")
-                    }
-                    
+            self.requestData.getData(url: url, forKey: "Time%Series%(1min)") { (result) in
+                switch result {
+                case .success(let details):
+                        handler(details as! [StockOHLCModel])
+                case .failure(let error):
+                    print("ERROR: \(error.localizedDescription)")
                 }
             }
         }
-             return detailsForSymbol
     }
     
     func AddStockToDb(stock : StockModel)->Void {
@@ -82,7 +80,6 @@ class StockManager {
                              exchDisp: stock.ExchDisp,
                              type: stock.JsonType,
                              typeDisp: stock.TypeDisp)
-
     }
     
 }
