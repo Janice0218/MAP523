@@ -30,9 +30,7 @@ class StockDetailScreen: UIViewController {
                 self.loadingItem.stopAnimating()
                 self.loadingItem.isHidden = true
             }
-
         })
-    
     }
     override func viewWillDisappear(_ animated: Bool) {
         
@@ -80,6 +78,7 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
         return "\tInterval:\(stockInterval) Min"
     }
 
+    
     
 }
 

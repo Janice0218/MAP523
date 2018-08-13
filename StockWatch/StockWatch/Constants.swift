@@ -20,7 +20,6 @@ let yahoostringToTrim = "YAHOO.Finance.SymbolSuggest.ssCallback("
 let yahooforKey = "ResultSet.Result"
 
 
-
 // OHLC API constants
 let stockhost = "https://www.alphavantage.co/"
 let stockfunc = "TIME_SERIES_INTRADAY"
