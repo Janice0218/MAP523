@@ -25,7 +25,7 @@ class RequestDataFetcher {
     }
     
     
-    
+    //parsing data from API
     func getData(url: URL ,forKey : String, completion : ((JsonResult<Any>) -> Void)?) {
         
         let config = URLSessionConfiguration.default

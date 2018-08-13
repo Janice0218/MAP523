@@ -10,6 +10,7 @@ import UIKit
 
 class AddSymbolScreen: UIViewController {
     
+
     var delegate : AddDataToDbDelegate?
     var stockManager : StockManager?
     var queriedData = [StockModel]()
@@ -58,14 +59,12 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText.characters.count != 0 {
-            let fetch  = DispatchQueue(label : "fetch")
-            
-            fetch.async {
-                self.queriedData = (self.stockManager?.listStocksfromJson(query: searchText))!
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+                self.stockManager?.listStocksBy(query: searchText, handler: { (all) in
+                    self.queriedData = all
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                })
         }
         else
         {
@@ -83,7 +82,6 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     }
     
 }
-
 
 
 protocol AddDataToDbDelegate {

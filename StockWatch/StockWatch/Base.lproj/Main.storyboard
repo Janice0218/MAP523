@@ -236,6 +236,10 @@
                                     <outlet property="delegate" destination="EPI-cD-JLp" id="I6h-8t-MXy"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xo4-VQ-CDd">
+                                <rect key="frame" x="0.0" y="323" width="375" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -253,6 +257,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="loadingItem" destination="xo4-VQ-CDd" id="VOQ-3M-TkU"/>
+                        <outlet property="tableVIew" destination="afB-uh-vW7" id="cIO-mE-ty8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c9f-W9-QwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

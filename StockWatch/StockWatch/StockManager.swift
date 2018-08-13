@@ -73,6 +73,8 @@ class StockManager {
         }
     }
     
+    
+    //needs refactor
     func AddStockToDb(stock : StockModel)->Void {
          dbManager.AddEntity(name: stock.Name,
                              symbol: stock.Symbol,
