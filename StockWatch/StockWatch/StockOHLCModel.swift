@@ -17,14 +17,12 @@ class StockOHLCModel {
     var volume  : Double
     
     init?(json: NSDictionary) {
-    
-    let jsonArray = Array(json)
         
-            open        =   Double(jsonArray[0].value as! String)!
-            high        =   Double(jsonArray[1].value as! String)!
-            low         =   Double(jsonArray[2].value as! String)!
-            close       =   Double(jsonArray[3].value as! String)!
-            volume      =   Double(jsonArray[4].value as! String)!
+            open        =   Double(json.value(forKey: "1. open") as! String)!
+            high        =   Double(json.value(forKey: "2. high") as! String)!
+            low         =   Double(json.value(forKey: "3. low") as! String)!
+            close       =   Double(json.value(forKey: "4. close") as! String)!
+            volume      =   Double(json.value(forKey: "5. volume") as! String)!
         
     }
 }
