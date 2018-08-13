@@ -84,4 +84,26 @@ class StockManager {
                              typeDisp: stock.TypeDisp)
     }
     
+    
+    func removeStockBy(symbol : String)-> Void {
+        
+        
+       let index =  AllStocks.map { (s) -> Int in
+                s.Symbol == symbol
+        }
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
