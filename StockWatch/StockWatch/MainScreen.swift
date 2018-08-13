@@ -22,6 +22,8 @@ class MainScreen: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         allDataFromDB = stockManager.listStocksfromDb()
+        
+        
     }
 }
 
@@ -54,12 +56,10 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
         else if (segue.identifier?.contains("detailSegue"))! {
             let view = segue.destination as! StockDetailScreen
             let symbol = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel?.text
-            view.symbol = symbol
+            view.symbol = symbol!
             view.stockManager = self.stockManager
 
         }
-        
-        
     }
     
     // TableView Rows
