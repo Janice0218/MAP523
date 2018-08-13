@@ -10,8 +10,6 @@ import UIKit
 
 class MainScreen: UIViewController  {
 
-    
-    
     var stockManager =  StockManager(db: DataManager())
 
     var allDataFromDB = [Stock]()
@@ -82,7 +80,7 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
     //searchBar functions
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       if searchText.characters.count != 0 {
+       if searchText.characters.count == 0 {
             allDataFromDB = stockManager.listStocksfromDb()
             tableView.reloadData()
         }
@@ -100,8 +98,16 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
     }
     
     
-    
-    
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            
+            stockManager.removeStockBy(symbol: allDataFromDB[indexPath.row].symbol!)
+            allDataFromDB.remove(at: indexPath.row)
+            tableView.reloadData()
+            
+            
+
+        }
+    }
 
 }
