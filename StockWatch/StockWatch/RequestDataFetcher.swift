@@ -11,11 +11,12 @@ import Foundation
 
 
 class RequestDataFetcher {
-
+    
     
     //helper function to trim with callbacks functions
     func trim(jsonString : String) -> String {
-        return jsonString.replacingOccurrences(of:  yahoostringToTrim, with: "").replacingOccurrences(of: ");", with:"")
+        return jsonString.replacingOccurrences(of:  yahoostringToTrim, with: "")
+            .replacingOccurrences(of: ");", with:"")
     }
     
     //enum for json results
@@ -32,22 +33,23 @@ class RequestDataFetcher {
         
         let session = URLSession(configuration: config)
         
+        print ("\(url)")
         let task = session.dataTask(with: url) {(data, response, error) in
             
-                if let respError = error {
-                    completion?(.failure(respError))
-                }
-                else {
-                    var dataTofromUrl = data
-                    if forKey == yahooforKey {
-                        if let jsonData = data {
-                            var dataString  = String(data: jsonData , encoding : .utf8)
-                            dataString = self.trim(jsonString: dataString!)
-                            dataTofromUrl  = (dataString?.data(using: .utf8))!
-                        }
+            if let respError = error {
+                completion?(.failure(respError))
+            }
+            else {
+                var dataTofromUrl = data
+                if forKey == yahooforKey {
+                    if let jsonData = data {
+                        var dataString  = String(data: jsonData , encoding : .utf8)
+                        dataString = self.trim(jsonString: dataString!)
+                        dataTofromUrl  = (dataString?.data(using: .utf8))!
                     }
-                    do {
-                        let jsonObject = try JSONSerialization.jsonObject(with: dataTofromUrl!, options: []) as! NSDictionary
+                }
+                do {
+                    let jsonObject = try JSONSerialization.jsonObject(with: dataTofromUrl!, options: []) as! NSDictionary
                         if forKey == yahooforKey {
                             let res =  jsonObject.value(forKeyPath: forKey) as! Array<NSDictionary>
                             let returnValue  =  res.map({ (data) -> StockModel in
@@ -55,21 +57,24 @@ class RequestDataFetcher {
                             })
                             completion?(.success(returnValue))
                         }
-                        else {
+                        else if forKey == stockforKey {
                             let res =  Array(jsonObject)[0].value as! NSDictionary
                             let returnValue =  res.map({
                                 return StockOHLCModel(json: $0.value as! NSDictionary)
                             }) as! [StockOHLCModel]
-                                completion?(.success(returnValue))
-
+                            completion?(.success(returnValue))
                         }
+                        else {
+                            
+                        }
+                    
                     }
                     catch {
                         completion? (.failure(error))
                     }
+                }
             }
-        }
         task.resume()
-    }
-
+        }
+    
 }
