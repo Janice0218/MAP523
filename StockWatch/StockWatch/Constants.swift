@@ -10,6 +10,8 @@ import Foundation
 
 
 
+//TODO : to all caps
+
 // Yahoo API constants
 let yahoohost = "http://d.yimg.com/autoc.finance.yahoo.com/autoc?query="
 let yahooregion =  "region=1"
@@ -27,9 +29,10 @@ let stockInterval = 1
 let stockApiKey = "TEUK0SW0QEMQ3DZ7"
 let stockforKey = "Time%Series%(1min)"
 
-//https://www.alphavantage.co/
-//query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)
-//&interval=1min&apikey=\(key)
+
+//Esape chararcters
+let PERIOD = "_0x2E_"
+
 
 struct SymbolDetailURL {
     var url : String
