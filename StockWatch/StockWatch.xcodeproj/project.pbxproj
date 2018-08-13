@@ -19,6 +19,8 @@
 		4E02F0A6211E09A300B2AA52 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A5211E09A300B2AA52 /* StockModel.swift */; };
 		4E02F0A8211E0B6C00B2AA52 /* RequestDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A7211E0B6C00B2AA52 /* RequestDataFetcher.swift */; };
 		4E02F0AB211E0EBF00B2AA52 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0AA211E0EBF00B2AA52 /* Constants.swift */; };
+		4EC3EF2B2121014600F1924F /* stockSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC3EF2A2121014600F1924F /* stockSearchBar.swift */; };
+		4EC3EF2D21210AF600F1924F /* StockOHLCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC3EF2C21210AF600F1924F /* StockOHLCModel.swift */; };
 		4EDB79F5211E904B00994370 /* StockDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB79F4211E904B00994370 /* StockDetailScreen.swift */; };
 		4EDB79F7211E98AE00994370 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB79F6211E98AE00994370 /* DetailCell.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		4E02F0A5211E09A300B2AA52 /* StockModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
 		4E02F0A7211E0B6C00B2AA52 /* RequestDataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDataFetcher.swift; sourceTree = "<group>"; };
 		4E02F0AA211E0EBF00B2AA52 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4EC3EF2A2121014600F1924F /* stockSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stockSearchBar.swift; sourceTree = "<group>"; };
+		4EC3EF2C21210AF600F1924F /* StockOHLCModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockOHLCModel.swift; sourceTree = "<group>"; };
 		4EDB79F4211E904B00994370 /* StockDetailScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailScreen.swift; sourceTree = "<group>"; };
 		4EDB79F6211E98AE00994370 /* DetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,7 +78,7 @@
 			children = (
 				4EDB79F3211E8AA200994370 /* CustomUIElements */,
 				4E02F0A9211E0EB600B2AA52 /* Constants */,
-				4E02F0A2211E032500B2AA52 /* Helpers */,
+				4E02F0A2211E032500B2AA52 /* Logic */,
 				4E02F0A1211E02BA00B2AA52 /* DataStores */,
 				4E02F096211DEE6400B2AA52 /* Models */,
 				4E02F095211DEE5900B2AA52 /* Controllers */,
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				4E02F0A5211E09A300B2AA52 /* StockModel.swift */,
+				4EC3EF2C21210AF600F1924F /* StockOHLCModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -114,13 +119,13 @@
 			name = DataStores;
 			sourceTree = "<group>";
 		};
-		4E02F0A2211E032500B2AA52 /* Helpers */ = {
+		4E02F0A2211E032500B2AA52 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
 				4E02F09C211E020800B2AA52 /* StockManager.swift */,
 				4E02F0A7211E0B6C00B2AA52 /* RequestDataFetcher.swift */,
 			);
-			name = Helpers;
+			name = Logic;
 			sourceTree = "<group>";
 		};
 		4E02F0A9211E0EB600B2AA52 /* Constants */ = {
@@ -135,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				4EDB79F6211E98AE00994370 /* DetailCell.swift */,
+				4EC3EF2A2121014600F1924F /* stockSearchBar.swift */,
 			);
 			name = CustomUIElements;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 				4E02F0A6211E09A300B2AA52 /* StockModel.swift in Sources */,
 				4EDB79F7211E98AE00994370 /* DetailCell.swift in Sources */,
 				4E02F099211DF0A400B2AA52 /* MainScreen.swift in Sources */,
+				4EC3EF2D21210AF600F1924F /* StockOHLCModel.swift in Sources */,
 				4E02F087211DEAD900B2AA52 /* StockWatch.xcdatamodeld in Sources */,
 				4E02F0A4211E06E400B2AA52 /* DataManager.swift in Sources */,
 				4E02F0AB211E0EBF00B2AA52 /* Constants.swift in Sources */,
@@ -221,6 +228,7 @@
 				4E02F0A8211E0B6C00B2AA52 /* RequestDataFetcher.swift in Sources */,
 				4E02F09B211DF92600B2AA52 /* AddSymbolScreen.swift in Sources */,
 				4E02F09D211E020800B2AA52 /* StockManager.swift in Sources */,
+				4EC3EF2B2121014600F1924F /* stockSearchBar.swift in Sources */,
 				4EDB79F5211E904B00994370 /* StockDetailScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

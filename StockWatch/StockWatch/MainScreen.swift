@@ -14,7 +14,7 @@ class MainScreen: UIViewController  {
     
     var stockManager =  StockManager(db: DataManager())
 
-    var allDataFromDB = NSMutableArray()
+    var allDataFromDB = [Stock]()
     
     @IBOutlet weak var tableView: UITableView!
     var text  : String?
@@ -30,7 +30,7 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
     func dataAddedByTapped(stock: StockModel){
         
         let exist = allDataFromDB.first { (old) -> Bool in
-            (old as! Stock).symbol == stock.Symbol
+            old.symbol == stock.Symbol
         }
         
         if exist ==  nil {
@@ -55,6 +55,8 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
             let view = segue.destination as! StockDetailScreen
             let symbol = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel?.text
             view.symbol = symbol
+            view.stockManager = self.stockManager
+
         }
         
         
@@ -70,10 +72,36 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "symbolCell", for: indexPath)
-        let stock  = allDataFromDB[indexPath.row] as! Stock
+        let stock  = allDataFromDB[indexPath.row] 
         cell.textLabel?.text = stock.symbol
         cell.detailTextLabel?.text = stock.name
         return cell
     }
+    
+    
+    //searchBar functions
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       if searchText.characters.count != 0 {
+            allDataFromDB = stockManager.listStocksfromDb()
+            tableView.reloadData()
+        }
+       else {
+            allDataFromDB = allDataFromDB.filter({ (data) -> Bool in
+                (data.symbol?.contains(searchText))!
+            })
+            tableView.reloadData()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        allDataFromDB = stockManager.listStocksfromDb()
+        tableView.reloadData()
+    }
+    
+    
+    
+    
+    
 
 }

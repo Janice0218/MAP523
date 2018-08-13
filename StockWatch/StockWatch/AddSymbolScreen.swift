@@ -12,7 +12,7 @@ class AddSymbolScreen: UIViewController {
     
     var delegate : AddDataToDbDelegate?
     var stockManager : StockManager?
-    var queriedData = NSMutableArray()
+    var queriedData = [StockModel]()
     var stringText : String?
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -31,7 +31,7 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let addStock  = queriedData[(tableView.indexPathForSelectedRow?.row)!] as! StockModel
+        let addStock  = queriedData[(tableView.indexPathForSelectedRow?.row)!]
         
         delegate?.dataAddedByTapped(stock : addStock)
 
@@ -43,7 +43,7 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "queryCell", for: indexPath)
-        let stock = queriedData[indexPath.row] as! StockModel
+        let stock = queriedData[indexPath.row]
         cell.textLabel?.text = stock.Symbol
         cell.detailTextLabel?.text = stock.Name
         return cell
@@ -57,10 +57,29 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        DispatchQueue.main.async {
-            self.queriedData =  (self.stockManager?.listStocksfromJson(query:searchText))!
-            self.tableView.reloadData()
+        if searchText.characters.count != 0 {
+            let fetch  = DispatchQueue(label : "fetch")
+            
+            fetch.async {
+                self.queriedData = (self.stockManager?.listStocksfromJson(query: searchText))!
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
+        else
+        {
+            queriedData.removeAll()
+            tableView.reloadData()
+        
+        }
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        queriedData.removeAll()
+        tableView.reloadData()
     }
     
 }

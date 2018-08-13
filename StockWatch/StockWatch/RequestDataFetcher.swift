@@ -8,64 +8,65 @@
 
 import Foundation
 
+
+
 class RequestDataFetcher {
-    var delegate : RequestDataDelegate?
+
+    func trim(jsonString : String) -> String {
+        return jsonString.replacingOccurrences(of:  yahoostringToTrim, with: "").replacingOccurrences(of: ");", with:"")
+    }
     
-    func getData(url: URL, requestHandler: @escaping (Data)->()) {
+    enum JsonResult<Value> {
+        case success(Value)
+        case failure(Error)
+    }
+    
+    
+    
+    func getDataForSymbol(url: URL ,forKey : String, completion : ((JsonResult<Any>) -> Void)?) {
         
-        //default config
         let config = URLSessionConfiguration.default
         
-        //get session
         let session = URLSession(configuration: config)
         
-        //perform task
-        let task = session.dataTask(with: url) { (data, response, error) in
-            if error == nil {
-                //perform  Task
-                if let jsonData = data{
-                    requestHandler(jsonData)
+        let task = session.dataTask(with: url) {(data, response, error) in
+            
+                if let respError = error {
+                    completion?(.failure(respError))
                 }
- 
-            }
-            else {
-                print("Error while performing task in Request Data.")
+                else {
+                    var dataTofromUrl = data
+                    if forKey == yahooforKey {
+                        if let jsonData = data {
+                            var dataString  = String(data: jsonData , encoding : .utf8)
+                            dataString = self.trim(jsonString: dataString!)
+                            dataTofromUrl  = (dataString?.data(using: .utf8))!
+                        }
+                    }
+                    do {
+                        let jsonObject = try JSONSerialization.jsonObject(with: dataTofromUrl!, options: []) as! NSDictionary
+                        if forKey == yahooforKey {
+                            let res =  jsonObject.value(forKeyPath: forKey) as! Array<NSDictionary>
+                            let returnValue  =  res.map({ (data) -> StockModel in
+                                return StockModel(json: data)!
+                            })
+                            completion?(.success(returnValue))
+                        }
+                        else {
+                            let res =  Array(jsonObject)[0].value as! NSDictionary
+                            let returnValue =  res.map({
+                                return StockOHLCModel(json: $0.value as! NSDictionary)
+                            
+                            })
+                           completion?(.success(returnValue))
+                        }
+                    }
+                    catch {
+                        completion? (.failure(error))
+                    }
             }
         }
         task.resume()
     }
-    
-    func getStock(url : URL) {
-        getData(url: url) { (jsonData) in
-            var dataString  = String(data: jsonData , encoding : .utf8)
-            dataString = self.trim(jsonString: dataString!)
-            let json  = dataString?.data(using: .utf8)
-            
-            do {
-                let jsonObject = try JSONSerialization.jsonObject(with: json!, options: []) as! NSDictionary
-                
-                let res =  jsonObject.value(forKeyPath: "ResultSet.Result") as! Array<NSDictionary>
-                
-                let ret  =  res.map({ (data) -> StockModel in
-                    return StockModel(json: data)!
-                }) as! NSMutableArray
-                
-                self.delegate?.requestDataDidDownload(result: ret)
 
-            }
-            catch {
-                print("Unable to serialize data.")
-            }
-        }
-    }
-    
-    
-    
-    func trim(jsonString : String) -> String {
-        return jsonString.replacingOccurrences(of:  yahoostringToTrim, with: "").replacingOccurrences(of: ");", with:"")
-    }
-}
-
-protocol RequestDataDelegate {
-    func requestDataDidDownload(result : NSMutableArray)
 }

@@ -17,16 +17,16 @@ let yahoolanguage = "lang=en"
 let yahoocallback  = "callback=YAHOO.Finance.SymbolSuggest.ssCallback"
 
 let yahoostringToTrim = "YAHOO.Finance.SymbolSuggest.ssCallback("
+let yahooforKey = "ResultSet.Result"
 
 
 
 // OHLC API constants
-let symbolhost = "https://www.alphavantage.co/"
 let stockhost = "https://www.alphavantage.co/"
 let stockfunc = "TIME_SERIES_INTRADAY"
 let stockInterval = 1
 let stockApiKey = "TEUK0SW0QEMQ3DZ7"
-
+let stockforKey = "Time%Series%(1min)"
 
 //https://www.alphavantage.co/
 //query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)

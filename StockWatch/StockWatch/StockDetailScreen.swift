@@ -9,21 +9,27 @@
 import UIKit
 
 class StockDetailScreen: UIViewController {
-
-
     
     var symbol : String?
     
+    var stockManager : StockManager?
+    var details : NSDictionary?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = symbol
         
     }
     override func viewWillDisappear(_ animated: Bool) {
+        
+        
         let main  = navigationController?.topViewController as! MainScreen
         main.tableView.reloadData()
+        
+        details = stockManager?.listStockDetailfromJson(symbol: symbol!)
+        
     }
     @IBAction func reloadTapped(_ sender: UIBarButtonItem) {
+        
     }
 
 
@@ -31,7 +37,9 @@ class StockDetailScreen: UIViewController {
 
 
 extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
+
     
+    //table methods
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailCell
         cell.openDetail.text    = "open"
@@ -48,8 +56,10 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
         return 10
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\tInterval: 1 min"
+        return "\tInterval:\(stockInterval) Min"
     }
+
+    
 }
 
 

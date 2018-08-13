@@ -16,10 +16,10 @@ class DataManager {
 
     var appDelegatePointer = UIApplication.shared.delegate as! AppDelegate
     
-    var allData = NSMutableArray()
+    var allData = [Stock]()
     
     
-    func fetchAll() -> NSMutableArray {
+    func fetchAll() -> [Stock] {
         //determine data to fetch
         let fetchrequest : NSFetchRequest<Stock> = Stock.fetchRequest()
         
@@ -28,10 +28,10 @@ class DataManager {
             let stocks = try appDelegatePointer.persistentContainer.viewContext.fetch(fetchrequest)
             
             if allData.count != stocks.count {
-                allData.removeAllObjects()
+                allData.removeAll()
                 //store data to array
                 for stock in stocks {
-                    allData.add(stock)
+                    allData.append(stock)
                 }
             }
         }
