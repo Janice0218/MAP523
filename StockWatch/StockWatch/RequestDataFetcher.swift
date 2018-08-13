@@ -12,10 +12,13 @@ import Foundation
 
 class RequestDataFetcher {
 
+    
+    //helper function to trim with callbacks functions
     func trim(jsonString : String) -> String {
         return jsonString.replacingOccurrences(of:  yahoostringToTrim, with: "").replacingOccurrences(of: ");", with:"")
     }
     
+    //enum for json results
     enum JsonResult<Value> {
         case success(Value)
         case failure(Error)
@@ -23,7 +26,7 @@ class RequestDataFetcher {
     
     
     
-    func getDataForSymbol(url: URL ,forKey : String, completion : ((JsonResult<Any>) -> Void)?) {
+    func getData(url: URL ,forKey : String, completion : ((JsonResult<Any>) -> Void)?) {
         
         let config = URLSessionConfiguration.default
         
@@ -56,9 +59,9 @@ class RequestDataFetcher {
                             let res =  Array(jsonObject)[0].value as! NSDictionary
                             let returnValue =  res.map({
                                 return StockOHLCModel(json: $0.value as! NSDictionary)
-                            
-                            })
-                           completion?(.success(returnValue))
+                            }) as! [StockOHLCModel]
+                                completion?(.success(returnValue))
+
                         }
                     }
                     catch {
