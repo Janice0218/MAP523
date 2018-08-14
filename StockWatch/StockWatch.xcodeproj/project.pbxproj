@@ -124,6 +124,7 @@
 		4E02F0A2211E032500B2AA52 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				4ED08F74212277A3009DD34A /* GlobalHelper.swift */,
 				4E02F09C211E020800B2AA52 /* StockManager.swift */,
 				4E02F0A7211E0B6C00B2AA52 /* RequestDataFetcher.swift */,
 			);
@@ -143,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				4EDB79F6211E98AE00994370 /* DetailCell.swift */,
-				4ED08F74212277A3009DD34A /* GlobalHelper.swift */,
 			);
 			name = CustomUIElements;
 			sourceTree = "<group>";

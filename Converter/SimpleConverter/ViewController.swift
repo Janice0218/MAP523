@@ -9,9 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var messageText: UILabel!
-
+    
     
     @IBOutlet weak var numTextField1: UITextField!
     @IBOutlet weak var numTextField2: UITextField!
@@ -26,61 +26,44 @@ class ViewController: UIViewController {
     
     //action for segments
     @IBAction func convertSegmentClick(_ sender: UISegmentedControl) {
-    
-        if numTextField1.isEditing || numTextField2.isEditing {
-            let field = numTextField1.isEditing ? numTextField1 : numTextField2
-            numTextDidProcess(textField:field!)
-        }
+        
+        let textField : UITextField = numTextField2.isEditing ? numTextField2 : numTextField1
+        didProcessFor(textField: textField)
+        
     }
-
+    
     @IBAction func textChanged(_ sender: UITextField) {
-        
-        numTextDidProcess(textField : sender)
+        if !(sender.text?.isEmpty)! {
+            didProcessFor(textField: sender)
+        }
         
     }
     
-    func numTextDidProcess(textField : UITextField)-> Void {
-        
-        if(textField == numTextField1) {
-            if let number = textField.text {
-                let val = Double(number)
-                let res = convert(num: val!, operation: { (num) -> Double in
-                    return num * converterConstants[segmentConverter.selectedSegmentIndex]})
-                numTextField2.text = "\(res)"
+    func didProcessFor(textField :UITextField) {
+        if let value = Double(textField.text!) {
+            convert(num: value, textField: textField,
+                    calculate: { (num) in
+                        return  textField  == numTextField1 ?
+                            (num * converterConstants[segmentConverter.selectedSegmentIndex]) :
+                            (num / converterConstants[segmentConverter.selectedSegmentIndex])
             }
-        }
-            
-        if(textField == numTextField2) {
-            if let number = textField.text {
-                let val = Double(number)
-                let res = convert(num: val!, operation: { (num) -> Double in
-                    return num * converterConstants[segmentConverter.selectedSegmentIndex]})
-                numTextField1.text = "\(res)"
-                }
-        }
-    }
-    
-    
-    func convert(num: Double , operation : (_ val : Double)-> Double)-> Double {
-        return operation (num)
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+            )}
         
-    
-        // Do any additional setup after loading the view, typically from a nib.
-   
-    
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func convert(num: Double, textField :  UITextField, calculate : (_ val : Double) -> Double ) {
+        if textField == numTextField1 {
+            numTextField2.text  = "\(calculate(num))"
+        }
+        if textField == numTextField2 {
+            numTextField1.text  = "\(calculate(num))"
+        }
     }
-
-
 }
+
+
+
+
+
+
 
