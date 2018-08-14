@@ -18,23 +18,36 @@ class StockDetailScreen: UIViewController {
     var details : [StockOHLCModel] = []
     
     
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         self.navigationItem.title = symbol
-    
-        var search : String
         
-        search = symbol.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        self.loadingItem.isHidden = false
+        self.loadingItem.startAnimating()
         
-        self.stockManager?.listStockDetailsBy(symbol: search, handler: { (all) in
+        let search = symbol.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        
+        self.stockManager?.listStockDetailsBy(symbol: search, handler: { (all, error) in
+            
             self.details.removeAll()
-            self.details = all
+        
             DispatchQueue.main.async {
-                self.tableVIew.reloadData()
-                self.loadingItem.stopAnimating()
-                self.loadingItem.isHidden = true
+                if all == nil {
+                    let alertController = UIAlertController(title: "Result Empty", message:
+                        "\(String(describing: error?.localizedDescription))", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler:  { action in
+                        self.navigationController?.popViewController(animated: true)
+                    }))
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                else {
+                    self.details = all!
+                    self.tableVIew.reloadData()
+                    self.loadingItem.stopAnimating()
+                    self.loadingItem.isHidden = true
+                }
             }
         })
         
@@ -45,22 +58,19 @@ class StockDetailScreen: UIViewController {
         main.tableView.reloadData()
         
     }
+    
+    
     @IBAction func reloadTapped(_ sender: UIBarButtonItem) {
-        var search : String
         
-        if symbol.contains(".") {
-            search = symbol.replacingOccurrences(of: ".", with: PERIOD)
-        }
-        else {
         
-            search = symbol
-        }
+        self.loadingItem.isHidden = false
+        self.loadingItem.startAnimating()
         
-        self.stockManager?.listStockDetailsBy(symbol: search, handler: { (all) in
+        let search = symbol.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        
+        self.stockManager?.listStockDetailsBy(symbol: search, handler: { (all,error) in
             self.details.removeAll()
-            self.details = all
-            self.loadingItem.isHidden = false
-            self.loadingItem.startAnimating()
+            self.details = all!
             DispatchQueue.main.async {
                 self.tableVIew.reloadData()
                 self.loadingItem.stopAnimating()
@@ -72,21 +82,21 @@ class StockDetailScreen: UIViewController {
 
 
 extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
-
+    
     
     //table methods
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailCell
-    
+        
         let allDetails = details
-            cell.openDetail.text    = "\(allDetails[indexPath.row].open)"
-            cell.closeDetail.text   = "\(allDetails[indexPath.row].close)"
-            cell.highDetail.text    = "\(allDetails[indexPath.row].high)"
-            cell.lowDetail.text     = "\(allDetails[indexPath.row].low)"
-            cell.volumeDetail.text  = "\(allDetails[indexPath.row].volume)"
+        cell.openDetail.text    = "\(allDetails[indexPath.row].open)"
+        cell.closeDetail.text   = "\(allDetails[indexPath.row].close)"
+        cell.highDetail.text    = "\(allDetails[indexPath.row].high)"
+        cell.lowDetail.text     = "\(allDetails[indexPath.row].low)"
+        cell.volumeDetail.text  = "\(allDetails[indexPath.row].volume)"
         return cell
         
-  }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return details.count
@@ -94,9 +104,11 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "\tInterval:\(stockInterval) Min"
     }
-
     
     
 }
+
+
+
 
 
