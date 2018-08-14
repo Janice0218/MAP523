@@ -34,9 +34,12 @@ class StockDetailScreen: UIViewController {
             self.details.removeAll()
         
             DispatchQueue.main.async {
-                if all == nil {
+                
+                if all == nil  || all?.count == 0 || error != nil {
+                    
+                    let errorMessage = error.unsafelyUnwrapped.localizedDescription
                     let alertController = UIAlertController(title: "Result Empty", message:
-                        "\(String(describing: error?.localizedDescription))", preferredStyle: UIAlertControllerStyle.alert)
+                        "\(String(describing:errorMessage ))", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler:  { action in
                         self.navigationController?.popViewController(animated: true)
                     }))
@@ -80,15 +83,15 @@ class StockDetailScreen: UIViewController {
     }
 }
 
-
 extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
-    
     
     //table methods
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailCell
         
         let allDetails = details
+        
+        cell.timeDetail.text    = "\(allDetails[indexPath.row].time)"
         cell.openDetail.text    = "\(allDetails[indexPath.row].open)"
         cell.closeDetail.text   = "\(allDetails[indexPath.row].close)"
         cell.highDetail.text    = "\(allDetails[indexPath.row].high)"
@@ -107,7 +110,6 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
     
     
 }
-
 
 
 
