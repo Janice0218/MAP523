@@ -9,6 +9,10 @@
 import UIKit
 
 class DetailCell: UITableViewCell {
+    
+    
+    
+    //Custom Cell
 
     @IBOutlet weak var openDetail: UILabel!
     
@@ -19,12 +23,7 @@ class DetailCell: UITableViewCell {
     @IBOutlet weak var lowDetail: UILabel!
     
     @IBOutlet weak var volumeDetail: UILabel!
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
