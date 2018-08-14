@@ -10,10 +10,10 @@ import UIKit
 
 class DetailCell: UITableViewCell {
     
-    
-    
     //Custom Cell
 
+    @IBOutlet weak var timeDetail: UILabel!
+    
     @IBOutlet weak var openDetail: UILabel!
     
     @IBOutlet weak var closeDetail: UILabel!
@@ -24,12 +24,5 @@ class DetailCell: UITableViewCell {
     
     @IBOutlet weak var volumeDetail: UILabel!
 
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    
-    
 
 }
