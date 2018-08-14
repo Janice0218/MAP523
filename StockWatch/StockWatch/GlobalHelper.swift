@@ -13,6 +13,4 @@ import UIKit
         searchBar.text = ""
         searchBar.endEditing(true)
     }
-    
-    
 }
