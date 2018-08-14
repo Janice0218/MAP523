@@ -16,13 +16,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var numTextField1: UITextField!
     @IBOutlet weak var numTextField2: UITextField!
     
+    @IBOutlet weak var toLabel: UILabel!
     @IBOutlet weak var segmentConverter: UISegmentedControl!
     
     //constant var for conversion
     let converterConstants = [0.0833333,2.54,0.0277778]
+    let convertToLabel = ["Feet", "Centimeter", "Yard"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        toLabel.text = convertToLabel[0]
         segmentConverter.selectedSegmentIndex = 0
         
         numTextField1.addTarget(self, action: #selector(textDidChanged(_:)), for: .editingChanged)
@@ -31,6 +36,8 @@ class ViewController: UIViewController {
     
     //action for segments
     @IBAction func convertSegmentClick(_ sender: UISegmentedControl) {
+        
+        toLabel.text = convertToLabel[sender.selectedSegmentIndex]
         
         let textField : UITextField = numTextField2.isEditing ? numTextField2 : numTextField1
         didProcessFor(textField: textField)
