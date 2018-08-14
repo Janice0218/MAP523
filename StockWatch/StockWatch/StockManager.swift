@@ -24,14 +24,11 @@ class StockManager {
     init(db : DataManager) {
         self.dbManager = db
         AllStockFromDb = dbManager.fetchAll()
-       
+        
     }
     
     func listStocksfromDb() -> [Stock] {
-        let fetched = dbManager.fetchAll()
-        if fetched.count > AllStockFromDb.count {
-            AllStockFromDb = fetched
-        }
+        AllStockFromDb = dbManager.fetchAll()
         return AllStockFromDb
     }
     
@@ -80,19 +77,12 @@ class StockManager {
     
     //needs refactor
     func AddStockToDb(stock : StockModel)->Void {
-        
-        
-        let count  = AllStockFromDb.filter( { (stockInDB) -> Bool in
-             return stockInDB.symbol == stock.Symbol
-            }).count
-        if count < 0 {
-            dbManager.AddEntity(name: stock.Name,
-                                symbol: stock.Symbol,
-                                exch: stock.Exch,
-                                exchDisp: stock.ExchDisp,
-                                type: stock.JsonType,
-                                typeDisp: stock.TypeDisp)
-        }
+        dbManager.AddEntity(name: stock.Name,
+                            symbol: stock.Symbol,
+                            exch: stock.Exch,
+                            exchDisp: stock.ExchDisp,
+                            type: stock.JsonType,
+                            typeDisp: stock.TypeDisp)
     }
     
     
