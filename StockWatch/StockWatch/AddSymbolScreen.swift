@@ -10,17 +10,14 @@ import UIKit
 
 class AddSymbolScreen: UIViewController {
     
-
-    var delegate : AddDataToDbDelegate?
     var stockManager : StockManager?
     var queriedData = [StockModel]()
     var stringText : String?
+    var delegate : StockDelegate?
     
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var tableView: UITableView!
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +30,7 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let addStock  = queriedData[(tableView.indexPathForSelectedRow?.row)!]
-        
-        delegate?.dataAddedByTapped(stock : addStock)
-
+        delegate?.stockAddedToList(newStock: addStock)
         navigationController?.popToRootViewController(animated: true)
         
     }
@@ -84,6 +79,7 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
 }
 
 
-protocol AddDataToDbDelegate {
-    func dataAddedByTapped(stock : StockModel)
+
+protocol StockDelegate {
+    func stockAddedToList(newStock : StockModel)-> Void
 }
