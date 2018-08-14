@@ -12,11 +12,18 @@ import CoreData
 import UIKit
 
 class DataManager {
-
+    
+    
+    //  reference app delegate pointer
     var appDelegatePointer = UIApplication.shared.delegate as! AppDelegate
+    
+    //  data from db
     var allData = [Stock]()
     
     
+    //
+    //  fetch all data from core data
+    //
     func fetchAll() -> [Stock] {
         //determine data to fetch
         let fetchrequest : NSFetchRequest<Stock> = Stock.fetchRequest()
@@ -33,10 +40,10 @@ class DataManager {
                 }
             }
         }
-        
         catch {
             print("Unable to fetch Data")
         }
+        
         return allData
         
     }
@@ -52,7 +59,7 @@ class DataManager {
         let newEntity = NSEntityDescription
             .insertNewObject(forEntityName: "Stock", into: appDelegatePointer.persistentContainer.viewContext)
             as! Stock
-
+        
         newEntity.name = name
         newEntity.exchange = exch
         newEntity.exchangeDisplay = exchDisp
@@ -61,7 +68,7 @@ class DataManager {
         newEntity.typeDisplay = typeDisp
         
         appDelegatePointer.saveContext()
-
+        
     }
     
     
