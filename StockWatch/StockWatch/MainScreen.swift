@@ -25,31 +25,35 @@ class MainScreen: UIViewController  {
     }
 }
 
-extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddDataToDbDelegate
+extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, StockDelegate
 {
-    func dataAddedByTapped(stock: StockModel){
-        
-        let exist = allDataFromDB.first { (old) -> Bool in
-            old.symbol == stock.Symbol
-        }
-        if exist ==  nil {
-            stockManager.AddStockToDb(stock: stock)
-            allDataFromDB  = stockManager.listStocksfromDb()
+    
+    func stockAddedToList(newStock  : StockModel)-> Void
+    {
+
+        let exist =  allDataFromDB.first { (old) -> Bool in
+            old.symbol! == newStock.Symbol
         }
         
-        
-        tableView.reloadData()
-        
+        if exist == nil {
+            stockManager.AddStockToDb(stock: newStock)
+            allDataFromDB = stockManager.listStocksfromDb()
+            tableView.reloadData()
+            
+        }
+
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if (segue.identifier?.contains("addSegue"))! {
             let view = segue.destination as! AddSymbolScreen
             view.stockManager = self.stockManager
             view.delegate = self
             
         }
+            
         else if (segue.identifier?.contains("detailSegue"))! {
             let view = segue.destination as! StockDetailScreen
             let symbol = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel?.text
