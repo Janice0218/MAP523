@@ -9,9 +9,9 @@
 import UIKit
 
 class MainScreen: UIViewController  {
-
+    
     var stockManager =  StockManager(db: DataManager())
-
+    
     var allDataFromDB = [Stock]()
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,8 +19,8 @@ class MainScreen: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        allDataFromDB = stockManager.listStocksfromDb()
         
+        allDataFromDB = stockManager.listStocksfromDb()
         
     }
 }
@@ -32,15 +32,14 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
         let exist = allDataFromDB.first { (old) -> Bool in
             old.symbol == stock.Symbol
         }
-        
         if exist ==  nil {
             stockManager.AddStockToDb(stock: stock)
             allDataFromDB  = stockManager.listStocksfromDb()
         }
-    
-
+        
+        
         tableView.reloadData()
-
+        
     }
     
     
@@ -56,7 +55,7 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
             let symbol = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel?.text
             view.symbol = symbol!
             view.stockManager = self.stockManager
-
+            
         }
     }
     
@@ -70,7 +69,7 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "symbolCell", for: indexPath)
-        let stock  = allDataFromDB[indexPath.row] 
+        let stock  = allDataFromDB[indexPath.row]
         cell.textLabel?.text = stock.symbol
         cell.detailTextLabel?.text = stock.name
         return cell
@@ -80,11 +79,11 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
     //searchBar functions
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       if searchText.characters.count == 0 {
+        if searchText.characters.count == 0 {
             allDataFromDB = stockManager.listStocksfromDb()
             tableView.reloadData()
         }
-       else {
+        else {
             allDataFromDB = allDataFromDB.filter({ (data) -> Bool in
                 (data.symbol?.contains(searchText))!
             })
@@ -99,15 +98,41 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.cellForRow(at: indexPath)
         if editingStyle == UITableViewCellEditingStyle.delete {
-            
-            stockManager.removeStockBy(symbol: allDataFromDB[indexPath.row].symbol!)
+            let symbol =  cell?.textLabel?.text
+            stockManager.removeStockBy(symbol: symbol!)
             allDataFromDB.remove(at: indexPath.row)
             tableView.reloadData()
             
-            
-
         }
     }
-
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
