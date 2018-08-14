@@ -10,43 +10,55 @@ import UIKit
 
 class MainScreen: UIViewController  {
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    // init for stock manager
     var stockManager =  StockManager(db: DataManager())
     
+    //  all data from db
     var allDataFromDB = [Stock]()
     
-    @IBOutlet weak var tableView: UITableView!
+    
+    // text for search bar
     var text  : String?
     
+    
+    // init data
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        allDataFromDB = stockManager.listStocksfromDb()
-        
+        resetTableViewFor(tableView: tableView, handler: nil)
     }
 }
 
-extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, StockDelegate
+
+
+
+
+//
+//  extension for Main with delegate
+//
+extension MainScreen : UITableViewDataSource, UITableViewDelegate , StockDelegate
 {
     
+    //  implementation for stock delegate func
     func stockAddedToList(newStock  : StockModel)-> Void
     {
-
+        //  if check if stock exist
         let exist =  allDataFromDB.first { (old) -> Bool in
             old.symbol! == newStock.Symbol
         }
         
+        //  if does not exist then add to db as well as reset table
         if exist == nil {
             stockManager.AddStockToDb(stock: newStock)
-            allDataFromDB = stockManager.listStocksfromDb()
-            tableView.reloadData()
-            
+            resetTableViewFor(tableView: tableView, handler: nil)
         }
-
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        //  pass data to add view
         if (segue.identifier?.contains("addSegue"))! {
             let view = segue.destination as! AddSymbolScreen
             view.stockManager = self.stockManager
@@ -54,6 +66,7 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
             
         }
             
+        //  pass data to detail view
         else if (segue.identifier?.contains("detailSegue"))! {
             let view = segue.destination as! StockDetailScreen
             let symbol = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel?.text
@@ -79,38 +92,73 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate, UISearchBarDe
         return cell
     }
     
-    
-    //searchBar functions
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.characters.count == 0 {
-            allDataFromDB = stockManager.listStocksfromDb()
-            tableView.reloadData()
-        }
-        else {
-            allDataFromDB = allDataFromDB.filter({ (data) -> Bool in
-                (data.symbol?.contains(searchText))!
-            })
-            tableView.reloadData()
-        }
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        allDataFromDB = stockManager.listStocksfromDb()
-        tableView.reloadData()
-    }
-    
-    
+    //
+    // Table View Edit for update and delete
+    //
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
+        
+        //   reference for cell
         let cell = tableView.cellForRow(at: indexPath)
+        
+        //  check editing style
         if editingStyle == UITableViewCellEditingStyle.delete {
             let symbol =  cell?.textLabel?.text
-            stockManager.removeStockBy(symbol: symbol!)
-            allDataFromDB.remove(at: indexPath.row)
-            tableView.reloadData()
             
+            
+            //  reset table with handler
+            resetTableViewFor(tableView: tableView, handler: { () -> [Stock] in
+                self.stockManager.removeStockBy(symbol: symbol!)
+                self.allDataFromDB.remove(at: indexPath.row)
+                return self.allDataFromDB
+            })
         }
+    }
+    
+    //
+    //  searchBar functions for text changed
+    //
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        // search text is empty
+        if searchText.characters.count == 0 {
+            
+            // reset the table
+            resetTableViewFor(tableView: tableView, handler: nil)
+        }
+            
+        else {
+            //  reset table with handler
+            resetTableViewFor(tableView: tableView, handler: {
+                return self.allDataFromDB.filter({ (data) -> Bool in
+                    (data.symbol?.contains(searchText))!
+                })
+            })
+        }
+    }
+    
+    //
+    //  handling reset of search bar for this view
+    //
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        // call reset for search bar
+        GlobalHelper.resetSearchBar(searchBar: searchBar)
+        
+        //  call reset table
+        resetTableViewFor(tableView: tableView, handler: nil)
+    }
+    
+    //
+    //  handling reset for within the view
+    //
+    func resetTableViewFor(tableView : UITableView, handler : (()->[Stock])?)->Void {
+        // validate handler and reset alldatafromDB
+        if (handler == nil) {
+            allDataFromDB = stockManager.listStocksfromDb()
+        }
+        //  then reload table view
+        tableView.reloadData()
     }
     
 }
