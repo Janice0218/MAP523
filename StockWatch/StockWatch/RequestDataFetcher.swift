@@ -61,11 +61,11 @@ class RequestDataFetcher {
                         }
                         else if forKey == stockforKey {
                             guard let res =  Array(jsonObject)[0].value as? NSDictionary else {
-                                completion?(.success([StockOHLCModel]()))
+                                completion?(.failure(StockError.notFound))
                                 return
                             }
                             let returnValue =  res.map({
-                                return StockOHLCModel(json: $0.value as! NSDictionary)
+                                return StockOHLCModel(time : $0.key as! String, json: $0.value as! NSDictionary)
                             }) as! [StockOHLCModel]
                             completion?(.success(returnValue))
                         }
@@ -83,3 +83,21 @@ class RequestDataFetcher {
         }
     
 }
+
+
+enum StockError : Error {
+    case notFound
+    case emptyStock
+    
+    
+    static func checkError(_ code : Int)-> StockError {
+        switch code {
+        case 404:
+            return .notFound
+        default:
+            return .emptyStock
+        }
+    }
+}
+
+
