@@ -14,7 +14,6 @@ import UIKit
 class DataManager {
 
     var appDelegatePointer = UIApplication.shared.delegate as! AppDelegate
-    
     var allData = [Stock]()
     
     
