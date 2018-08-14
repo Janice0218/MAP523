@@ -18,11 +18,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var segmentConverter: UISegmentedControl!
     
-    
     //constant var for conversion
     let converterConstants = [0.0833333,2.54,0.0277778]
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        segmentConverter.selectedSegmentIndex = 0
+        
+        numTextField1.addTarget(self, action: #selector(textDidChanged(_:)), for: .editingChanged)
+        numTextField2.addTarget(self, action: #selector(textDidChanged(_:)), for: .editingChanged)
+    }
     
     //action for segments
     @IBAction func convertSegmentClick(_ sender: UISegmentedControl) {
@@ -32,12 +37,10 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func textChanged(_ sender: UITextField) {
-        if !(sender.text?.isEmpty)! {
-            didProcessFor(textField: sender)
-        }
-        
+    @objc func textDidChanged(_ textField : UITextField) {
+        didProcessFor(textField: textField)
     }
+    
     
     func didProcessFor(textField :UITextField) {
         if let value = Double(textField.text!) {
@@ -46,18 +49,27 @@ class ViewController: UIViewController {
                         return  textField  == numTextField1 ?
                             (num * converterConstants[segmentConverter.selectedSegmentIndex]) :
                             (num / converterConstants[segmentConverter.selectedSegmentIndex])
-            }
-            )}
-        
+            })
+        }
+        else {
+            numTextField1.text = ""
+            numTextField2.text = ""
+        }
     }
     
+    
+    //switch
+    @IBAction func clearTextSwitched(_ sender: UISwitch) {
+        numTextField2.clearsOnBeginEditing = sender.isOn
+        numTextField1.clearsOnBeginEditing = sender.isOn
+    }
+    
+    
+    
+    //convert num and send result to textField
     func convert(num: Double, textField :  UITextField, calculate : (_ val : Double) -> Double ) {
-        if textField == numTextField1 {
-            numTextField2.text  = "\(calculate(num))"
-        }
-        if textField == numTextField2 {
-            numTextField1.text  = "\(calculate(num))"
-        }
+        let textFieldResult  = (textField == numTextField1) ?  numTextField2 : numTextField1
+        textFieldResult?.text = String(format : "%.2f",calculate(num))
     }
 }
 
