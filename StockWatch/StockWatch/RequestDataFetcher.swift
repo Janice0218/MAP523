@@ -50,6 +50,8 @@ class RequestDataFetcher {
                 }
                 do {
                     let jsonObject = try JSONSerialization.jsonObject(with: dataTofromUrl!, options: []) as! NSDictionary
+                    
+                    
                         if forKey == yahooforKey {
                             let res =  jsonObject.value(forKeyPath: forKey) as! Array<NSDictionary>
                             let returnValue  =  res.map({ (data) -> StockModel in
@@ -58,7 +60,10 @@ class RequestDataFetcher {
                             completion?(.success(returnValue))
                         }
                         else if forKey == stockforKey {
-                            let res =  Array(jsonObject)[0].value as! NSDictionary
+                            guard let res =  Array(jsonObject)[0].value as? NSDictionary else {
+                                completion?(.success([StockOHLCModel]()))
+                                return
+                            }
                             let returnValue =  res.map({
                                 return StockOHLCModel(json: $0.value as! NSDictionary)
                             }) as! [StockOHLCModel]
