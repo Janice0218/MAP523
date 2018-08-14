@@ -236,17 +236,23 @@
                                     <outlet property="delegate" destination="EPI-cD-JLp" id="I6h-8t-MXy"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xo4-VQ-CDd">
-                                <rect key="frame" x="0.0" y="323" width="375" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xo4-VQ-CDd">
+                                <rect key="frame" x="138" y="284" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Y1X-R6-xkn"/>
+                                    <constraint firstAttribute="height" constant="100" id="cUA-r7-tJW"/>
+                                </constraints>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xo4-VQ-CDd" firstAttribute="centerY" secondItem="THH-M6-YGp" secondAttribute="centerY" id="HxF-pb-Mmk"/>
                             <constraint firstItem="afB-uh-vW7" firstAttribute="leading" secondItem="THH-M6-YGp" secondAttribute="leading" id="Rw1-ff-SJX"/>
                             <constraint firstAttribute="trailing" secondItem="afB-uh-vW7" secondAttribute="trailing" id="Vyg-VV-Cy8"/>
                             <constraint firstItem="afB-uh-vW7" firstAttribute="top" secondItem="THH-M6-YGp" secondAttribute="top" id="eKk-6e-JMO"/>
                             <constraint firstItem="Iqc-aI-rTf" firstAttribute="top" secondItem="afB-uh-vW7" secondAttribute="bottom" id="eQ9-5q-7qV"/>
+                            <constraint firstItem="xo4-VQ-CDd" firstAttribute="centerX" secondItem="THH-M6-YGp" secondAttribute="centerX" id="sEb-Ft-k3q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="x91-0Z-TrF">
