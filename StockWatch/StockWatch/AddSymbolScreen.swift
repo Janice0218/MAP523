@@ -10,21 +10,28 @@ import UIKit
 
 class AddSymbolScreen: UIViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
+    //  reference for stock manager
     var stockManager : StockManager?
+    
+    //  array for all queried data
     var queriedData = [StockModel]()
+    
+    // text for input from search bar
     var stringText : String?
     var delegate : StockDelegate?
-    
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    @IBOutlet weak var tableView: UITableView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 }
 
+
+
+//
+//  extension for This view with delegates
+//
 extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -35,8 +42,9 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
         
     }
     
-    
-    
+    //
+    //  dequeue data for cell from queried data
+    //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "queryCell", for: indexPath)
         let stock = queriedData[indexPath.row]
@@ -46,16 +54,25 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     
     }
     
+    
+    //
+    //  rows from queried data
+    //
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return   queriedData.count
     }
     
     
+    //
+    //  search bar text for text change
+    //
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText.characters.count != 0 {
+            
                 self.stockManager?.listStocksBy(query: searchText, handler: { (all) in
                     self.queriedData = all
+
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -63,15 +80,25 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
         }
         else
         {
-            queriedData.removeAll()
-            tableView.reloadData()
-        
+            //  reset table
+            resetTableView()
         }
-        
     }
+    
+    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
+        //  call reset for the application
+        GlobalHelper.resetSearchBar(searchBar: searchBar)
+        
+        //  call reset table
+        resetTableView()
+    }
+    
+    
+    //  reset the queried data and reload table
+    func resetTableView(){
         queriedData.removeAll()
         tableView.reloadData()
     }
@@ -80,6 +107,15 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
 
 
 
+//
+//  this protocol notify that stock has been added
+//
 protocol StockDelegate {
     func stockAddedToList(newStock : StockModel)-> Void
 }
+
+
+
+
+
+
