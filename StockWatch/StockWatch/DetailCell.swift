@@ -20,12 +20,13 @@ class DetailCell: UITableViewCell {
     @IBOutlet weak var volumeDetail: UILabel!
     
     
-    func setLabels(time: String, open : Double,high : Double , low : Double, close :Double ) {
+    func setLabels(time: String, open : Double,high : Double , low : Double, close :Double , volume : Double) {
         self.timeDetail.text    =   "\(time )"
         self.openDetail.text    =   "\(open )"
         self.highDetail.text    =   "\(high )"
         self.lowDetail.text     =   "\(low  )"
         self.closeDetail.text   =   "\(close)"
+        self.volumeDetail.text   =  "\(volume)"
     }
 
 }
