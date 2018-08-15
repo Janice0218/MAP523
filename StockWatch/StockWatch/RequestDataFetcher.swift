@@ -20,7 +20,7 @@ class RequestDataFetcher {
     //  helper function to trim with callbacks functions
     //
     func trim(jsonString : String) -> String {
-        return jsonString.replacingOccurrences(of:  yahoostringToTrim, with: "")
+        return jsonString.replacingOccurrences(of:  YahooConstants.stringToTrim, with: "")
             .replacingOccurrences(of: ");", with:"")
     }
     
@@ -54,7 +54,7 @@ class RequestDataFetcher {
                 var dataTofromUrl = data
                 
                 //  check if key is for yahoo api to truncate callback
-                if forKey == yahooforKey {
+                if forKey == YahooConstants.ForKey {
                     if let jsonData = data {
                         var dataString  = String(data: jsonData , encoding : .utf8)
                         dataString = self.trim(jsonString: dataString!)
@@ -69,7 +69,7 @@ class RequestDataFetcher {
                     
                     
                     //   check if key is for yahoo api for proper returns
-                    if forKey == yahooforKey {
+                    if forKey == YahooConstants.ForKey {
                         let res =  jsonObject.value(forKeyPath: forKey) as! Array<NSDictionary>
                         let returnValue  =  res.map({ (data) -> StockModel in
                             return StockModel(json: data)!
@@ -78,7 +78,7 @@ class RequestDataFetcher {
                     }
                         
                     //   check if key is for stock api for proper returns
-                    else if forKey == stockforKey {
+                    else if forKey == OhlcConstansts.ForKey {
                         if jsonObject.count !=  1 {
                             let res =  Array(jsonObject)[0].value as!  NSDictionary
                             
