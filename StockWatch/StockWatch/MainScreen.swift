@@ -12,6 +12,7 @@ class MainScreen: UIViewController  {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var stockSearchbar: StockSearchBar!
     // init for stock manager
     var stockManager =  StockManager(db: DataManager())
 
@@ -140,8 +141,8 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate , StockDelegat
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
         // call reset for search bar
-        GlobalHelper.resetSearchBar(searchBar: searchBar)
-        
+        stockSearchbar.clearText()
+    
         //  call reset table
         resetTableViewFor(tableView: tableView, handler: nil)
     }
@@ -150,10 +151,7 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate , StockDelegat
     //  handling reset for within the view
     //
     func resetTableViewFor(tableView : UITableView, handler : (()->[Stock])?)->Void {
-        // validate handler and reset alldatafromDB
-        if (handler == nil) {
-            allDataFromDB = stockManager.listStocksfromDb()
-        }
+        allDataFromDB = stockManager.listStocksfromDb()
         //  then reload table view
         tableView.reloadData()
     }
