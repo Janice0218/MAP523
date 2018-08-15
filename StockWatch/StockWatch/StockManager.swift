@@ -17,18 +17,20 @@ import UIKit
 class StockManager {
     
     
+    let paramForStocks          =   "ResultSet.Result"
+    let paramForStockDetails    =   "Time%Series%(1min)"
     //  instance for db
-    private var dbManager = DataManager()
+    private var dbManager       =   DataManager()
     
     //  instance for request data fetcher
-    private var requestData = RequestDataFetcher()
-    private var AllStockFromDb  = [Stock]()
+    private var requestData     =   RequestDataFetcher()
+    private var AllStockFromDb  =   [Stock]()
     
     //  injectin DB into the stockManager
     //  get init data
     init(db : DataManager) {
-        self.dbManager = db
-        AllStockFromDb = dbManager.fetchAll()
+        self.dbManager          =   db
+        AllStockFromDb          =   dbManager.fetchAll()
         
     }
     
@@ -48,7 +50,7 @@ class StockManager {
         
         let stringUrl  = "\(yahoohost)\(query)&\(yahooregion)&\(yahoolanguage)&\(yahoocallback)"
         if let url = URL(string : stringUrl) {
-            self.requestData.getData(url: url, forKey: "ResultSet.Result") { (result) in
+            self.requestData.getData(url: url, forKey: paramForStocks) { (result) in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let stocks):
@@ -77,7 +79,7 @@ class StockManager {
         if let url = URL(string : stringUrl) {
             
             //  get data from request data fetcher call
-            self.requestData.getData(url: url, forKey: "Time%Series%(1min)") { (result) in
+            self.requestData.getData(url: url, forKey: paramForStockDetails) { (result) in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let details):
@@ -94,21 +96,14 @@ class StockManager {
     //  add data to DB
     //
     func AddStockToDb(stock : StockModel)->Void {
-        dbManager.AddEntity(name: stock.Name,
-                            symbol: stock.Symbol,
-                            exch: stock.Exch,
-                            exchDisp: stock.ExchDisp,
-                            type: stock.JsonType,
-                            typeDisp: stock.TypeDisp)
+        dbManager.AddEntity(name: stock.Name, symbol: stock.Symbol, exch: stock.Exch, exchDisp: stock.ExchDisp, type: stock.JsonType, typeDisp: stock.TypeDisp)
     }
     
     //
     //  remove data
     //
     func removeStockBy(symbol : String){
-        AllStockFromDb = AllStockFromDb.filter({ (stock) -> Bool in
-            return stock.symbol != symbol
-        })
+        dbManager.deleteEntity(name: "Stock", param: symbol)
     }
 }
 
