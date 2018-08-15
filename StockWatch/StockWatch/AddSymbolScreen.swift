@@ -13,6 +13,7 @@ class AddSymbolScreen: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var stockSearchBar: StockSearchBar!
     
     
     //  reference for stock manager
@@ -90,7 +91,7 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
         //  call reset for the application
-        GlobalHelper.resetSearchBar(searchBar: searchBar)
+        stockSearchBar.clearText()
         
         //  call reset table
         resetTableView()
