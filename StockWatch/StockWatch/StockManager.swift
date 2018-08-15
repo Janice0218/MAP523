@@ -44,7 +44,7 @@ class StockManager {
     //  This function list stock OHLC from symbol passed
     //  that must exist in the data store.
     //
-    func listStocksBy(query : String, handler : @escaping (_ all : [StockModel])-> Void) {
+    func listStocksBy(query : String, handler : @escaping (_ all : [StockModel])-> Void) -> Void {
         
         let stringUrl  = "\(yahoohost)\(query)&\(yahooregion)&\(yahoolanguage)&\(yahoocallback)"
         if let url = URL(string : stringUrl) {
@@ -65,7 +65,7 @@ class StockManager {
     //  This function list stock OHLC from symbol passed
     //  that must exist in the data store.
     //
-    func listStockDetailsBy(symbol : String, handler : @escaping (_ all : [StockOHLCModel]?, _ error : Error? )-> Void) {
+    func listStockDetailsBy(symbol : String, handler : @escaping (_ all : [StockOHLCModel]?, _ error : Error? )-> Void)-> Void {
         
         // url for detail
         let detail =  SymbolDetailURL.init(host: stockhost, function: stockfunc, symbol: symbol, interval: stockInterval, apiKey: stockApiKey)
