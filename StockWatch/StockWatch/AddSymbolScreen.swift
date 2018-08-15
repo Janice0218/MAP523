@@ -92,9 +92,8 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        let stockbar = searchBar as! StockSearchBar
+        let stockbar = searchBar as! StockSearch
         stockbar.clearText()
-        resetTableView()
     }
     
     
