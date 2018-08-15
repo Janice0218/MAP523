@@ -19,6 +19,7 @@
 		4E02F0A6211E09A300B2AA52 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A5211E09A300B2AA52 /* StockModel.swift */; };
 		4E02F0A8211E0B6C00B2AA52 /* RequestDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0A7211E0B6C00B2AA52 /* RequestDataFetcher.swift */; };
 		4E02F0AB211E0EBF00B2AA52 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02F0AA211E0EBF00B2AA52 /* Constants.swift */; };
+		4E8793E92124E3AB00E1B762 /* StockSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8793E82124E3AB00E1B762 /* StockSearch.m */; };
 		4EC3EF2D21210AF600F1924F /* StockOHLCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC3EF2C21210AF600F1924F /* StockOHLCModel.swift */; };
 		4ED08F7721228421009DD34A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED08F7621228421009DD34A /* Error.swift */; };
 		4EDB79F5211E904B00994370 /* StockDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB79F4211E904B00994370 /* StockDetailScreen.swift */; };
@@ -40,6 +41,9 @@
 		4E02F0A5211E09A300B2AA52 /* StockModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
 		4E02F0A7211E0B6C00B2AA52 /* RequestDataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDataFetcher.swift; sourceTree = "<group>"; };
 		4E02F0AA211E0EBF00B2AA52 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4E8793E62124E3AB00E1B762 /* StockWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StockWatch-Bridging-Header.h"; sourceTree = "<group>"; };
+		4E8793E72124E3AB00E1B762 /* StockSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockSearch.h; sourceTree = "<group>"; };
+		4E8793E82124E3AB00E1B762 /* StockSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockSearch.m; sourceTree = "<group>"; };
 		4EC3EF2C21210AF600F1924F /* StockOHLCModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockOHLCModel.swift; sourceTree = "<group>"; };
 		4ED08F7621228421009DD34A /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		4EDB79F4211E904B00994370 /* StockDetailScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailScreen.swift; sourceTree = "<group>"; };
@@ -141,6 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				4EDB79F6211E98AE00994370 /* DetailCell.swift */,
+				4E8793E72124E3AB00E1B762 /* StockSearch.h */,
+				4E8793E82124E3AB00E1B762 /* StockSearch.m */,
+				4E8793E62124E3AB00E1B762 /* StockWatch-Bridging-Header.h */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -177,6 +184,7 @@
 				TargetAttributes = {
 					4E02F07A211DEAD900B2AA52 = {
 						CreatedOnToolsVersion = 8.3.1;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -217,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E8793E92124E3AB00E1B762 /* StockSearch.m in Sources */,
 				4E02F0A6211E09A300B2AA52 /* StockModel.swift in Sources */,
 				4EDB79F7211E98AE00994370 /* DetailCell.swift in Sources */,
 				4E02F099211DF0A400B2AA52 /* MainScreen.swift in Sources */,
@@ -354,10 +363,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StockWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-23.StockWatch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StockWatch/StockWatch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -366,10 +378,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StockWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-23.StockWatch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StockWatch/StockWatch-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
