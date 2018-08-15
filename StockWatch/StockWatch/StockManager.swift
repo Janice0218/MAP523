@@ -66,7 +66,7 @@ class StockManager {
     //  This function list stock OHLC from symbol passed
     //  that must exist in the data store.
     //
-    func listStockDetailsBy(symbol : String, handler : @escaping (_ all : [StockOHLCModel]?, _ error : Error? )-> Void)-> Void {
+    func listStockDetailsBy(symbol : String, handler : @escaping (_ all : [StockOHLCModel]?, _ erroMessage : String? )-> Void)-> Void {
 
         if let url = URL(string : OhlcConstansts.getURL(symbol: symbol)) {
             
@@ -77,7 +77,19 @@ class StockManager {
                     case .success(let details):
                         handler(details as? [StockOHLCModel], nil)
                     case .failure(let error):
-                        handler(nil, error)
+
+                        var message  : String
+                        switch error {
+                        case StockError.intervalError:
+                            message = "The Request could not be completed. Please try again after 10 seconds. Error: \(StockError.intervalError))"
+                        case StockError.emptyStock:
+                            message = "Stock Not Found! Please add valid Stock. Error: \(StockError.emptyStock)"
+                        case StockError.notFound:
+                            message = "Data was not Found! Error: \(StockError.notFound)"
+                        default:
+                            message = "Error not Traced."
+                        }
+                        handler(nil, message)
                     }
                 }
             }

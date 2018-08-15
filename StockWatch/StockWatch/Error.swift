@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum StockError : Error {
+enum StockError : Error{
     case notFound
     case emptyStock
     case intervalError

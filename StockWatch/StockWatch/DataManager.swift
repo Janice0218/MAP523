@@ -20,7 +20,7 @@ class DataManager {
     var allData = [Stock]()
     
     
-    let fetchrequestForStock : NSFetchRequest<Stock> = Stock.fetchRequest()
+    
     //
     //  fetch all data from core data
     //
@@ -28,6 +28,7 @@ class DataManager {
         
         do {
             //grab data
+            let fetchrequestForStock : NSFetchRequest<Stock> = Stock.fetchRequest()
             let stocks = try appDelegatePointer.persistentContainer.viewContext.fetch(fetchrequestForStock)
             
             if allData.count != stocks.count {
@@ -63,29 +64,23 @@ class DataManager {
     }
     
     func deleteEntity(name : String, param : String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Stock")
         
-        fetchrequestForStock.predicate = NSPredicate.init(format: "symbol==\(param)")
+        let predicate  = NSPredicate(format : "symbol CONTAINS %@",param)
+        fetchRequest.predicate = predicate
         
         do {
-            let object = try appDelegatePointer.persistentContainer.viewContext.fetch(fetchrequestForStock)
+            let stocks = try appDelegatePointer.persistentContainer.viewContext.fetch(fetchRequest) as! [Stock]
             
-            appDelegatePointer.persistentContainer.performBackgroundTask({ context in
-                let obj : Stock = object[0]
-                do {
-                    context.delete(obj)
-                    
-                        try context.save()
-                }
-                catch {
-                    fatalError()
-                }
-                
-            })
+            for stock in stocks {
+                appDelegatePointer.persistentContainer.viewContext.delete(stock)
+            }
         }
         catch {
-            print("Unable to delete from DB")
+            print("Unable to Delete Stock with symbol: \(param)")
         }
         
     }
+    
     
 }

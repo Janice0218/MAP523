@@ -51,7 +51,7 @@ class StockDetailScreen: UIViewController {
     //  reload data when tapped
     //
     @IBAction func reloadTapped(_ sender: UIBarButtonItem) {
-       dataDidLoad()
+        dataDidLoad()
     }
 }
 
@@ -66,7 +66,7 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
         let stockDetail = details[indexPath.row]
         
         cell.setLabels(time: stockDetail.time, open: stockDetail.open, high: stockDetail.high, low: stockDetail.low, close: stockDetail.close, volume: stockDetail.volume)
-
+        
         return cell
     }
     
@@ -109,13 +109,9 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
                 //check if there are not data from list or as well as possible errors
                 if all == nil  || all?.count == 0 || error != nil {
                     
-                    
-                    //  unwrapped error to string
-                    let errorMessage = error.unsafelyUnwrapped.localizedDescription
-                    
                     //  create instance for alert view
-                    let alertController = UIAlertController(title: "Result Empty", message:
-                        "\(String(describing:errorMessage ))", preferredStyle: UIAlertControllerStyle.alert)
+                    let alertController = UIAlertController(title: "Request Error", message:
+                        "\(error!)", preferredStyle: UIAlertControllerStyle.alert)
                     
                     //  add action for alert
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler:  { action in

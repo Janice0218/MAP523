@@ -25,7 +25,7 @@ class MainScreen: UIViewController  {
     // init data
     override func viewDidLoad() {
         super.viewDidLoad()
-        resetTableViewFor(tableView: tableView, handler: nil)
+        resetTableViewFor(tableView: tableView, dataArray: nil)
     }
 }
 
@@ -46,7 +46,7 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate , StockDelegat
         //  if does not exist then add to db as well as reset table
         if exist == nil {
             stockManager.AddStockToDb(stock: newStock)
-            resetTableViewFor(tableView: tableView, handler: nil)
+            resetTableViewFor(tableView: tableView, dataArray:nil )
         }
     }
     
@@ -101,13 +101,18 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate , StockDelegat
             
             
             //  reset table with handler
-            resetTableViewFor(tableView: tableView, handler: { () -> [Stock] in
-                self.stockManager.removeStockBy(symbol: symbol!)
-                self.allDataFromDB.remove(at: indexPath.row)
-                return self.allDataFromDB
-            })
+             resetTableViewFor(tableView: tableView, dataArray: { () -> [Stock] in
+                self.allDataFromDB.filter({ (stock) -> Bool in
+    
+                    stock.symbol != symbol
+                })
+             })
+            stockManager.removeStockBy(symbol: symbol!)
         }
     }
+    
+    
+    
     
     //
     //  searchBar functions for text changed
@@ -118,17 +123,16 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate , StockDelegat
         if searchText.characters.count == 0 {
             
             // reset the table
-            resetTableViewFor(tableView: tableView, handler: nil)
+            resetTableViewFor(tableView: tableView, dataArray:  {return self.allDataFromDB})
         }
             
         else {
             //  reset table with handler
-            resetTableViewFor(tableView: tableView, handler: {
-                return self.allDataFromDB.filter({ (data) -> Bool in
-                    (data.symbol?.contains(searchText))!
+            resetTableViewFor(tableView: tableView, dataArray: { () -> [Stock] in
+                return self.allDataFromDB.filter({ (stock) -> Bool in
+                    (stock.symbol?.contains(searchText))!
                 })
-            })
-        }
+            })        }
     }
     
     //
@@ -136,18 +140,34 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate , StockDelegat
     //
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
+        let cancel = searchBar as! StockSearchBar
+        cancel.clearText()
+        
         // call reset for search bar
-        stockSearchbar.clearText()
-    
+
         //  call reset table
-        resetTableViewFor(tableView: tableView, handler: nil)
+        resetTableViewFor(tableView: tableView, dataArray:  nil)
     }
+    
+    
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
     
     //
     //  handling reset for within the view
     //
-    func resetTableViewFor(tableView : UITableView, handler : (()->[Stock])?)->Void {
+    func resetTableViewFor(tableView : UITableView, dataArray : (()->[Stock])?)->Void {
+        
+        if let data = dataArray?() {
+            allDataFromDB = data
+        }
+        else {
         allDataFromDB = stockManager.listStocksfromDb()
+        
+        }
         //  then reload table view
         tableView.reloadData()
     }

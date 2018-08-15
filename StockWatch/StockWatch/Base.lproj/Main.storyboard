@@ -30,7 +30,7 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="IeM-NB-UB5" id="QnL-Qo-Pnf"/>
+                                    <outlet property="delegate" destination="IeM-NB-UB5" id="GTS-dS-Wva"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ULX-KM-eSl">
@@ -88,19 +88,17 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="IyA-Hq-WWD"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rnr-2g-u5J">
                             <connections>
-                                <action selector="addTapped:" destination="IeM-NB-UB5" id="ved-Kp-3Q6"/>
                                 <segue destination="n3b-Kv-74T" kind="show" identifier="addSegue" id="gok-zu-ug4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="stockSearchbar" destination="BNX-Pe-x7J" id="G0t-pB-frO"/>
                         <outlet property="tableView" destination="ULX-KM-eSl" id="T6B-Rn-LRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nK3-uC-CHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="22" y="-269"/>
+            <point key="canvasLocation" x="21" y="-218"/>
         </scene>
         <!--Stock Detail Screen-->
         <scene sceneID="6N9-Se-iha">
@@ -354,13 +352,12 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="CTc-R5-D3k" id="ESa-RM-gxa"/>
-                        <outlet property="stockSearchBar" destination="CTc-R5-D3k" id="ojE-go-eoN"/>
                         <outlet property="tableView" destination="aW9-w2-HOh" id="4Ks-la-vbH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGz-XF-OHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="718" y="-269"/>
+            <point key="canvasLocation" x="810" y="-219"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p4m-fl-geB">

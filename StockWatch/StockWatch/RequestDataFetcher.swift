@@ -79,7 +79,7 @@ class RequestDataFetcher {
                         
                     //   check if key is for stock api for proper returns
                     else if forKey == OhlcConstansts.ForKey {
-                        if jsonObject.count !=  1 {
+                        if jsonObject.count != 1 {
                             let res =  Array(jsonObject)[0].value as!  NSDictionary
                             
                             
@@ -93,12 +93,12 @@ class RequestDataFetcher {
                             
                         // if call was invalid send error to UI
                         else {
-                            completion?(.failure(StockError.intervalError))
+                            completion?(.failure(StockError.notFound))
                         }
                     }
                 }
                 catch {
-                    completion? (.failure(error))
+                    completion? (.failure(StockError.emptyStock))
                 }
             }
         }

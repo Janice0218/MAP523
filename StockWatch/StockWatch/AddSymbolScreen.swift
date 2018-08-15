@@ -13,8 +13,6 @@ class AddSymbolScreen: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var stockSearchBar: StockSearchBar!
-    
     
     //  reference for stock manager
     var stockManager : StockManager?
@@ -27,6 +25,10 @@ class AddSymbolScreen: UIViewController {
     var delegate : StockDelegate?
 
 }
+
+
+
+
 
 
 
@@ -55,14 +57,12 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     
     }
     
-    
     //
     //  rows from queried data
     //
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return   queriedData.count
     }
-    
     
     //
     //  search bar text for text change
@@ -87,13 +87,13 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     }
     
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
-        //  call reset for the application
-        stockSearchBar.clearText()
-        
-        //  call reset table
+        let stockbar = searchBar as! StockSearchBar
+        stockbar.clearText()
         resetTableView()
     }
     
@@ -105,8 +105,6 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     }
     
 }
-
-
 
 //
 //  this protocol notify that stock has been added
