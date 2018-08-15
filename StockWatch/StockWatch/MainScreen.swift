@@ -12,17 +12,14 @@ class MainScreen: UIViewController  {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     // init for stock manager
     var stockManager =  StockManager(db: DataManager())
-    
+
     //  all data from db
     var allDataFromDB = [Stock]()
     
-    
     // text for search bar
     var text  : String?
-    
     
     // init data
     override func viewDidLoad() {
