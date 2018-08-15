@@ -16,6 +16,7 @@ class StockOHLCModel {
     var low     : Double
     var volume  : Double
     var time    : String
+    
     init?(time : String, json: NSDictionary) {
             self.time   =   time
             open        =   Double(json.value(forKey: "1. open") as! String)!
