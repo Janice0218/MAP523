@@ -9,37 +9,30 @@
 import Foundation
 
 
-
-//TODO : to all caps
-
-// Yahoo API constants
-let yahoohost = "http://d.yimg.com/autoc.finance.yahoo.com/autoc?query="
-let yahooregion =  "region=1"
-let yahoolanguage = "lang=en"
-let yahoocallback  = "callback=YAHOO.Finance.SymbolSuggest.ssCallback"
-
-let yahoostringToTrim = "YAHOO.Finance.SymbolSuggest.ssCallback("
-let yahooforKey = "ResultSet.Result"
-
-
-// OHLC API constants
-let stockhost = "https://www.alphavantage.co/"
-let stockfunc = "TIME_SERIES_INTRADAY"
-let stockInterval = 1
-let stockApiKey = "TEUK0SW0QEMQ3DZ7"
-let stockforKey = "Time%Series%(1min)"
-
-
-//Esape chararcters
-let PERIOD = "_0x2E_"
-
-
-struct SymbolDetailURL {
-    var url : String
-    init(host: String, function : String, symbol : String, interval : Int, apiKey : String) {
-        url = "\(host)query?function=\(function)&symbol=\(symbol)&interval=\(interval)min&apikey=\(apiKey)"
+struct YahooConstants {
+    
+    static let Host = "http://d.yimg.com/autoc.finance.yahoo.com/autoc?query="
+    static let Region =  "region=1"
+    static let Lang = "lang=en"
+    static let Callback  = "callback=YAHOO.Finance.SymbolSuggest.ssCallback"
+    static let stringToTrim = "YAHOO.Finance.SymbolSuggest.ssCallback("
+    static let ForKey = "ResultSet.Result"
+    
+    static func getURL(query : String)-> String {
+        return "\(Host)\(query)&\(Region)&\(Lang)&\(Callback)"
     }
+    
 }
 
-
-
+struct OhlcConstansts {
+    static let Domain = "https://www.alphavantage.co/"
+    static let Function = "TIME_SERIES_INTRADAY"
+    static let Interval = 1
+    static let ApiKey = "TEUK0SW0QEMQ3DZ7"
+    static let ForKey = "Time%Series%(1min)"
+    
+    static func getURL(symbol : String)-> String {
+        return "\(Domain)query?function=\(Function)&symbol=\(symbol)&interval=\(Interval)min&apikey=\(ApiKey)"
+    }
+    
+}
