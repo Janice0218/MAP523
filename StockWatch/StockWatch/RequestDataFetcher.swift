@@ -62,7 +62,6 @@ class RequestDataFetcher {
                     }
                 }
                 
-                
                 do {
                     
                     //  serialize data
