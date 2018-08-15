@@ -29,10 +29,6 @@ class MainScreen: UIViewController  {
     }
 }
 
-
-
-
-
 //
 //  extension for Main with delegate
 //

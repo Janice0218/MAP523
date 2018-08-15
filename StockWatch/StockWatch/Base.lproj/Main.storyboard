@@ -94,6 +94,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="stockSearchbar" destination="BNX-Pe-x7J" id="G0t-pB-frO"/>
                         <outlet property="tableView" destination="ULX-KM-eSl" id="T6B-Rn-LRb"/>
                     </connections>
                 </viewController>
@@ -353,6 +354,7 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="CTc-R5-D3k" id="ESa-RM-gxa"/>
+                        <outlet property="stockSearchBar" destination="CTc-R5-D3k" id="ojE-go-eoN"/>
                         <outlet property="tableView" destination="aW9-w2-HOh" id="4Ks-la-vbH"/>
                     </connections>
                 </viewController>
