@@ -63,14 +63,10 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailCell
         
-        let allDetails = details
+        let stockDetail = details[indexPath.row]
         
-        cell.timeDetail.text    = "\(allDetails[indexPath.row].time)"
-        cell.openDetail.text    = "\(allDetails[indexPath.row].open)"
-        cell.closeDetail.text   = "\(allDetails[indexPath.row].close)"
-        cell.highDetail.text    = "\(allDetails[indexPath.row].high)"
-        cell.lowDetail.text     = "\(allDetails[indexPath.row].low)"
-        cell.volumeDetail.text  = "\(allDetails[indexPath.row].volume)"
+        cell.setLabels(time: stockDetail.time, open: stockDetail.open, high: stockDetail.high, low: stockDetail.low, close: stockDetail.close)
+
         return cell
     }
     
