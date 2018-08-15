@@ -48,8 +48,7 @@ class StockManager {
     //
     func listStocksBy(query : String, handler : @escaping (_ all : [StockModel])-> Void) -> Void {
         
-        let stringUrl  = "\(yahoohost)\(query)&\(yahooregion)&\(yahoolanguage)&\(yahoocallback)"
-        if let url = URL(string : stringUrl) {
+        if let url = URL(string : YahooConstants.getURL(query: query)) {
             self.requestData.getData(url: url, forKey: paramForStocks) { (result) in
                 DispatchQueue.main.async {
                     switch result {
@@ -68,15 +67,8 @@ class StockManager {
     //  that must exist in the data store.
     //
     func listStockDetailsBy(symbol : String, handler : @escaping (_ all : [StockOHLCModel]?, _ error : Error? )-> Void)-> Void {
-        
-        // url for detail
-        let detail =  SymbolDetailURL.init(host: stockhost, function: stockfunc, symbol: symbol, interval: stockInterval, apiKey: stockApiKey)
-        
-        //  get url from detail
-        let stringUrl = detail.url
-        
-        //  pass string as URL
-        if let url = URL(string : stringUrl) {
+
+        if let url = URL(string : OhlcConstansts.getURL(symbol: symbol)) {
             
             //  get data from request data fetcher call
             self.requestData.getData(url: url, forKey: paramForStockDetails) { (result) in
