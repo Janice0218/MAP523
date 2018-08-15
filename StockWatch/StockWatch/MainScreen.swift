@@ -12,7 +12,7 @@ class MainScreen: UIViewController  {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var stockSearchbar: StockSearchBar!
+
     // init for stock manager
     var stockManager =  StockManager(db: DataManager())
 
@@ -140,7 +140,7 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate , StockDelegat
     //
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
-        let cancel = searchBar as! StockSearchBar
+        let cancel = searchBar as! StockSearch
         cancel.clearText()
         
         // call reset for search bar
