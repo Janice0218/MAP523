@@ -65,7 +65,7 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
         
         let stockDetail = details[indexPath.row]
         
-        cell.setLabels(time: stockDetail.time, open: stockDetail.open, high: stockDetail.high, low: stockDetail.low, close: stockDetail.close)
+        cell.setLabels(time: stockDetail.time, open: stockDetail.open, high: stockDetail.high, low: stockDetail.low, close: stockDetail.close, volume: stockDetail.volume)
 
         return cell
     }
@@ -84,7 +84,7 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
     //  Renaming the section title
     //
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\tInterval:\(stockInterval) Minute"
+        return "\tInterval: \(OhlcConstansts.Interval) Minute"
     }
     
     
