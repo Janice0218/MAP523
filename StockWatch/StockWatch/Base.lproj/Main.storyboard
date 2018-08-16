@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="filter..." translatesAutoresizingMaskIntoConstraints="NO" id="BNX-Pe-x7J" customClass="StockSearch">
+                            <searchBar contentMode="redraw" placeholder="Filter" translatesAutoresizingMaskIntoConstraints="NO" id="BNX-Pe-x7J" customClass="StockSearch">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="nNg-3s-4uZ"/>
@@ -295,7 +295,7 @@
             </objects>
             <point key="canvasLocation" x="22" y="428"/>
         </scene>
-        <!--Add Symbol Screen-->
+        <!--Add Stock Watch-->
         <scene sceneID="BPU-T7-p1q">
             <objects>
                 <viewController id="n3b-Kv-74T" customClass="AddSymbolScreen" customModule="StockWatch" customModuleProvider="target" sceneMemberID="viewController">
@@ -341,7 +341,7 @@
                                     <outlet property="delegate" destination="n3b-Kv-74T" id="2cR-3b-CIV"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="prominent" placeholder="search..." translatesAutoresizingMaskIntoConstraints="NO" id="CTc-R5-D3k" customClass="StockSearch">
+                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="prominent" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="CTc-R5-D3k" customClass="StockSearch">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -362,6 +362,9 @@
                             <constraint firstItem="vVU-Cp-WN0" firstAttribute="top" secondItem="aW9-w2-HOh" secondAttribute="bottom" id="sgf-b5-qJV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Stock Watch" id="5kO-sp-RRr">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="SMl-Rc-zN1"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="CTc-R5-D3k" id="ESa-RM-gxa"/>
                         <outlet property="tableView" destination="aW9-w2-HOh" id="4Ks-la-vbH"/>
