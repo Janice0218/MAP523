@@ -82,7 +82,7 @@
 			children = (
 				4EDB79F3211E8AA200994370 /* ViewModels */,
 				4E02F0A9211E0EB600B2AA52 /* Constants */,
-				4E02F0A2211E032500B2AA52 /* Logic */,
+				4E02F0A2211E032500B2AA52 /* DataFetchers */,
 				4E02F0A1211E02BA00B2AA52 /* DataStores */,
 				4E02F096211DEE6400B2AA52 /* Models */,
 				4E02F095211DEE5900B2AA52 /* Controllers */,
@@ -123,13 +123,13 @@
 			name = DataStores;
 			sourceTree = "<group>";
 		};
-		4E02F0A2211E032500B2AA52 /* Logic */ = {
+		4E02F0A2211E032500B2AA52 /* DataFetchers */ = {
 			isa = PBXGroup;
 			children = (
 				4E02F09C211E020800B2AA52 /* StockManager.swift */,
 				4E02F0A7211E0B6C00B2AA52 /* RequestDataFetcher.swift */,
 			);
-			name = Logic;
+			name = DataFetchers;
 			sourceTree = "<group>";
 		};
 		4E02F0A9211E0EB600B2AA52 /* Constants */ = {
