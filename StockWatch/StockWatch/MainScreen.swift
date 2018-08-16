@@ -123,10 +123,10 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate , StockDelegat
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         // search text is empty
-        if searchText.characters.count == 0 {
+        if searchText.isEmpty {
             
             // reset the table
-            resetTableViewFor(tableView: tableView, dataArray:  {return self.allDataFromDB})
+            resetTableViewFor(tableView: tableView, dataArray:  nil)
         }
             
         else {
