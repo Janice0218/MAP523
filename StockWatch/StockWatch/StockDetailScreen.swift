@@ -14,17 +14,19 @@ class StockDetailScreen: UIViewController {
     @IBOutlet weak var tableVIew: UITableView!
     @IBOutlet weak var loadingItem: UIActivityIndicatorView!
     
+    let intervalString = "\tInterval: \(OhlcConstansts.Interval) Minute"
+    let cellId = "detailCell"
     let initialDataCount : Int = 10
     var maxData : Int?
     var dataToLoad : Int = 0
-    //symbol used for this view
     var symbol : String = ""
+    var companyName : String = ""
     
     //stock manager reference
     var stockManager : StockManager?
     
     //all stocks OHLC details
-    var details : [StockOHLCModel] = []
+    var allDetails : [StockOHLCModel] = []
     
     var OhlcData : [StockOHLCModel] = []
     //
@@ -53,10 +55,10 @@ class StockDetailScreen: UIViewController {
         dataToLoad += initialDataCount
         if maxData! < dataToLoad {
             loadMore.isHidden = true
-            OhlcData  = details
+            OhlcData  = allDetails
         }
         else{
-            OhlcData = Array(details.suffix(dataToLoad))
+            OhlcData = Array(allDetails.suffix(dataToLoad))
         }
         tableVIew.reloadData()
     }
@@ -75,11 +77,12 @@ class StockDetailScreen: UIViewController {
 
 extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
     
+
     //
     //  Populate the table with data from Resource
     //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! DetailCell
         
         
         let stockDetail = OhlcData[indexPath.row]
@@ -98,12 +101,13 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    
 
     //
     //  Renaming the section title
     //
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\tInterval: \(OhlcConstansts.Interval) Minute"
+        return companyName
     }
     
     
@@ -113,13 +117,15 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
     //
     func dataDidLoad()->Void {
         
+        let errorTitle = "Request Error"
+        let errorAction = "Dismiss"
         self.loadingItem.isHidden = false
         self.loadingItem.startAnimating()
         
         self.stockManager?.listStockDetailsBy(symbol: symbol, handler: { (all, error) in
             
             //  remove all details data
-            self.details.removeAll()
+            self.allDetails.removeAll()
             
             //return to main queue
             DispatchQueue.main.async {
@@ -128,11 +134,11 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
                 if all == nil  || all?.count == 0 || error != nil {
                     
                     //  create instance for alert view
-                    let alertController = UIAlertController(title: "Request Error", message:
+                    let alertController = UIAlertController(title: errorTitle , message:
                         "\(error!)", preferredStyle: UIAlertControllerStyle.alert)
                     
                     //  add action for alert
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler:  { action in
+                    alertController.addAction(UIAlertAction(title: errorAction, style: UIAlertActionStyle.default,handler:  { action in
                         self.navigationController?.popViewController(animated: true)
                     }))
                     
@@ -140,9 +146,9 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
                     self.present(alertController, animated: true, completion: nil)
                 }
                 else { // if data exist and no errors
-                    self.details = all!
+                    self.allDetails = all!
                     self.maxData = all?.count
-                    self.OhlcData = Array(self.details.suffix(self.initialDataCount))
+                    self.OhlcData = Array(self.allDetails.suffix(self.initialDataCount))
                     self.loadingItem.stopAnimating()
                     self.loadingItem.isHidden = true
                     self.tableVIew.reloadData()
