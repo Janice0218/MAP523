@@ -115,6 +115,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="192" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="afB-uh-vW7">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4I2-9L-CeH">
+                                    <rect key="frame" x="0.0" y="220" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Load More">
+                                        <color key="titleColor" red="1" green="0.3975088788807345" blue="0.45847627859471107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="loadMoreTapped:" destination="EPI-cD-JLp" eventType="touchUpInside" id="HGZ-Ka-yEo"/>
+                                    </connections>
+                                </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" rowHeight="192" id="G21-Om-hDq" customClass="DetailCell" customModule="StockWatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="192"/>
@@ -268,13 +278,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="x91-0Z-TrF">
                         <barButtonItem key="backBarButtonItem" title="Back" id="CNR-q4-UXI"/>
-                        <barButtonItem key="rightBarButtonItem" title="Reload" id="lpu-bo-oX2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="lpu-bo-oX2">
+                            <color key="tintColor" red="1" green="0.39750887889999997" blue="0.45847627860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="reloadTapped:" destination="EPI-cD-JLp" id="ahw-BA-AjO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="loadMore" destination="4I2-9L-CeH" id="rvQ-fP-wOn"/>
                         <outlet property="loadingItem" destination="xo4-VQ-CDd" id="VOQ-3M-TkU"/>
                         <outlet property="tableVIew" destination="afB-uh-vW7" id="cIO-mE-ty8"/>
                     </connections>
