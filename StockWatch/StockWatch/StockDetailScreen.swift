@@ -10,11 +10,13 @@ import UIKit
 
 class StockDetailScreen: UIViewController {
     
+    @IBOutlet weak var loadMore: UIButton!
     @IBOutlet weak var tableVIew: UITableView!
     @IBOutlet weak var loadingItem: UIActivityIndicatorView!
     
-    
-    
+    let initialDataCount : Int = 10
+    var maxData : Int?
+    var dataToLoad : Int = 0
     //symbol used for this view
     var symbol : String = ""
     
@@ -24,16 +26,16 @@ class StockDetailScreen: UIViewController {
     //all stocks OHLC details
     var details : [StockOHLCModel] = []
     
-    
-    
+    var OhlcData : [StockOHLCModel] = []
     //
     //  load init data
     //
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = symbol
+        dataToLoad = initialDataCount
         dataDidLoad()
-        
+
     }
     
     
@@ -44,15 +46,31 @@ class StockDetailScreen: UIViewController {
         
         let main  = navigationController?.topViewController as! MainScreen
         main.tableView.reloadData()
+    }
+    
+    @IBAction func loadMoreTapped(_ sender: UIButton) {
         
+        dataToLoad += initialDataCount
+        if maxData! < dataToLoad {
+            loadMore.isHidden = true
+            OhlcData  = details
+        }
+        else{
+            OhlcData = Array(details.suffix(dataToLoad))
+        }
+        tableVIew.reloadData()
     }
     
     //
     //  reload data when tapped
     //
     @IBAction func reloadTapped(_ sender: UIBarButtonItem) {
+        dataToLoad = initialDataCount
         dataDidLoad()
+        loadMore.isHidden = false
+
     }
+    
 }
 
 extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
@@ -63,7 +81,8 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailCell
         
-        let stockDetail = details[indexPath.row]
+        
+        let stockDetail = OhlcData[indexPath.row]
         
         cell.setLabels(time: stockDetail.time, open: stockDetail.open, high: stockDetail.high, low: stockDetail.low, close: stockDetail.close, volume: stockDetail.volume)
         
@@ -75,18 +94,17 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
     //  Declaring the numbers of row for tableview
     //
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return details.count
+        return OhlcData.count
+        
     }
     
-    
-    
+
     //
     //  Renaming the section title
     //
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "\tInterval: \(OhlcConstansts.Interval) Minute"
     }
-    
     
     
     //
@@ -121,18 +139,17 @@ extension StockDetailScreen : UITableViewDelegate, UITableViewDataSource {
                     //  present alert
                     self.present(alertController, animated: true, completion: nil)
                 }
-                    
-                    
                 else { // if data exist and no errors
                     self.details = all!
-                    self.tableVIew.reloadData()
+                    self.maxData = all?.count
+                    self.OhlcData = Array(self.details.suffix(self.initialDataCount))
                     self.loadingItem.stopAnimating()
                     self.loadingItem.isHidden = true
+                    self.tableVIew.reloadData()
+                    self.loadMore.isHidden = false
                 }
             }
         })
-        
-        
     }
 }
 
