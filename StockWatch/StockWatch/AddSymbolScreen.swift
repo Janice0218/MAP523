@@ -69,7 +69,7 @@ extension AddSymbolScreen : UITableViewDelegate, UITableViewDataSource,UISearchB
     //
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if searchText.characters.count != 0 {
+        if !searchText.isEmpty{
             
                 self.stockManager?.listStocksBy(query: searchText, handler: { (all) in
                     self.queriedData = all
