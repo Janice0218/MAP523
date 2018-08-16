@@ -168,6 +168,7 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate , StockDelegat
             allDataFromDB = data
         }
         else {
+            
         allDataFromDB = stockManager.listStocksfromDb()
         
         }
