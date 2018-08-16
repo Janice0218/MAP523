@@ -75,6 +75,7 @@ class DataManager {
             for stock in stocks {
                 appDelegatePointer.persistentContainer.viewContext.delete(stock)
             }
+            try appDelegatePointer.persistentContainer.viewContext.save()
         }
         catch {
             print("Unable to Delete Stock with symbol: \(param)")
