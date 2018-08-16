@@ -81,11 +81,11 @@ class StockManager {
                         var message  : String
                         switch error {
                         case StockError.intervalError:
-                            message = "The Request could not be completed. Please try again after 10 seconds. Error: \(StockError.intervalError))"
+                            message = "The Request could not be completed. Please try again after 10 seconds. Error: \(StockError.intervalError.hashValue))"
                         case StockError.emptyStock:
-                            message = "Stock Not Found! Please add valid Stock. Error: \(StockError.emptyStock)"
+                            message = "Stock Not Found! Please add valid Stock. Error: \(StockError.emptyStock.hashValue)"
                         case StockError.notFound:
-                            message = "Data was not Found! Error: \(StockError.notFound)"
+                            message = "Data was not Found! Error: \(StockError.notFound.hashValue)"
                         default:
                             message = "Error not Traced."
                         }
