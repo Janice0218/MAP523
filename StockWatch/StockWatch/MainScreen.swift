@@ -63,8 +63,11 @@ extension MainScreen : UITableViewDataSource, UITableViewDelegate , StockDelegat
         //  pass data to detail view
         else if (segue.identifier?.contains("detailSegue"))! {
             let view = segue.destination as! StockDetailScreen
-            let symbol = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel?.text
+            let cell = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)
+            let symbol = cell?.textLabel?.text
+            let companyName = cell?.detailTextLabel?.text
             view.symbol = symbol!
+            view.companyName = companyName!
             view.stockManager = self.stockManager
             
         }
